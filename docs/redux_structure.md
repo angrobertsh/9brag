@@ -98,6 +98,30 @@ Comment Cycles
       1. Invoked from an API callback.
       2. The CommentReducer updates the comments in the application's state.
 
+Upvote/Downvote Cycles
+
+  Upvote/Downvote API Request Actions
+
+    createUpvote/createDownvote
+      1. invoked from upvote onClick event when not already pushed.
+      2. GET /api/memes/:id/upvote (or/downvote) is called.
+      3. receiveUpvoteCreate (or receiveDownvoteCreate) is set as the success callback.
+
+    destroyUpvote/destroyDownvote
+      1. Invoked from comment form onSubmit
+      2. POST /api/memes/:id/comments is called.
+      3. receiveUpvoteDestroy (or receiveDownvoteDestroy) is set as the success callback.
+
+  Upvote/Downvote API Response Actions
+
+    receiveUpvoteDestroy/receiveDownvoteDestroy
+      1. Invoked from an API callback.
+      2. The UpvoteReducer/DownvoteReducer updates the meme in the application's state.
+
+    receiveDownvoteCreate/receiveDowvoteCreate
+      1. Invoked from an API callback.
+      2. The UpvoteReducer/DownvoteReducer updates the meme in the application's state.
+
 Tag Cycles
 
   Tag API Request Actions

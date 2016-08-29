@@ -23,9 +23,19 @@ JSON API
   POST /api/notes
   GET /api/notes/:id
     Also returns full comments association
+    Also returns upvotes association
+    Also returns downvotes association
+
+  Upvotes
+    POST /api/memes/:id/upvotes
+    DESTROY /api/memes/:id/upvotes
+
+  Downvotes
+    POST /api/memes/:id/downvotes
+    DESTROY /api/memes/:id/downvotes
 
   Comments
-  POST /api/memes/:id/comments
+    POST /api/memes/:id/comments
 
   Tags
   A meme's tags will be included in both the index and show template
