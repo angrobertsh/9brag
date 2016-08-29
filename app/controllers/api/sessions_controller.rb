@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
   def new
     @user = User.new
@@ -8,10 +8,13 @@ class SessionsController < ApplicationController
     @user = User.find_by_username_and_password(params[:user][:nickname], params[:user][:password])
     if @user
       login(@user)
-      redirect_to memes_url
+#      render "api/users/show"
+#      redirect_to memes_url
     else
-      flash[:errors] = "Invalid name or password"
-      redirect_to memes_url
+      render(
+        json: ["Invalid username/password combination"],
+        status: 401
+      )
     end
   end
 

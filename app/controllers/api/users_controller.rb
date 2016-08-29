@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -9,11 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
     if @user.save
       login(@user)
-      redirect_to todo_lists_url
+#      render "api/users/show"
+#      redirect_to memes_url
     else
-      flash[:errors] = @user.errors.full_messages
       @user = User.new
-      render :new
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
