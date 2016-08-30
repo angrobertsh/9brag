@@ -1,60 +1,60 @@
 ##Auth Cycles
 
-  ###Session API Request Actions
+###Session API Request Actions
 
-    ####signUp
-      1. Invoked from SignupForm onSubmit
-      2. POST /api/users is called.
-      3. receiveCurrentUser is set as the success callback.
+####signUp
+1. Invoked from SignupForm onSubmit.
+2. POST /api/users is called.
+3. receiveCurrentUser is set as the success callback.
 
-    ####logIn
-      1. invoked from SigninForm onSubmit
-      2. POST /api/session is called.
-      3. receiveCurrentUser is set as the callback.
+####logIn
+1. invoked from SigninForm onSubmit
+2. POST /api/session is called.
+3. receiveCurrentUser is set as the callback.
 
-    ####logOut
-      1. invoked from Navbar onClick
-      2. DELETE /api/session is called.
-      3. removeCurrentUser is set as the success callback.
+####logOut
+1. invoked from Navbar onClick
+2. DELETE /api/session is called.
+3. removeCurrentUser is set as the success callback.
 
-    ####fetchCurrentUser
-      1. invoked from App in didMount
-      2. GET /api/session is called.
-      3. receiveCurrentUser is set as the success callback.
+####fetchCurrentUser
+1. invoked from App in didMount
+2. GET /api/session is called.
+3. receiveCurrentUser is set as the success callback.
 
-  ###Session API Response Actions
+###Session API Response Actions
 
-    ####receiveCurrentUser
-      1. Invoked from an API callback
-      2. The SessionReducer stores currentUser in the application's state.
+####receiveCurrentUser
+1. Invoked from an API callback
+2. The SessionReducer stores currentUser in the application's state.
 
-    ####removeCurrentUser
-      1. Invoked from an API callback
-      2. The SessionReducer removes currentUser from the application's state.
+####removeCurrentUser
+1. Invoked from an API callback
+2. The SessionReducer removes currentUser from the application's state.
 
 ##Error Cycles
 
-  ###Error API Response Actions
+###Error API Response Actions
 
-    ####setErrors
-      1. Invoked from API callbacks on error for actions that generate POST requests
-      2. The ErrorReducer stores the form in the application's state; errors are mapped to their respective forms
+####setErrors
+1. Invoked from API callbacks on error for actions that generate POST requests.
+2. The ErrorReducer stores the form in the application's state; errors are mapped to their respective forms.
 
-    ####removeErrors
-      1. Invoked from API callbacks on success for actions that generate POST requests
-      2. The ErrorReducer removes errors for a given form in the application's state.
+####removeErrors
+1. Invoked from API callbacks on success for actions that generate POST requests.
+2. The ErrorReducer removes errors for a given form in the application's state.
 
 ##Meme Cycles
 
 ###Meme API Request Actions
 
 ####fetchAllMemes
-1. Invoked from MemesIndex/root didMount/willReceiveProps
+1. Invoked from MemesIndex/root didMount/willReceiveProps.
 2. GET /api/memes is called.
 3. receiveAllMemes is set as the success callback.
 
 ####createMeme
-1. Invoked from meme form onSubmit
+1. Invoked from meme form onSubmit.
 2. POST /api/memes is called.
 3. receiveSingleMeme is set as the success callback.
 
