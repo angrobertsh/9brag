@@ -1,17 +1,23 @@
 ###Component Hierarchy
 
+<!-- needs to be component if it has state and if it dispatches actions/does actions
+click in login register and upload go to different routes
+filter components
+instead of abbreviated it means the entire index
+index container index pokemon index item
+item info -->
+
+
 * HomeContainer
  * Navbar
-  * Logo
   * TagsAbbreviated
   * VariableButtons    
    * Login/Register _OR_
    * Logout/Upload
-* Content
- * MemeContainerAbbreviated _OR_
- * MemeContainerFull _OR_
- * AuthFormContainer _OR_
- * UploadFormContainer
+ * Content
+  * MemeContainerAbbreviated _OR_
+  * AuthFormContainer _OR_
+  * UploadFormContainer
 
 * AuthFormContainer
  * AuthForm
@@ -27,21 +33,7 @@
   * TagsBox
   * Submit
 
-* MemeContainerAbbreviated
- * Title
- * ImageContainer
-  * Image
- * MemeInfoContainer
-  * VoteInfo
-  * UpvoteButton
-  * DownvoteButton
-  * Tags
-  * NumComments
-
 * MemeContainerFull
- * Title
- * ImageContainer
-  * Image
  * MemeInfoContainer
   * VoteInfo
   * UpvoteButton
@@ -53,7 +45,6 @@
   * Submit
  * CommentContainer
   * Comment
-  * UserImage
   * Body
 
 

@@ -1,3 +1,4 @@
+```
 create_table "comments", force: :cascade do |t|
   t.integer  "user_id",    null: false
   t.integer  "meme_id",    null: false
@@ -62,3 +63,4 @@ end
 
 add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
 add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
+```

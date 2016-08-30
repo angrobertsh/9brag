@@ -4,8 +4,5 @@ class Tag < ActiveRecord::Base
   belongs_to :meme
 
   belongs_to :tagname,
-    primary_key: :id,
-    foreign_key: :tag_id,
-    class_name: :Tagname
 
 end
