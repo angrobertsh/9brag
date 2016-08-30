@@ -1,5 +1,5 @@
 class Meme < ActiveRecord::Base
-  validates :url, :title, :nsfw, presence: true
+  validates :url, :title, presence: true
 
   include Votable
 
@@ -7,6 +7,7 @@ class Meme < ActiveRecord::Base
 
   has_many :comments
   has_many :tags
+  has_many :votes, :as => :votable
 
   has_many :tagnames,
     through: :tags,

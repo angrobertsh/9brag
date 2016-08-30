@@ -4,7 +4,6 @@ class CreateMemes < ActiveRecord::Migration
       t.string :url, null: false
       t.string :title, null: false
       t.string :attribution
-      t.boolean :nsfw, null: false
       t.integer :user_id, null: false
       t.timestamps null: false
     end

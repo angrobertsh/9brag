@@ -1,8 +1,8 @@
 class Tag < ActiveRecord::Base
-  validates :tag_id, :meme_id, :body, presence: true
+  validates :tagname_id, :meme_id, presence: true
 
   belongs_to :meme
 
-  belongs_to :tagname,
+  belongs_to :tagname
 
 end

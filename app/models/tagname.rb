@@ -1,6 +1,6 @@
 class Tagname < ActiveRecord::Base
-  validates :tagname presence: true
+  validates :tagname, presence: true
 
-  has_many :tags,
+  has_many :tags
 
 end
