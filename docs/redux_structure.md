@@ -73,30 +73,6 @@
 1. Invoked from an API callback.
 2. The MemeReducer updates the currentMeme in the application's state.
 
-##Comment Cycles
-
-###Comment API Request Actions
-
-####requestAllComments
-1. invoked from api/memes/:id onEnter event.
-2. GET /api/memes/:id/comments is called.
-3. receiveAllComments is set as the success callback.
-
-####createComment
-1. Invoked from comment form onSubmit
-2. POST /api/memes/:id/comments is called.
-3. receiveSingleComment is set as the success callback.
-
-###Comment API Response Actions
-
-####receiveAllComments
-1. Invoked from an API callback.
-2. the CommentReducer updates the comments in the application's state.
-
-####receiveSingleComment
-1. Invoked from an API callback.
-2. The CommentReducer updates the comments in the application's state.
-
 ##Upvote/Downvote Cycles
 
 ###Upvote/Downvote API Request Actions
@@ -125,7 +101,6 @@
 
 ###Tag API Request Actions
 
-####requestAllTags
+####filterTags
 1. invoked from tag onClick event.
-2. GET /api/tag/:tagname/ is called.
-3. receiveAllMemes is set as the success callback.
+2. The TagsReducer updates the state of the tag filter variable in the application's state.

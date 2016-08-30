@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830005824) do
+ActiveRecord::Schema.define(version: 20160830013941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20160830005824) do
   end
 
   add_index "comments", ["meme_id"], name: "index_comments_on_meme_id", using: :btree
-
-  create_table "downvotes", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "meme_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "downvotes", ["meme_id", "user_id"], name: "index_downvotes_on_meme_id_and_user_id", unique: true, using: :btree
 
   create_table "memes", force: :cascade do |t|
     t.string   "url",         null: false
@@ -59,15 +50,6 @@ ActiveRecord::Schema.define(version: 20160830005824) do
     t.integer  "tagname_id"
   end
 
-  create_table "upvotes", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "meme_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "upvotes", ["meme_id", "user_id"], name: "index_upvotes_on_meme_id_and_user_id", unique: true, using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "name",            null: false
     t.string   "password_digest", null: false
@@ -78,5 +60,16 @@ ActiveRecord::Schema.define(version: 20160830005824) do
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "vote_val"
+  end
+
+  add_index "votes", ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id", using: :btree
 
 end

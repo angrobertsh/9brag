@@ -10,42 +10,42 @@ item info -->
 
 * HomeContainer
  * Navbar
-  * TagsAbbreviated
-  * VariableButtons    
-   * Login/Register _OR_
-   * Logout/Upload
+   * TagsAbbreviated
+   * VariableButtons    
+     * Login/Register _OR_
+     * Logout/Upload
  * Content
-  * MemeContainerAbbreviated _OR_
-  * AuthFormContainer _OR_
-  * UploadFormContainer
+   * MemeContainerAbbreviated _OR_
+   * AuthFormContainer _OR_
+   * UploadFormContainer
 
 * AuthFormContainer
- * AuthForm
-  * UsernameBox
-  * PasswordBox
-  * Submit
+  * AuthForm
+    * UsernameBox
+    * PasswordBox
+    * Submit
 
 * UploadFormContainer
- * UploadForm
-  * ImageBox
-  * TitleBox
-  * NSFWBox
-  * TagsBox
-  * Submit
+  * UploadForm
+    * ImageBox
+    * TitleBox
+    * NSFWBox
+    * TagsBox
+    * Submit
 
 * MemeContainerFull
- * MemeInfoContainer
-  * VoteInfo
-  * UpvoteButton
-  * DownvoteButton
-  * Tags
-  * NumComments
- * CommentFormContainer
-  * Body
-  * Submit
- * CommentContainer
-  * Comment
-  * Body
+  * MemeInfoContainer
+    * VoteInfo
+    * UpvoteButton
+    * DownvoteButton
+    * Tags
+    * NumComments
+  * CommentFormContainer
+    * Body
+    * Submit
+  * CommentContainer
+    * Comment
+    * Body
 
 
 ###Routes

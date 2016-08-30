@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :name, :password_digest, presence: true
 
+  belongs_to :votable, polymorphic: true
+
   has_many :comments
   has_many :memes
-  has_many :upvotes
-  has_many :downvotes
 
   def password=(password)
     @password = password
