@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_by_username_and_password(username, password)
-    maybe = User.find_by(nickname: username)
+    maybe = User.find_by(name: username)
     if maybe.nil?
       return nil
     end
