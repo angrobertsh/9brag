@@ -46,9 +46,15 @@ class SessionForm extends React.Component{
 
   otherAction (formType) {
     if (formType === "login") {
-      return <Link to="/signup">sign up</Link>;
+      return (<div className="authgreet">
+        <h3>HAY MEMELORD, TIME TO</h3><br/><h1 className="authdemand"> LOGIN</h1> <br/>
+        <p className="whisper">(or <Link to="/signup">sign up</Link>)</p>
+        </div>);
     } else {
-      return <Link to="/login">log in</Link>;
+      return (<div className="authgreet">
+        <h3>HAY NOOBLORD, TIME TO</h3><br/><h1 className="authdemand"> SIGN UP</h1> <br/>
+        <p className="whisper">(or <Link to="/login">log in</Link>)</p>
+        </div>);
     }
   }
 
@@ -58,17 +64,14 @@ class SessionForm extends React.Component{
     return (
       <div className="authbox">
 				<form onSubmit={this.handleSubmit.bind(this)} className="loginform">
-					<h2> { formType } </h2> <br/>
-          <h4> or { otherLink } </h4> <br/>
+          { otherLink }
           <span className="errors">{ this.renderErrors.bind(this) }</span>
           <div className="userbox">
-            <label> Username:
-              <input type="text" onChange={this.update("name")} value={this.state.name} className="authinput" />
-            </label>
-            <label> Password:
-              <input type="text" onChange={this.update("password")} value={this.state.password} className="authinput" />
-            </label>
-            <input type="Submit" value="Submit" />
+            <input type="text" onChange={this.update("name")} value={this.state.name} className="authinput" placeholder="Username"/>
+            <br/>
+            <input type="password" onChange={this.update("password")} value={this.state.password} className="authinput" placeholder="Password"/>
+            <br/>
+            <input type="Submit" value="Submit" className="submitbutton" />
           </div>
         </form>
       </div>
