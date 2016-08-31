@@ -16,6 +16,7 @@ User.create(name: "Ranaferboi", password: "spoopy")
 User.create(name: "JolenejoleneJOLEEENE", password: "spoopy")
 User.create(name: "password123", password: "justkidding")
 User.create(name: "Guest", password: "123456")
+User.create(name: "Troll", password: "lololxd")
 
 Meme.create(url: "www.spoopry.com/cat.jpg", title: "Cat", user_id: 1)
 Meme.create(url: "www.soopry.com/dog.jpg", title: "Dog", user_id: 2)

@@ -58,6 +58,7 @@ table {
 	border-spacing: 0;
 }
 
+
 html{
   font-family: 'Montserrat', sans-serif;
 }
@@ -82,17 +83,32 @@ h4 {
   font-size: 16px;
 }
 
+p {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+
+/* --- CLEARFIX --- */
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* --- AUTH BOX --- */
+
 .authbox {
   display: flex;
-  width: 450px;
-  border: 1px solid black;
-  padding: 65px;
-  margin: 25px;
+  justify-content: center;
+  margin-top: 100px;
   text-align: center;
 }
 
 .loginform{
-  width: 100%;
+  width: 450px;
+  border: 1px solid black;
+  padding: 65px;
 }
 
 .authdemand{
@@ -114,4 +130,50 @@ h4 {
 
 .submitbutton{
   margin-top: 10px;
+}
+
+/* --- HEADER --- */
+
+.topbar{
+  display: flex;
+  background: #ff66ff;
+  justify-content: center;
+}
+
+.widthcontainer{
+  display: flex;
+  justify-content: space-around;
+  width: 900px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#logoimage{
+  width: 67px;
+  height: 54px;
+}
+
+.tagbuttons{
+  display: flex;
+  width: 30%;
+  align-items: center;
+}
+
+.tagbutton{
+  margin: 5px;
+}
+
+.authbuttons{
+  display: flex;
+  width: 35%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.authbutton{
+  margin: 5px;
 }

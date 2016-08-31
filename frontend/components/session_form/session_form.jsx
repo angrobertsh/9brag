@@ -14,7 +14,7 @@ class SessionForm extends React.Component{
 
   redirectIfLoggedIn(){
 		if (this.props.loggedIn){
-			hashHistory.push("/");
+			this.props.router.push("/");
 		}
 	}
 
@@ -47,7 +47,7 @@ class SessionForm extends React.Component{
   otherAction (formType) {
     if (formType === "login") {
       return (<div className="authgreet">
-        <h3>HAY MEMELORD, TIME TO</h3><br/><h1 className="authdemand"> LOGIN</h1> <br/>
+        <h3>HAY MEMELORD, TIME TO</h3><br/><h1 className="authdemand"> LOG IN</h1> <br/>
         <p className="whisper">(or <Link to="/signup">sign up</Link>)</p>
         </div>);
     } else {
