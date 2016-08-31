@@ -2,23 +2,23 @@ class Api::MemesController < ApplicationController
 
   def index
     @memes = Meme.all
-    render index
+    render :index
   end
 
   def show
     @meme = Meme.find_by_id(params[:id])
-    render show
+    render :show
   end
 
   def new
     @meme = Meme.new
-    render new
+    render :new
   end
 
   def create
     @meme = Meme.new(meme_params)
     if @meme.save!
-      render show
+      render :show
     else
       render (
         json: @meme.errors.full_messages,
