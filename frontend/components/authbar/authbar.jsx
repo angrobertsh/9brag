@@ -20,10 +20,12 @@ class Authbar extends React.Component{
         <div className="authbuttons">
           <Link to="/login"><button className="authbutton">Log In</button></Link>
           <Link to="/signup"><button className="authbutton">Register</button></Link>
+          <button className="authbutton" onClick={this.props.loginGuest}>Guest Log In</button>     
         </div>
       )
     }
   }
+
 }
 
 export default Authbar;

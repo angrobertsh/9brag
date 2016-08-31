@@ -6,14 +6,14 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
   end
 
-  resources :memes, only: [:new, :create, :index, :show] do
+  resources :memes, only: [:new, :create, :index, :show], defaults: {format: :json} do
     resources :comments, only: [:index, :create]
   end
 
-  resources :tagname, only: [:show, :create]
+  resources :tagname, only: [:show, :create], defaults: {format: :json}
 
-  resources :tag, only: [:create]
+  resources :tag, only: [:create], defaults: {format: :json}
 
-  resources :vote, only: [:create, :destroy]
+  resources :vote, only: [:create, :destroy], defaults: {format: :json}
 
 end

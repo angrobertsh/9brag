@@ -1,14 +1,13 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import AuthBarContainer from '../authbar/authbar_container'
+import AuthBarContainer from '../authbar/authbar_container';
+import SessionFormContainer from '../session_form/session_form_container';
 
 import App from '../app';
 
 class AppRouter extends React.Component{
   constructor(props){
     super(props);
-    this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
-    this.redirectIfLoggedin = this._redirectIfLoggedIn.bind(this);
   }
 
   _ensureLoggedIn (nextState, replace) {
@@ -23,6 +22,7 @@ class AppRouter extends React.Component{
     if(this.props.currentUser){
       replace('/');
     }
+    return;
   }
 
   render() {
@@ -30,8 +30,8 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ AuthBarContainer } />
-
-
+            <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
+            <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
         </Route>
       </Router>
     );

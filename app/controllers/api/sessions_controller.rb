@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
 #      redirect_to memes_url
     else
       render(
-        json: @user.errors.full_messages,
+        json: ["Incorrect name or password"],
         status: 401
       )
     end

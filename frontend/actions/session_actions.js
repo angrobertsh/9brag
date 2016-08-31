@@ -2,6 +2,7 @@ export const SessionConstants = {
   SIGNUP: "SIGNUP",
   LOGIN: "LOGIN",
   LOGOUT: "LOGOUT",
+  LOGIN_GUEST: "LOGIN_GUEST",
   RECEIVE_CURRENT_USER: "RECEIVE_CURRENT_USER",
   RECEIVE_ERRORS: "RECEIVE_ERRORS"
 };
@@ -21,6 +22,11 @@ export const login = (user) => {
 export const logout = () => {
   return {
     type: SessionConstants.LOGOUT};
+};
+
+export const loginGuest = () => {
+  return {
+    type: SessionConstants.LOGIN_GUEST};
 };
 
 export const receiveCurrentUser = (user) => {

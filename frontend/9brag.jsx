@@ -13,7 +13,7 @@ window.signout = ACTIONS.logout;
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if(window.currentUser) {
-    const initialState = {session: {currentUser: window.CurrentUser}};
+    const initialState = {sessions: {currentUser: window.CurrentUser}};
     store = configureStore(initialState);
   } else {
     store = configureStore();

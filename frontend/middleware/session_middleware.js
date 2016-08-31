@@ -3,7 +3,7 @@ import * as UTILS from '../util/session_api_util';
 
 let success;
 
-const SessionMiddleware = ({state, dispatch}) => next => action => {
+const SessionsMiddleware = ({state, dispatch}) => next => action => {
 
   const errorCB = xhr => {
     const errors = xhr.responseJSON;
@@ -19,6 +19,10 @@ const SessionMiddleware = ({state, dispatch}) => next => action => {
       success = user => dispatch(ACTIONS.receiveCurrentUser(user));
       UTILS.signup(action.user, success, errorCB);
       return next(action);
+    case ACTIONS.SessionConstants.LOGIN_GUEST:
+      success = user => dispatch(ACTIONS.receiveCurrentUser(user));
+      UTILS.loginGuest(success);
+      return next(action);
     case ACTIONS.SessionConstants.LOGOUT:
       success = () => next(action);
       UTILS.logout(success);
@@ -28,4 +32,4 @@ const SessionMiddleware = ({state, dispatch}) => next => action => {
   }
 };
 
-export default SessionMiddleware;
+export default SessionsMiddleware;
