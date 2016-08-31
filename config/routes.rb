@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
   end
 
-  resources :memes, only: [:new, :create, :index, :show], defaults: {format: :json} do
-    resources :comments, only: [:index, :create]
+  resources :memes, only: [:create, :index, :show], defaults: {format: :json} do
+    # resources :comments, only: [:index, :create]
   end
 
   resources :tagname, only: [:show, :create], defaults: {format: :json}
