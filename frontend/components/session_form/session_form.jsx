@@ -36,9 +36,13 @@ class SessionForm extends React.Component{
     const processForm = (formType === 'login') ? this.props.login : this.props.signup;
 		const user = this.state;
 		processForm({user});
-    this.props.router.push('/');
 	}
 
+  componentDidUpdate() {
+    if(this.props.loggedIn){
+      this.props.router.push('/');
+    }
+  }
 
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
@@ -63,9 +67,9 @@ class SessionForm extends React.Component{
     const otherLink = this.otherAction(formType);
     return (
       <div className="authbox">
-				<form onSubmit={this.handleSubmit.bind(this)} className="loginform">
+				<form onSubmit={this.handleSubmit.bind(this)} className={formType}>
           { otherLink }
-          <span className="errors">{ this.renderErrors.bind(this) }</span>
+          <span className="errors">{ this.renderErrors.bind(this)() }</span>
           <div className="userbox">
             <input type="text" onChange={this.update("name")} value={this.state.name} className="authinput" placeholder="Username"/>
             <br/>

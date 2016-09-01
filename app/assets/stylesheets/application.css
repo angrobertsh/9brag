@@ -88,6 +88,10 @@ p {
   font-size: 12px;
 }
 
+a{
+  color: yellow;
+  text-decoration: none;
+}
 
 /* --- CLEARFIX --- */
 .group:after {
@@ -103,12 +107,24 @@ p {
   justify-content: center;
   margin-top: 100px;
   text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.loginform{
+.login{
   width: 450px;
   border: 1px solid black;
   padding: 65px;
+  background: url("pepe2.jpg");
+  background-size: cover;
+}
+
+.signup{
+  width: 450px;
+  border: 1px solid black;
+  padding: 65px;
+  background: url("cryinggirl2.jpg");
+  background-size: cover;
 }
 
 .authdemand{
@@ -124,12 +140,15 @@ p {
   text-align: center;
 }
 
-.userbox{
-  padding-top: 25px;
+.submitbutton{
+  margin-top: 15px;
 }
 
-.submitbutton{
-  margin-top: 10px;
+.errors{
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 /* --- HEADER --- */
