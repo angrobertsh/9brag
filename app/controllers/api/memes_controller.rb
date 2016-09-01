@@ -1,16 +1,14 @@
 class Api::MemesController < ApplicationController
 
-  # def index
-  #   @memes = Meme.all
-  #   render "api/memes/index"
-  # end
-  #
-  # def show
-  #   @meme = Meme.find_by_id(params[:id])
-  #   render "api/memes/show"
-  # end
-  #
-  # def create
+  def index
+    @memes = Meme.all
+  end
+
+  def show
+    @meme = Meme.find_by_id(params[:id])
+  end
+
+  def create
   #   @meme = Meme.new(meme_params)
   #   if @meme.save!
   #     render "api/memes/show"
@@ -20,12 +18,12 @@ class Api::MemesController < ApplicationController
   #       status: 422
   #     )
   #   end
-  # end
-  #
-  # private
-  #
-  # def meme_params
-  #   params.require(:meme).permit(:url, :title, :tags)
-  # end
+  end
+  
+  private
+
+  def meme_params
+    params.require(:meme).permit(:url, :title, :tags, :attribution)
+  end
 
 end

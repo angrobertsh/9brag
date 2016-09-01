@@ -1,8 +1,11 @@
 ```javascript
 {
-  currentUser: {
-    id: 1,
-    name: "Robert"
+  sessions: {
+    currentUser: {
+      id: 1,
+      name: "Robert"
+    },
+    errors: []
   },
 
   currentTag: [],

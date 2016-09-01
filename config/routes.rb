@@ -4,16 +4,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
+    resources :memes, only: [:create, :index, :show] do
+      resources :comments, only: [:create]
+    end
+    resources :votes, only: [:create, :update]
   end
-
-  resources :memes, only: [:create, :index, :show], defaults: {format: :json} do
-    # resources :comments, only: [:index, :create]
-  end
-
-  resources :tagname, only: [:show, :create], defaults: {format: :json}
-
-  resources :tag, only: [:create], defaults: {format: :json}
-
-  resources :vote, only: [:create, :destroy], defaults: {format: :json}
 
 end

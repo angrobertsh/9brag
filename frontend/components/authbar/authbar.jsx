@@ -14,16 +14,16 @@ class Authbar extends React.Component{
       return (
         <div className="authbuttons">
           <p>Logged in as: {this.props.currentUser.name}</p>
-          <button className="authbutton" onClick={this.props.logout}>Log Out</button>
-          <button className="uploadbutton">Upload</button>
+          <button className="authbutton topbutton" onClick={this.props.logout}>Log Out</button>
+          <button className="uploadbutton topbutton">Upload</button>
         </div>
       );
     } else {
       return (
         <div className="authbuttons">
-          <Link to="/signup"><button className="authbutton">Register</button></Link>
-          <Link to="/login"><button className="authbutton">Log In</button></Link>
-          <button className="authbutton" onClick={this.props.loginGuest}>Troll</button>
+          <Link to="/signup"><button className="authbutton topbutton">Register</button></Link>
+          <Link to="/login"><button className="authbutton topbutton">Log In</button></Link>
+          <button className="authbutton topbutton troll" onClick={this.props.loginGuest}>Troll</button>
         </div>
       );
     }
@@ -32,10 +32,10 @@ class Authbar extends React.Component{
   fewTags(){
     return (
       <div className="tagbuttons">
-        <Link to="/"><button className="tagbutton">Tag 1</button></Link>
-        <Link to="/"><button className="tagbutton">Tag 2</button></Link>
-        <Link to="/"><button className="tagbutton">Tag 3</button></Link>
-        <Link to="/"><button className="tagbutton">Tag 4</button></Link>
+        <Link to="/"><button className="tagbutton topbutton">Tag 1</button></Link>
+        <Link to="/"><button className="tagbutton topbutton">Tag 2</button></Link>
+        <Link to="/"><button className="tagbutton topbutton">Tag 3</button></Link>
+        <Link to="/"><button className="tagbutton topbutton">Tag 4</button></Link>
       </div>
     );
   }

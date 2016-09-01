@@ -40,5 +40,8 @@
     "node": "4.1.1",
     "npm": "2.1.x"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-plugin-react": "^6.2.0"
+  }
 }

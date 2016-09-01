@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import * as ACTIONS from './actions/session_actions';
-import * as UTILS from './util/session_api_util';
+import * as ACTIONS from './actions/meme_actions';
+import * as UTILS from './util/meme_api_util';
 import Root from './components/root';
 
 window.store = configureStore();
-window.login = ACTIONS.login;
-window.signup = ACTIONS.signup;
-window.signout = ACTIONS.logout;
+window.requestAllMemes = ACTIONS.requestAllMemes;
+window.requestSingleMeme = ACTIONS.requestSingleMeme;
+window.createMeme = ACTIONS.createMeme;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if(window.currentUser) {
-    const initialState = {sessions: {currentUser: window.CurrentUser}};
+    const initialState = {sessions: {currentUser: window.currentUser}};
     store = configureStore(initialState);
   } else {
     store = configureStore();

@@ -88,9 +88,19 @@ p {
   font-size: 12px;
 }
 
-a{
+a {
   color: yellow;
   text-decoration: none;
+}
+
+button {
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+button:hover {
+
 }
 
 /* --- CLEARFIX --- */
@@ -145,10 +155,14 @@ a{
 }
 
 .errors{
-  height: 20px;
+  height: 32px;
   display: flex;
   justify-content: center;
   margin-top: 15px;
+}
+
+.submitbutton{
+
 }
 
 /* --- HEADER --- */
@@ -169,6 +183,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  height: 54px;
 }
 
 #logoimage{
@@ -183,7 +198,7 @@ a{
 }
 
 .tagbutton{
-  margin: 5px;
+  margin: 0 5px 0 5px;
 }
 
 .authbuttons{
@@ -194,5 +209,13 @@ a{
 }
 
 .authbutton{
-  margin: 5px;
+  margin: 0 5px 0 5px;
+}
+
+.topbutton{
+
+}
+
+.troll {
+
 }

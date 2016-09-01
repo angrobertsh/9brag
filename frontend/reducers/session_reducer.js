@@ -1,4 +1,4 @@
-import * as ACTIONS from '../actions/session_actions'
+import * as ACTIONS from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
