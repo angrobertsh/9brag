@@ -50,21 +50,11 @@ export default AppRouter;
 
 2 warnings after auth -
 
-1. Warning: [react-router] You cannot change <Router routes>; it will be ignored *after creating session_form, possibly by the redirect*
-2. Warning: Failed form propType: You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`. Check the render method of `SessionForm`. *after having guest login and creating session form*
+1. Warning: [react-router] You cannot change <Router routes>; it will be ignored *after creating session_form, possibly by the redirect* *this is because the first render checks for current user and tries to do something with the render? move something to constructor? 9/1*
+2. Warning: Failed form propType: You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`. Check the render method of `SessionForm`. *after having guest login and creating session form*. *changed this to a button without a value and it worked 9/1*
 
-handleSubmit(e){
-  e.preventDefault();
-  const formType = this.props.location.pathname.slice(1)
-  const processForm = (formType === 'login') ? this.props.login : this.props.signup;
-  const user = this.state;
-  processForm({user});
-}
 
-componentDidUpdate() {
-  if(this.props.loggedIn){
-    this.props.router.push('/');
-  }
-}
 
-this.renderErrors.bind(this)()
+
+what is this tags_id method?
+how to organize?

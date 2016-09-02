@@ -25,13 +25,20 @@ class AppRouter extends React.Component{
     return;
   }
 
+  // on enter hook for app request all memes
+  // on enter hook for show 1 meme requests 1 meme
+
+    //indexroute is splash/landing
+  //  <IndexRoute component={ AuthBarContainer } />
+
   render() {
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ AuthBarContainer } />
-            <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
-            <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
+
+          //  this is where show 1 meme component/route will be
+          <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
+          <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn.bind(this)} />
         </Route>
       </Router>
     );
