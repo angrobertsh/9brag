@@ -25,3 +25,13 @@ export const postMeme = (meme, success, error) => {
     error
   });
 };
+
+export const createComment = (comment, success, memeid) => {
+  $.ajax({
+    method: "POST",
+    url: `api/memes/${memeid}/comments`,
+    data: comment,
+    success,
+    error: "Unable to fetch comment."
+  });
+};

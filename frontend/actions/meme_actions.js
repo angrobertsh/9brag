@@ -5,7 +5,8 @@ export const MemeConstants = {
   RECEIVE_SINGLE_MEME: "RECEIVE_SINGLE_MEME",
   CREATE_MEME: "CREATE_MEME",
   RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+  CREATE_COMMENT: "CREATE_COMMENT"
 };
 
 export const requestAllMemes = () => {
@@ -53,4 +54,12 @@ export const receiveErrors = (errors) => {
   return {
     type: MemeConstants.RECEIVE_ERRORS,
     errors: errors};
+};
+
+export const createComment = (comment, memeId) => {
+  return {
+    type: MemeConstants.CREATE_COMMENT,
+    comment: comment,
+    memeId: memeId
+  };
 };

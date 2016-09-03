@@ -10,6 +10,7 @@ json.set! "#{meme.id}" do
  json.comments meme.comments do |comment|
    json.body comment.body
    json.name comment.user.name
+   json.time comment.created_at
  end
 end
 

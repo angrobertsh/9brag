@@ -58,3 +58,9 @@ export default AppRouter;
 
 what is this tags_id method?
 how to organize?
+
+how to route based on id
+
+ensureloggedin and redirectifloggedin are working but they aren't redirecting on logout
+
+how to test show

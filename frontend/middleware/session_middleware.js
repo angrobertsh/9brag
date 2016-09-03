@@ -1,5 +1,6 @@
 import * as ACTIONS from '../actions/session_actions';
 import * as UTILS from '../util/session_api_util';
+import {hashHistory} from 'react-router';
 
 let success;
 
@@ -24,7 +25,10 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
       UTILS.loginGuest(success);
       return next(action);
     case ACTIONS.SessionConstants.LOGOUT:
-      success = () => next(action);
+      success = () => {
+        next(action);
+        hashHistory.push('/login');
+      };
       UTILS.logout(success);
       break;
     default:

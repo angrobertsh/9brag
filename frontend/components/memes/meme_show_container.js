@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MemeIndex from './meme_index';
+import MemeShow from './meme_show';
 import * as MEMEACTIONS from '../../actions/meme_actions';
 import * as SESSIONACTIONS from '../../actions/session_actions';
 
@@ -9,10 +9,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // addComment: (comment) => dispatch(MEMEACTIONS.addComment(comment))
+  createComment: (comment) => dispatch(MEMEACTIONS.createComment(comment))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MemeIndex);
+)(MemeShow);

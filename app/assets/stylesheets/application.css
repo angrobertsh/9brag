@@ -169,7 +169,7 @@ button:hover {
 
 .topbar{
   display: flex;
-  background: #ff66ff;
+  background: #79684E;
   justify-content: center;
 }
 
@@ -183,22 +183,20 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 54px;
+  height: 64px;
 }
 
 #logoimage{
-  width: 67px;
+  width: 54px;
   height: 54px;
+  background: #FFFFFF;
+  border-radius: 50px;
 }
 
 .tagbuttons{
   display: flex;
   width: 30%;
   align-items: center;
-}
-
-.tagbutton{
-  margin: 0 5px 0 5px;
 }
 
 .authbuttons{
@@ -209,13 +207,61 @@ button:hover {
 }
 
 .authbutton{
-  margin: 0 5px 0 5px;
 }
 
 .topbutton{
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: none;
+  border-right: 1px solid #79684E;
+  font-size: 16px;
+  font-weight: bold;
+  height: 64px;
+  background: #CFBEA4;
+}
 
+.topbutton:hover{
+  height: 64px;
+  background: #FFFFFF;
+}
+
+.logoutbutton {
+  margin-left: 10px;
 }
 
 .troll {
+  font-size: 16px;
+  font-weight: bold;
+  background: #3cd934;
+  background-image: -webkit-linear-gradient(top, #3cd934, #b82ba3);
+  background-image: -moz-linear-gradient(top, #3cd934, #b82ba3);
+  background-image: -ms-linear-gradient(top, #3cd934, #b82ba3);
+  background-image: -o-linear-gradient(top, #3cd934, #b82ba3);
+  background-image: linear-gradient(to bottom, #3cd934, #b82ba3);
+  color: red;
+  padding: 10px;
+  text-decoration: none;
+}
 
+.troll:hover {
+  background: #fc3cdf;
+  background-image: -webkit-linear-gradient(top, #b82ba3, #3cd934);
+  background-image: -moz-linear-gradient(top, #b82ba3, #3cd934);
+  background-image: -ms-linear-gradient(top, #b82ba3, #3cd934);
+  background-image: -o-linear-gradient(top, #b82ba3, #3cd934);
+  background-image: linear-gradient(to bottom, #b82ba3, #3cd934);
+  text-decoration: none;
+}
+
+
+/* --- MEMES --- */
+
+.memeindex {
+
+}
+
+.memebox {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
 }

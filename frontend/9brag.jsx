@@ -5,12 +5,12 @@ import * as ACTIONS from './actions/meme_actions';
 import * as UTILS from './util/meme_api_util';
 import Root from './components/root';
 
-window.store = configureStore();
 window.requestAllMemes = ACTIONS.requestAllMemes;
 window.requestSingleMeme = ACTIONS.requestSingleMeme;
 window.createMeme = ACTIONS.createMeme;
 
 document.addEventListener('DOMContentLoaded', () => {
+
   let store;
   if(window.currentUser) {
     const initialState = {sessions: {currentUser: window.currentUser}};
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  window.store = store;
 
   const root = document.getElementById('root');
 
