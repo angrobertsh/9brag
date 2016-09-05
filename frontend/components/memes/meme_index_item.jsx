@@ -26,7 +26,7 @@ class MemeIndexItem extends React.Component{
     let currentLink;
     for(let i = 0; i < meme.tagnames.length; i++) {
       currentTag = meme.tagnames[i]["tagname"];
-      currentLink = <Link to={`/memes/${currentTag}`}>{currentTag} </Link>
+      currentLink = <Link to={`/tagged/${currentTag}`} key={meme.id+currentTag}>{currentTag} </Link>
       tagArr.push(currentLink);
     }
     tagString = tagArr.join(", ");

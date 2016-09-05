@@ -3,13 +3,13 @@ import MemeShow from './meme_show';
 import * as MEMEACTIONS from '../../actions/meme_actions';
 import * as SESSIONACTIONS from '../../actions/session_actions';
 
-const mapStateToProps = state => ({
-  memes: state.memes.memes,
+const mapStateToProps = (state, ownProps) => ({
+  meme: state.memes.memes[parseInt(ownProps.params.memeId)],
   currentUser: state.sessions.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  upvote: (vote, memeId) => dispatch(MEMEACTIONS.upvote(vote, memeId)),  
+  upvote: (vote, memeId) => dispatch(MEMEACTIONS.upvote(vote, memeId)),
   createComment: (comment, memeId) => dispatch(MEMEACTIONS.createComment(comment, memeId))
 });
 

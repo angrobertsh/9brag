@@ -11,6 +11,7 @@ json.set! "#{meme.id}" do
    json.body comment.body
    json.name comment.user.name
    json.time comment.created_at
+   json.id comment.id
  end
 end
 

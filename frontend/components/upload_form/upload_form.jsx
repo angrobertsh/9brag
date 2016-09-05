@@ -14,8 +14,24 @@ class UploadForm extends React.Component{
       attribution: "",
       ourTags: ""
     };
+    this.upload = this.upload.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  upload () {
+    cloudinary.openUploadWidget(
+      window.CLOUDINARY_OPTIONS,
+      (error, images) => {
+        if(error === null) {
+          this.setState({url: images[0].url});
+        }
+      }
+    );
+  }
+
+  componentWillMount(){
+    this.upload();
   }
 
   renderErrors(){
@@ -32,6 +48,7 @@ class UploadForm extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
 		const newMeme = this.state;
 		this.props.createMeme(newMeme);
   }
@@ -58,6 +75,12 @@ class UploadForm extends React.Component{
         </div>
       );
   }
+
+
+
+  // render() {
+  //   return (<button className="uploadformbutton" onClick={this.upload}>Upload Image</button>)
+  // }
 
 }
 
