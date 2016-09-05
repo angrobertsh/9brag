@@ -49,15 +49,22 @@ class MemeIndexItem extends React.Component{
     let meme = this.props.meme;
     return (
       <li key={meme.id} className="memebox">
-        <Link to={`/memes/${meme.id}`}><div className="memeTitle" >{meme.title}</div></Link>
-        <Link to={`/memes/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
-        <div className="memeAttribution">{meme.attribution}</div>
-        { this.memeTags(meme) }
-        <div className="memeUsername">From {meme.user}</div>
-        <div className="votebox">
-          <button className="upbutton" onClick={this.handleUpvote}>Upvote</button>
-          { this.voteCounts(meme) }
-          <button className="downbutton" onClick={this.handleDownvote}>Downvote</button>
+        <div className="titlepic">
+          <Link to={`/memes/${meme.id}`}><div className="memeTitle" >{meme.title}</div></Link>
+          <Link to={`/memes/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
+        </div>
+        <div className="tagsattribution">
+          <div className="memeAttribution">{meme.attribution}</div>
+          { this.memeTags(meme) }
+        </div>
+        <div className="voteauthorcomment">
+          <div className="votebox">
+            <button className="upbutton" onClick={this.handleUpvote}>Upvote</button>
+            { this.voteCounts(meme) }
+            <button className="downbutton" onClick={this.handleDownvote}>Downvote</button>
+          </div>
+          <div className="memeUsername">From {meme.user}</div>
+          <div className="commenttotal"> {meme.comments.length} comments </div>
         </div>
       </li>
     );

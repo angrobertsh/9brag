@@ -6,9 +6,8 @@ let success;
 
 const MemeMiddleware = ({state, dispatch}) => next => action => {
 
-  const errorCB = xhr => {
-    const errors = xhr.responseJSON;
-    dispatch(ACTIONS.receiveErrors(errors));
+  const errorCB = errors => {
+    dispatch(ACTIONS.receiveErrors(errors.responseJSON.errors));
   };
 
   switch(action.type){

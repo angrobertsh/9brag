@@ -1,3 +1,10 @@
+$blue: #AEA5A0;
+$brown: #79684E;
+$cream: #FFFFE6;
+$pinkish: #CFBEA4;
+$white: #FFFFFF;
+$hotpink: #E80C7A;
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -96,11 +103,14 @@ a {
 button {
   padding-left: 10px;
   padding-right: 10px;
-
 }
 
 button:hover {
 
+}
+
+body {
+  background-color: $pinkish;
 }
 
 /* --- CLEARFIX --- */
@@ -169,34 +179,35 @@ button:hover {
 
 .topbar{
   display: flex;
-  background: #79684E;
-  justify-content: center;
+  background: $brown;
 }
 
 .widthcontainer{
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  width: 900px;
 }
 
 .logo{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  width: 64px;
   height: 64px;
 }
 
 #logoimage{
   width: 54px;
   height: 54px;
-  background: #FFFFFF;
+  background: $cream;
   border-radius: 50px;
 }
 
 .tagbuttons{
   display: flex;
-  width: 30%;
+  width: 50%;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .authbuttons{
@@ -213,16 +224,19 @@ button:hover {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   border: none;
-  border-right: 1px solid #79684E;
   font-size: 16px;
   font-weight: bold;
   height: 64px;
-  background: #CFBEA4;
+  background-color: $brown;
+  width: 100px;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  border-bottom: 5px solid $brown;
 }
 
 .topbutton:hover{
-  height: 64px;
-  background: #FFFFFF;
+  background: $cream;
+  border-bottom: 5px solid $hotpink;
 }
 
 .logoutbutton {
@@ -232,24 +246,23 @@ button:hover {
 .troll {
   font-size: 16px;
   font-weight: bold;
-  background: #3cd934;
-  background-image: -webkit-linear-gradient(top, #3cd934, #b82ba3);
-  background-image: -moz-linear-gradient(top, #3cd934, #b82ba3);
-  background-image: -ms-linear-gradient(top, #3cd934, #b82ba3);
-  background-image: -o-linear-gradient(top, #3cd934, #b82ba3);
-  background-image: linear-gradient(to bottom, #3cd934, #b82ba3);
-  color: red;
+  // background-image: -webkit-linear-gradient(top, #3cd934, #b82ba3);
+  // background-image: -moz-linear-gradient(top, #3cd934, #b82ba3);
+  // background-image: -ms-linear-gradient(top, #3cd934, #b82ba3);
+  // background-image: -o-linear-gradient(top, #3cd934, #b82ba3);
+  // background-image: linear-gradient(to bottom, #3cd934, #b82ba3);
+  color: yellow;
   padding: 10px;
   text-decoration: none;
 }
 
 .troll:hover {
   background: #fc3cdf;
-  background-image: -webkit-linear-gradient(top, #b82ba3, #3cd934);
-  background-image: -moz-linear-gradient(top, #b82ba3, #3cd934);
-  background-image: -ms-linear-gradient(top, #b82ba3, #3cd934);
-  background-image: -o-linear-gradient(top, #b82ba3, #3cd934);
-  background-image: linear-gradient(to bottom, #b82ba3, #3cd934);
+  // background-image: -webkit-linear-gradient(top, #b82ba3, #3cd934);
+  // background-image: -moz-linear-gradient(top, #b82ba3, #3cd934);
+  // background-image: -ms-linear-gradient(top, #b82ba3, #3cd934);
+  // background-image: -o-linear-gradient(top, #b82ba3, #3cd934);
+  // background-image: linear-gradient(to bottom, #b82ba3, #3cd934);
   text-decoration: none;
 }
 
@@ -257,11 +270,36 @@ button:hover {
 /* --- MEMES --- */
 
 .memeindex {
-
+  width: 80%;
+  margin: 0 auto;
 }
 
 .memebox {
+  display: block;
+  background-color: $cream;
+}
+
+.memeTitle {
+  padding: 20px 0 20px 0;
+  font-weight: 900;
+  font-size: 32px;
+  color: black;
+}
+
+.titlepic a img {
+  width: 100%
+}
+
+.tagsattribution {
   display: flex;
-  justify-content: center;
-  padding: 25px;
+  justify-content: space-between;
+}
+
+.voteauthorcomment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.votebox {
+  display: flex;
 }

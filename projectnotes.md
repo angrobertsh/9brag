@@ -102,3 +102,10 @@ class UploadForm extends React.Component{
 }
 
 export default withRouter(UploadForm);
+
+
+#AEA5A0 accent, on hover, buttons
+
+no yellow
+basic colors as background of site - primary colors
+accent colors! - readable, tell people where to click - try and avoid red

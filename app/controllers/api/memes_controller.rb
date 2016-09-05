@@ -12,7 +12,7 @@ class Api::MemesController < ApplicationController
     new_params = meme_params
     new_params[:user_id] = current_user.id
     @meme = Meme.new(new_params)
-    if @meme.save!
+    if @meme.save
       @tags = meme_params[:ourTags].split(",").map(&:lstrip).map(&:downcase)
       @tags.each do |tagname|
         Tagname.create({tagname: tagname})
@@ -24,8 +24,9 @@ class Api::MemesController < ApplicationController
       @meme.tagname_ids = @tagArray
       render "api/memes/show"
     else
+      @errors = @meme.errors.full_messages
       render(
-          json: @meme.errors.full_messages,
+          "api/shared/error",
           status: 422
         )
     end
