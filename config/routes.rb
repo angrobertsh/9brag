@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :memes, only: [:create, :index, :show] do
       resources :comments, only: [:create]
+      resources :votes, only: [:create]
     end
-    resources :votes, only: [:create, :update]
   end
 
 end

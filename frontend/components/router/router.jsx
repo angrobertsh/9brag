@@ -27,9 +27,6 @@ class AppRouter extends React.Component{
     }
   }
 
-  // on enter hook for app request all memes
-  // on enter hook for show 1 meme requests 1 meme
-
   // <Route path="/memes/:memeId" component={ MemeIndexContainer } onEnter={ this.props.requestSingleMeme } />
 
 
@@ -38,6 +35,7 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory }>
         <Route path="/" component={ App } onEnter={this.props.requestAllMemes}>
           <IndexRoute component={ MemeIndexContainer } />;
+          <Route path="/memes/:tags" component={ MemeIndexContainer } onEnter={this.props.requestAllMemes}/>
           <Route path="/memes/:memeId" component={ MemeShowContainer } onEnter={ this.props.requestSingleMeme } />
           <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />

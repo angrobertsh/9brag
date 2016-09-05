@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // addComment: (comment) => dispatch(MEMEACTIONS.addComment(comment))
+  upvote: (vote, memeId) => dispatch(MEMEACTIONS.upvote(vote, memeId))
 });
 
 export default connect(

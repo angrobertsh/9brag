@@ -41,11 +41,12 @@ class MemeShow extends React.Component{
   }
 
   commentsInfo(meme){
+    debugger
     return (
       <div className="commentbox">
         { this.commentForm() }
         <ul>
-          {meme.comments.reverse.map( (comment) => {
+          {meme.comments.slice().reverse().map( (comment) => {
             return (
                 <div key={comment.id} className="commentArea">
                   { this.commentForm }
@@ -70,7 +71,7 @@ class MemeShow extends React.Component{
     }
     return (
       <div className="memeshow">
-        <MemeIndexItem meme={meme} />
+        <MemeIndexItem meme={meme} upvote={this.props.upvote}/>
         { this.commentsInfo(meme) }
       </div>
     )

@@ -27,9 +27,13 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
     case ACTIONS.MemeConstants.CREATE_MEME:
       success = meme => {
         dispatch(ACTIONS.receiveNewMeme(meme));
-        hashHistory.push(`memes/${meme.id}`);
+        hashHistory.push(`memes/${Object.keys(meme)[0]}`);
       };
       UTILS.postMeme(action.meme, success, errorCB);
+      return next(action);
+    case ACTIONS.MemeConstants.UPVOTE:
+      success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));
+      UTILS.createVote(action.vote, success, action.memeId);
       return next(action);
     default:
       return next(action);

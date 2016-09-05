@@ -3,6 +3,7 @@ import UploadForm from './upload_form';
 import * as ACTIONS from '../../actions/meme_actions';
 
 const mapStateToProps = state => ({
+  errors: state.memes.errors,
   currentUser: state.sessions.currentUser
 });
 

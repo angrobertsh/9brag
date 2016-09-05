@@ -35,3 +35,13 @@ export const createComment = (comment, success, memeid) => {
     error: "Unable to fetch comment."
   });
 };
+
+export const createVote = (vote, success, memeid) => {
+  $.ajax({
+    method: "POST",
+    url: `api/memes/${memeid}/votes`,
+    data: vote,
+    success,
+    error: () => {alert("Please log in to upvote memes.")}
+  });
+};

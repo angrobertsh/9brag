@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::MemesController < ApplicationController
 
   def index
@@ -13,7 +11,9 @@ class Api::MemesController < ApplicationController
   end
 
   def create
-    @meme = Meme.new(meme_params)
+    new_params = meme_params
+    new_params[:user_id] = current_user.id
+    @meme = Meme.new(new_params)
     if @meme.save!
       @tags = meme_params[:ourTags].split(",").map(&:lstrip).map(&:downcase)
       @tags.each do |tagname|
@@ -36,7 +36,7 @@ class Api::MemesController < ApplicationController
   private
 
   def meme_params
-    params.require(:meme).permit(:url, :title, :attribution, :ourTags, :user_id)
+    params.require(:meme).permit(:url, :title, :attribution, :ourTags)
   end
 
 end

@@ -3,7 +3,7 @@
 # self.comments.user.name, self.comments.body
 
 json.set! "#{meme.id}" do
- json.extract! meme, :title, :url, :attribution
+ json.extract! meme, :title, :url, :attribution, :id
  json.user meme.user.name
  json.tagnames meme.tagnames, :tagname
  json.votecount meme.votes, :vote_val

@@ -6,7 +6,8 @@ export const MemeConstants = {
   CREATE_MEME: "CREATE_MEME",
   RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
-  CREATE_COMMENT: "CREATE_COMMENT"
+  CREATE_COMMENT: "CREATE_COMMENT",
+  UPVOTE: "UPVOTE"
 };
 
 export const requestAllMemes = () => {
@@ -60,6 +61,14 @@ export const createComment = (comment, memeId) => {
   return {
     type: MemeConstants.CREATE_COMMENT,
     comment: comment,
+    memeId: memeId
+  };
+};
+
+export const upvote = (vote, memeId) => {
+  return {
+    type: MemeConstants.UPVOTE,
+    vote: vote,
     memeId: memeId
   };
 };
