@@ -27,6 +27,10 @@ class AppRouter extends React.Component{
     }
   }
 
+  // getSingleMeme (nextState, replace, callback) {
+  //   this.props.requestSingleMeme(parseInt(nextState.params.memeId));
+  // }
+  // <Route path="/memes/:memeId" component={ MemeShowContainer } onEnter={ this.getSingleMeme.bind(this) }/>
   // <Route path="/memes/:memeId" component={ MemeIndexContainer } onEnter={ this.props.requestSingleMeme } />
 
 

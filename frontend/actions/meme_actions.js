@@ -54,7 +54,8 @@ export const receiveNewMeme = (meme) => {
 export const receiveErrors = (errors) => {
   return {
     type: MemeConstants.RECEIVE_ERRORS,
-    errors: errors};
+    errors: errors
+  };
 };
 
 export const createComment = (comment, memeId) => {

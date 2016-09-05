@@ -5,12 +5,9 @@ class UploadForm extends React.Component{
 
   constructor(props) {
     super(props);
-
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOU HAVE A PLACEHOLDER URL HERE
-
     this.state = {
       title: "",
-      url: "placeholder_rulf",
+      url: "",
       attribution: "",
       ourTags: ""
     };
@@ -48,7 +45,6 @@ class UploadForm extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
 		const newMeme = this.state;
 		this.props.createMeme(newMeme);
   }
@@ -60,6 +56,7 @@ class UploadForm extends React.Component{
   render() {
     return (
         <div className="authbox">
+          <img src={this.state.url} />
     			<form onSubmit={this.handleSubmit} className="uploadform">
             <div className="userbox">
               <span className="errors">{ this.renderErrors.bind(this)() }</span>
@@ -75,12 +72,6 @@ class UploadForm extends React.Component{
         </div>
       );
   }
-
-
-
-  // render() {
-  //   return (<button className="uploadformbutton" onClick={this.upload}>Upload Image</button>)
-  // }
 
 }
 

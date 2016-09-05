@@ -1,8 +1,6 @@
 class Api::MemesController < ApplicationController
 
   def index
-    # cloud_name = ENV['CLOUD_NAME']
-    # upload_preset = ENV['UPLOAD_PRESET']
     @memes = Meme.all
   end
 

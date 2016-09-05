@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllMemes: () => dispatch(ACTIONS.requestAllMemes()),
-  requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme())
+  requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id))
 });
 
 export default connect(
