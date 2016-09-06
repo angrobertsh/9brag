@@ -354,12 +354,23 @@ body {
   // border: none;
 }
 
-.commentbox {
+/* --- COMMENTS --- */
 
+.commentbox {
+  padding: 15px;
+  border: 1px solid $pinkish;
 }
 
 .addcommentbox {
+  border: 1px solid $pinkish;
+}
 
+.commentbodies {
+  border: 1px solid $pinkish;
+}
+
+.oneComment {
+  border: 1px solid $pinkish;
 }
 
 /* --- UPLOAD FORM --- */

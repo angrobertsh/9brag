@@ -31,7 +31,7 @@ class MemeShow extends React.Component{
       commentForm = (
         <form onSubmit={this.handleSubmit} className="commentform">
           <div className="addcommentbox">
-            <label>Add Comment:
+            <label><p>Add Comment:</p>
               <textarea onChange={this.update("commentBody")} value={this.state.commentBody} className="commentinput" />
               <button className="submitbutton">Add Comment</button>
             </label>
@@ -46,22 +46,24 @@ class MemeShow extends React.Component{
     return (
       <div className="commentbox">
         { this.commentForm() }
-        <label> Comments:
-          <ul>
-            {meme.comments.slice().reverse().map( (comment) => {
-              return (
-                  <div key={comment.id+comment.body} className="commentArea">
-                    <div className="oneComment">
-                      <div className="commentUser">{comment.name}</div>
-                      <div className="commentDate">{comment.time}</div>
-                      <div className="commentBody">{comment.body}</div>
+        <div className="commentbodies">
+          <label> Comments:
+            <ul>
+              {meme.comments.slice().reverse().map( (comment) => {
+                return (
+                    <div key={comment.id+comment.body} className="commentArea">
+                      <div className="oneComment">
+                        <div className="commentUser">{comment.name}</div>
+                        <div className="commentDate">{comment.time}</div>
+                        <div className="commentBody">{comment.body}</div>
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            }
-          </ul>
-        </label>
+                  );
+                })
+              }
+            </ul>
+          </label>
+        </div>
       </div>
     );
   }
