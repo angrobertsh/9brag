@@ -7,7 +7,11 @@ class Api::VotesController < ApplicationController
       if @vote.nil?
         Vote.create({vote_val: vote_params[:vote_val], votable_id: vote_params[:votable_id], user_id: current_user.id, votable_type: "Meme"})
       else
-        @vote.update({vote_val: vote_params[:vote_val]})
+        if @vote.vote_val == vote_params[:vote_val].to_i
+          @vote.update({vote_val: 0})
+        else
+          @vote.update({vote_val: vote_params[:vote_val]})
+        end
       end
       render "api/memes/show"
     else

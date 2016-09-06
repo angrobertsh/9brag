@@ -58,13 +58,16 @@ class UploadForm extends React.Component{
         <div className="authbox">
           <img src={this.state.url} />
     			<form onSubmit={this.handleSubmit} className="uploadform">
-            <div className="userbox">
+            <div className="uploadbox">
+              <div>Upload Details</div>
               <span className="errors">{ this.renderErrors.bind(this)() }</span>
+              <input type="text" onChange={this.update("url")} value={this.state.url} className="authinput" placeholder="Image URL"/>
+              <br/>
               <input type="text" onChange={this.update("title")} value={this.state.title} className="authinput" placeholder="Title"/>
               <br/>
               <input type="text" onChange={this.update("attribution")} value={this.state.attribution} className="authinput" placeholder="Attribution"/>
               <br/>
-              <input type="text" onChange={this.update("ourTags")} value={this.state.ourTags} className="authinput" placeholder="ourTags"/>
+              <input type="text" onChange={this.update("ourTags")} value={this.state.ourTags} className="authinput" placeholder="Tags (e.g. cats, animals, shrek)"/>
               <br/>
               <button className="submitbutton">Submit</button>
             </div>

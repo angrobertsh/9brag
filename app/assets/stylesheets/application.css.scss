@@ -1,4 +1,5 @@
 $blue: #AEA5A0;
+$darkerblue: #7c706a;
 $brown: #79684E;
 $cream: #FFFFE6;
 $pinkish: #CFBEA4;
@@ -96,9 +97,15 @@ p {
 }
 
 a {
-  color: yellow;
+  color: black;
   text-decoration: none;
 }
+
+a:hover {
+  color: $blue;
+  text-decoration: none;
+}
+
 
 button {
   padding-left: 10px;
@@ -110,7 +117,6 @@ button:hover {
 }
 
 body {
-  background-color: $pinkish;
 }
 
 /* --- CLEARFIX --- */
@@ -133,7 +139,7 @@ body {
 
 .login{
   width: 450px;
-  border: 1px solid black;
+  border: 1px solid $blue;
   padding: 65px;
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473136165/pepe2_m6b1f4.jpg");
   background-size: cover;
@@ -141,7 +147,7 @@ body {
 
 .signup{
   width: 450px;
-  border: 1px solid black;
+  border: 1px solid $blue;
   padding: 65px;
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473107969/zxry8med4wlssiw2xhtz.jpg");
   background-size: cover;
@@ -152,7 +158,8 @@ body {
   padding-bottom: 50px;
 }
 
-.whisper{
+.whisper a{
+  color: yellow;
 }
 
 .authinput{
@@ -180,6 +187,7 @@ body {
 .topbar{
   display: flex;
   background: $brown;
+  margin-bottom: 10px;
 }
 
 .widthcontainer{
@@ -217,6 +225,20 @@ body {
   justify-content: flex-end;
 }
 
+.authbuttons .greet {
+  display: flex;
+  width: 35%;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.authbuttons .greet .name {
+  color: yellow;
+  padding-left: 6px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 .authbutton{
 }
 
@@ -246,11 +268,6 @@ body {
 .troll {
   font-size: 16px;
   font-weight: bold;
-  // background-image: -webkit-linear-gradient(top, #3cd934, #b82ba3);
-  // background-image: -moz-linear-gradient(top, #3cd934, #b82ba3);
-  // background-image: -ms-linear-gradient(top, #3cd934, #b82ba3);
-  // background-image: -o-linear-gradient(top, #3cd934, #b82ba3);
-  // background-image: linear-gradient(to bottom, #3cd934, #b82ba3);
   color: yellow;
   padding: 10px;
   text-decoration: none;
@@ -258,16 +275,11 @@ body {
 
 .troll:hover {
   background: #fc3cdf;
-  // background-image: -webkit-linear-gradient(top, #b82ba3, #3cd934);
-  // background-image: -moz-linear-gradient(top, #b82ba3, #3cd934);
-  // background-image: -ms-linear-gradient(top, #b82ba3, #3cd934);
-  // background-image: -o-linear-gradient(top, #b82ba3, #3cd934);
-  // background-image: linear-gradient(to bottom, #b82ba3, #3cd934);
   text-decoration: none;
 }
 
 
-/* --- MEMES --- */
+/* --- MEMES INDEX AND MEME ITEM --- */
 
 .memeindex {
   width: 60%;
@@ -275,12 +287,14 @@ body {
 }
 
 .memebox {
+  margin: 0 0 25px 0;
+  border: 1px solid $pinkish;
   display: block;
   background-color: $cream;
 }
 
 .memeTitle {
-  padding: 20px 0 20px 0;
+  padding: 20px 10px 20px 10px;
   font-weight: 900;
   font-size: 32px;
   color: black;
@@ -291,15 +305,67 @@ body {
 }
 
 .tagsattribution {
+  padding: 10px 15px 0 15px;
+  font-size: 12px;
   display: flex;
+  color: $darkerblue;
   justify-content: space-between;
 }
 
+.tagsattribution a {
+  color: $darkerblue;
+}
+.tagsattribution a:hover {
+  color: $blue;
+}
+
 .voteauthorcomment {
+  padding: 0 15px 5px 15px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .votebox {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+}
+
+.votebutton {
+  width: 25px;
+  height: 25px;
+}
+
+.votecount {
+  padding: 15px;
+}
+
+/* --- MEME SHOW --- */
+
+.memeshow {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.memeshow .memebox {
+  // background-color: transparent;
+  // border: none;
+}
+
+.commentbox {
+
+}
+
+.addcommentbox {
+
+}
+
+/* --- UPLOAD FORM --- */
+
+.uploadbox {
+  margin: 30px;
+  color: black;
+  text-shadow: none;
 }

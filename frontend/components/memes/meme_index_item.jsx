@@ -21,15 +21,17 @@ class MemeIndexItem extends React.Component{
 
   memeTags(meme){
     let tagArr = [];
-    let tagString = "";
     let currentTag = "";
     let currentLink;
     for(let i = 0; i < meme.tagnames.length; i++) {
       currentTag = meme.tagnames[i]["tagname"];
-      currentLink = <Link to={`/tagged/${currentTag}`} key={meme.id+currentTag}>{currentTag} </Link>
+      if(i === meme.tagnames.length-1){
+        currentLink = <Link to={`/tagged/${currentTag}`} key={meme.id+currentTag}>{currentTag}</Link>
+      } else {
+        currentLink = <Link to={`/tagged/${currentTag}`} key={meme.id+currentTag}>{currentTag}, </Link>
+      }
       tagArr.push(currentLink);
     }
-    tagString = tagArr.join(", ");
     return (<div className="tagdiv">Tags: {tagArr}</div>)
   }
 
@@ -50,21 +52,21 @@ class MemeIndexItem extends React.Component{
     return (
       <li key={meme.id} className="memebox">
         <div className="titlepic">
-          <Link to={`/memes/${meme.id}`}><div className="memeTitle" >{meme.title}</div></Link>
+          <div className="memeTitle" ><Link to={`/memes/${meme.id}`}>{meme.title}</Link></div>
           <Link to={`/memes/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
         </div>
         <div className="tagsattribution">
-          <div className="memeAttribution">{meme.attribution}</div>
+          <div className="memeAttribution"><a href={meme.attribution}>{meme.attribution}</a></div>
           { this.memeTags(meme) }
         </div>
         <div className="voteauthorcomment">
           <div className="votebox">
-            <button className="upbutton" onClick={this.handleUpvote}>Upvote</button>
-            { this.voteCounts(meme) }
-            <button className="downbutton" onClick={this.handleDownvote}>Downvote</button>
+            <img className="votebutton" onClick={this.handleUpvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png"/>
+            <span className="votecount">{ this.voteCounts(meme) }</span>
+            <img className="votebutton" onClick={this.handleDownvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png"/>
           </div>
           <div className="memeUsername">From {meme.user}</div>
-          <div className="commenttotal"> {meme.comments.length} comments </div>
+          <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
         </div>
       </li>
     );

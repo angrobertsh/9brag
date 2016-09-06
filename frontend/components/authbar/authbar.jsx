@@ -13,7 +13,7 @@ class Authbar extends React.Component{
     if(this.props.currentUser) {
       return (
         <div className="authbuttons">
-          <p>Logged in as: {this.props.currentUser.name}</p>
+          <div className="greet">Logged in as: <div className="name">{this.props.currentUser.name}</div></div>
           <button className="authbutton topbutton logoutbutton" onClick={this.props.logout}>Log Out</button>
           <Link to="/upload"><button className="uploadbutton topbutton">Upload</button></Link>
         </div>
