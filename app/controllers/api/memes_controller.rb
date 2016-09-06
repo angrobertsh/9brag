@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::MemesController < ApplicationController
 
   def index
@@ -11,6 +13,7 @@ class Api::MemesController < ApplicationController
   def create
     new_params = meme_params
     new_params[:user_id] = current_user.id
+    byebug
     @meme = Meme.new(new_params)
     if @meme.save
       @tags = meme_params[:ourTags].split(",").map(&:lstrip).map(&:downcase)

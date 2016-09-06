@@ -32,9 +32,9 @@ class Authbar extends React.Component{
   fewTags(){
     return (
       <div className="tagbuttons">
-        <Link to="/tagged/cat"><button className="tagbutton topbutton">Cat</button></Link>
-        <Link to="/tagged/doge"><button className="tagbutton topbutton">Doge</button></Link>
-        <Link to="/tagged/wenty"><button className="tagbutton topbutton">Wenty</button></Link>
+        <Link to="/tagged/animals"><button className="tagbutton topbutton">Animals</button></Link>
+        <Link to="/tagged/fwp"><button className="tagbutton topbutton">FWP</button></Link>
+        <Link to="/tagged/vintage"><button className="tagbutton topbutton">Vintage</button></Link>
         <Link to="/tagged/nsfw"><button className="tagbutton topbutton">NSFW</button></Link>
       </div>
     );
@@ -44,7 +44,7 @@ class Authbar extends React.Component{
     return (
       <header className="topbar group">
         <nav className="widthcontainer">
-          <h4 className="logo"><Link to="/"><img src='/assets/foot.png' id="logoimage" /></Link></h4>
+          <h4 className="logo"><Link to="/"><img src='http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png' id="logoimage" /></Link></h4>
           { this.fewTags() }
           { this.variableButtons() }
         </nav>
