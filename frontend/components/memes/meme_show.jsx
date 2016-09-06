@@ -33,7 +33,7 @@ class MemeShow extends React.Component{
           <div className="addcommentbox">
             <label><p>Add Comment:</p>
               <textarea onChange={this.update("commentBody")} value={this.state.commentBody} className="commentinput" />
-              <button className="submitbutton">Add Comment</button>
+              <button className="addcommentbutton">Add Comment</button>
             </label>
           </div>
         </form>
@@ -47,7 +47,7 @@ class MemeShow extends React.Component{
       <div className="commentbox">
         { this.commentForm() }
         <div className="commentbodies">
-          <label> Comments:
+          <label> <p>Comments:</p>
             <ul>
               {meme.comments.slice().reverse().map( (comment) => {
                 return (

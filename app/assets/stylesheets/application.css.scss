@@ -1,9 +1,11 @@
 $blue: #AEA5A0;
-$darkerblue: #7c706a;
-$brown: #79684E;
-$cream: #FFFFE6;
 $pinkish: #CFBEA4;
 $white: #FFFFFF;
+$brown: #79684E;
+$black: #000000;
+
+$darkerblue: #7c706a;
+$cream: #FFFFE6;
 $hotpink: #E80C7A;
 
 /*
@@ -187,7 +189,7 @@ body {
 .topbar{
   display: flex;
   background: $brown;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .widthcontainer{
@@ -213,24 +215,23 @@ body {
 
 .tagbuttons{
   display: flex;
-  width: 50%;
+  width: 40%;
   align-items: center;
   justify-content: flex-start;
 }
 
 .authbuttons{
   display: flex;
-  width: 35%;
+  width: 40%;
   align-items: center;
   justify-content: flex-end;
 }
 
 .authbuttons .greet {
   display: flex;
-  width: 35%;
   align-items: center;
   justify-content: flex-end;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .authbuttons .greet .name {
@@ -250,7 +251,7 @@ body {
   font-weight: bold;
   height: 64px;
   background-color: $brown;
-  width: 100px;
+  width: 95px;
   transition: all 0.5s ease;
   box-sizing: border-box;
   border-bottom: 5px solid $brown;
@@ -304,8 +305,11 @@ body {
   width: 100%
 }
 
+.memebottominfo{
+  padding: 10px 15px 5px 15px;
+}
+
 .tagsattribution {
-  padding: 10px 15px 0 15px;
   font-size: 12px;
   display: flex;
   color: $darkerblue;
@@ -320,7 +324,6 @@ body {
 }
 
 .voteauthorcomment {
-  padding: 0 15px 5px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -359,24 +362,84 @@ body {
 .commentbox {
   padding: 15px;
   border: 1px solid $pinkish;
+  margin-bottom: 50px;
+  background-color: $cream;
 }
 
 .addcommentbox {
-  border: 1px solid $pinkish;
+  margin: 10px 0 25px 0;
+}
+
+.addcommentbox p {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.addcommentbox textarea {
+  width: 99%;
+  margin-bottom: 5px;
+}
+
+.addcommentbutton {
 }
 
 .commentbodies {
+}
+
+.commentbodies p {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.commentbodies ul {
+}
+
+.commentArea {
+  padding: 15px 15px 12px 15px;
+  background-color: white;
   border: 1px solid $pinkish;
+  margin-bottom: 10px;
 }
 
 .oneComment {
-  border: 1px solid $pinkish;
+  display: block
+}
+
+.commentUser{
+  font-weight: bolder;
+  margin-bottom: 4px;
+}
+
+.commentDate{
+  font-size: 12px;
+  color: $blue;
+  margin-bottom: 6px;
+}
+
+.commentBody{
+
 }
 
 /* --- UPLOAD FORM --- */
 
+.uploadcontainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+  text-align: center;
+  font-size: 24px;
+  padding: 0px 100px 100px 100px;
+}
+
+.uploadcontainer img {
+  max-width: 75%;
+}
+
 .uploadbox {
   margin: 30px;
   color: black;
-  text-shadow: none;
+}
+
+.uploadbox input {
+  width: 250px;
 }

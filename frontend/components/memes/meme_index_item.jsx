@@ -55,18 +55,20 @@ class MemeIndexItem extends React.Component{
           <div className="memeTitle" ><Link to={`/memes/${meme.id}`}>{meme.title}</Link></div>
           <Link to={`/memes/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
         </div>
-        <div className="tagsattribution">
-          <div className="memeAttribution"><a href={meme.attribution}>{meme.attribution}</a></div>
-          { this.memeTags(meme) }
-        </div>
-        <div className="voteauthorcomment">
-          <div className="votebox">
-            <img className="votebutton" onClick={this.handleUpvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png"/>
-            <span className="votecount">{ this.voteCounts(meme) }</span>
-            <img className="votebutton" onClick={this.handleDownvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png"/>
+        <div className="memebottominfo">
+          <div className="tagsattribution">
+            <div className="memeAttribution"><a href={meme.attribution}>{meme.attribution}</a></div>
+            { this.memeTags(meme) }
           </div>
-          <div className="memeUsername">From {meme.user}</div>
-          <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
+          <div className="voteauthorcomment">
+            <div className="votebox">
+              <img className="votebutton" onClick={this.handleUpvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png"/>
+              <span className="votecount">{ this.voteCounts(meme) }</span>
+              <img className="votebutton" onClick={this.handleDownvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png"/>
+            </div>
+            <div className="memeUsername">From {meme.user}</div>
+            <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
+          </div>
         </div>
       </li>
     );

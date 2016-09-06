@@ -27,7 +27,7 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
     case ACTIONS.SessionConstants.LOGOUT:
       success = () => {
         next(action);
-        hashHistory.push('/login');
+        hashHistory.push('/');
       };
       UTILS.logout(success);
       break;

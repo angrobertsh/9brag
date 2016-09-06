@@ -36,7 +36,7 @@ class AppRouter extends React.Component{
 
   render() {
     return(
-      <Router history={ hashHistory }>
+      <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
           <IndexRoute component={ MemeIndexContainer } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>

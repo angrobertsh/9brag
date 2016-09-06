@@ -55,7 +55,7 @@ class UploadForm extends React.Component{
 
   render() {
     return (
-        <div className="authbox">
+        <div className="uploadcontainer">
           <img src={this.state.url} />
     			<form onSubmit={this.handleSubmit} className="uploadform">
             <div className="uploadbox">
