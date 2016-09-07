@@ -12,7 +12,19 @@ class AppRouter extends React.Component{
   constructor(props){
     super(props);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
-    this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this)
+    this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
+    this.routerconst = (
+      <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
+        <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
+          <IndexRoute component={ MemeIndexContainer } />;
+          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+          <Route path="/memes/:memeId" component={ MemeShowContainer } />
+          <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
+          <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+          <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+        </Route>
+      </Router>
+    )
   }
 
   _ensureLoggedIn (nextState, replace) {
@@ -35,18 +47,7 @@ class AppRouter extends React.Component{
 
 
   render() {
-    return(
-      <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
-        <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
-          <IndexRoute component={ MemeIndexContainer } />;
-          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
-          <Route path="/memes/:memeId" component={ MemeShowContainer } />
-          <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
-          <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
-          <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
-        </Route>
-      </Router>
-    );
+    return this.routerconst;
   }
 }
 

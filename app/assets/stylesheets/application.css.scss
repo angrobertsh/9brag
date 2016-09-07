@@ -3,6 +3,7 @@ $pinkish: #CFBEA4;
 $white: #FFFFFF;
 $brown: #79684E;
 $black: #000000;
+$trollpink: #fc3cdf;
 
 $darkerblue: #7c706a;
 $cream: #FFFFE6;
@@ -101,6 +102,7 @@ p {
 a {
   color: black;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 a:hover {
@@ -110,8 +112,7 @@ a:hover {
 
 
 button {
-  padding-left: 10px;
-  padding-right: 10px;
+
 }
 
 button:hover {
@@ -170,7 +171,25 @@ body {
 }
 
 .submitbutton{
-  margin-top: 15px;
+  margin-top: 20px;
+  padding-top: 5px;
+  text-align: center;
+  width: 95px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  height: 45px;
+  background-color: $brown;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  border-bottom: 5px solid $brown;
+}
+
+.submitbutton:hover{
+  background: $cream;
+  border-bottom: 5px solid $hotpink;
 }
 
 .errors{
@@ -180,9 +199,6 @@ body {
   margin-top: 15px;
 }
 
-.submitbutton{
-
-}
 
 /* --- HEADER --- */
 
@@ -275,7 +291,7 @@ body {
 }
 
 .troll:hover {
-  background: #fc3cdf;
+  background: $trollpink;
   text-decoration: none;
 }
 
@@ -336,9 +352,28 @@ body {
   width: 100px;
 }
 
-.votebutton {
+.upvotebutton {
   width: 25px;
   height: 25px;
+  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png");
+  background-size: contain;
+  transition: all 0.15s linear;
+}
+
+.downvotebutton{
+  width: 25px;
+  height: 25px;
+  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png");
+  background-size: contain;
+  transition: all 0.15s linear;
+}
+
+.upvotebutton:hover {
+  opacity: .60;
+}
+
+.downvotebutton:hover {
+  opacity: .60;
 }
 
 .votecount {
@@ -429,17 +464,35 @@ body {
   text-align: center;
   font-size: 24px;
   padding: 0px 100px 100px 100px;
+  width: 80%;
 }
 
 .uploadcontainer img {
   max-width: 75%;
+  height: auto;
 }
 
 .uploadbox {
   margin: 30px;
+  padding: 25px;
   color: black;
+  border: 1px solid $pinkish;
 }
 
 .uploadbox input {
   width: 250px;
+}
+
+/* --- EXTRAS --- */
+
+.votecries {
+  display: none;
+  position: fixed;
+  margin: 0 auto;
+  top: 40%;
+  left: 50%;
+}
+
+.votecry {
+  font-size: 48;
 }

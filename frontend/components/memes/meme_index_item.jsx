@@ -62,9 +62,9 @@ class MemeIndexItem extends React.Component{
           </div>
           <div className="voteauthorcomment">
             <div className="votebox">
-              <img className="votebutton" onClick={this.handleUpvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png"/>
+              <div className="upvotebutton" onClick={this.handleUpvote} />
               <span className="votecount">{ this.voteCounts(meme) }</span>
-              <img className="votebutton" onClick={this.handleDownvote} src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png"/>
+              <div className="downvotebutton" onClick={this.handleDownvote} />
             </div>
             <div className="memeUsername">From {meme.user}</div>
             <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
