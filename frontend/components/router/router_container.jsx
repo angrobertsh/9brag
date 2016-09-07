@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import AppRouter from './router';
 import * as ACTIONS from '../../actions/meme_actions';
+import * as ACTIONS2 from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.sessions.currentUser
@@ -8,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllMemes: () => dispatch(ACTIONS.requestAllMemes()),
-  requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id))
+  requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id)),
+  requestUser: (id) => dispatch(ACTIONS2.requestUser(id))
 });
 
 export default connect(

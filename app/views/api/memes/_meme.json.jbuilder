@@ -7,6 +7,7 @@ json.set! "#{meme.id}" do
  json.user meme.user.name
  json.tagnames meme.tagnames, :tagname
  json.votecount meme.votes, :vote_val
+ json.user_id meme.user.id
  json.comments meme.comments do |comment|
    json.body comment.body
    json.name comment.user.name
