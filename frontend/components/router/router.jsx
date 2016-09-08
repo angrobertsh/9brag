@@ -20,6 +20,8 @@ class AppRouter extends React.Component{
         <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
           <IndexRoute component={ MemeIndexContainer } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+          <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+          <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
           <Route path="/memes/:memeId" component={ MemeShowContainer } />
           <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
           <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />

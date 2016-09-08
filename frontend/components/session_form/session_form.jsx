@@ -7,7 +7,8 @@ class SessionForm extends React.Component{
     super(props);
     this.state = {
       name: "",
-      password: ""
+      password: "",
+      url: "http://res.cloudinary.com/dujcpxlhk/image/upload/c_limit,h_150,w_152/v1473373551/thqikq4a4hxenwoo771d.jpg"
     };
     this.update = this.update.bind(this);
   }

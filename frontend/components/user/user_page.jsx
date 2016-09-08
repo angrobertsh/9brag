@@ -46,11 +46,11 @@ class UserPage extends React.Component{
   }
 
   karmaBox() {
-    if(this.state.karmatot > 70){
+    if(this.state.karmatot > 25){
       return (<div className="usertitle memelord">Memelord</div>);
-    } else if(this.state.karmatot > 50){
+    } else if(this.state.karmatot > 15){
       return (<div className="usertitle redditnoob">Reddit Bebe</div>);
-    } else if(this.state.karmatot > 25){
+    } else if(this.state.karmatot > 10){
       return (<div className="usertitle tumblrite">Tumblrite</div>);
     } else {
       return (<div className="usertitle nooblord">Nooblord</div>);
@@ -67,14 +67,14 @@ class UserPage extends React.Component{
   }
 
   nameBox() {
-    if(this.state.karmatot > 70){
-      return (<div className="username memelordname">{this.state.name}</div>);
-    } else if(this.state.karmatot > 50){
-      return (<div className="username redditnoobname">{this.state.name}</div>);
-    } else if(this.state.karmatot > 25){
-      return (<div className="username tumblritename">{this.state.name}</div>);
+    if(this.state.karmatot > 25){
+      return (<div className="username memelordname"><img src="http://res.cloudinary.com/dujcpxlhk/image/upload/a_328/v1473368223/t1igw0ykhkrcwtfgvtsz.png" />{this.state.name}</div>);
+    } else if(this.state.karmatot > 15){
+      return (<div className="username redditnoobname"><img src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473372125/q6jaoysu3ikdkmnwt9fk.png" />{this.state.name}</div>);
+    } else if(this.state.karmatot > 10){
+      return (<div className="username tumblritename"><img src="http://res.cloudinary.com/dujcpxlhk/image/upload/a_35/v1473368140/lunetswfi9qtfcdqmbdj.png" />{this.state.name}</div>);
     } else {
-      return (<div className="username nooblordname">{this.state.name}</div>);
+      return (<div className="username nooblordname"><img src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1473287659/blmn2et8ktgdh44a7hq3.png" />{this.state.name}</div>);
     }
   }
 

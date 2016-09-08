@@ -55,16 +55,14 @@ class UploadForm extends React.Component{
   }
 
   uploadedimage(){
-    debugger
     if(this.state.url === "") {
       return (<button className="submitbutton centerme" onClick={this.upload}>Upload</button>);
     } else {
-      return (<img src={this.state.url} />);
+      return (<div className="uploadimage"><img src={this.state.url} /></div>);
     }
   }
 
   render() {
-    debugger
     return (
         <div className="uploadcontainer">
           {this.uploadedimage()}
