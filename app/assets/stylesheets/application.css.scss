@@ -413,6 +413,15 @@ body {
   padding: 15px;
 }
 
+.voteauthorcomment .memeUsername a{
+  text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+.voteauthorcomment .memeUsername a:hover{
+  color: $blue;
+}
+
+
 /* --- MEME SHOW --- */
 
 .memeshow {
