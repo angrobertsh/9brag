@@ -58,7 +58,7 @@ export default AppRouter;
 //   </Route>
 //
 //   UploadForm
-//     <div classname=upload-form>
+//     <div className=upload-form>
 //     {children}
 //
 //   <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />

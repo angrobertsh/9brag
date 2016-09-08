@@ -12,6 +12,7 @@ class UploadForm extends React.Component{
       ourTags: ""
     };
     this.upload = this.upload.bind(this);
+    this.uploadedimage = this.uploadedimage.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -53,10 +54,20 @@ class UploadForm extends React.Component{
     return e => { this.setState({[field]: e.currentTarget.value }); };
   }
 
+  uploadedimage(){
+    debugger
+    if(this.state.url === "") {
+      return (<button className="submitbutton centerme" onClick={this.upload}>Upload</button>);
+    } else {
+      return (<img src={this.state.url} />);
+    }
+  }
+
   render() {
+    debugger
     return (
         <div className="uploadcontainer">
-          <img src={this.state.url} />
+          {this.uploadedimage()}
     			<form onSubmit={this.handleSubmit} className="uploadform">
             <div className="uploadbox">
               <div>Upload Details</div>

@@ -11,9 +11,13 @@ class UserPage extends React.Component{
       name: "",
       url: "",
       memes: "",
-      karma: ""
+      karmatot: "",
+      interestkarma: "",
+      votekarma: "",
+      contributekarma: ""
     }
     this.karmaBox = this.karmaBox.bind(this);
+    this.karmaParse = this.karmaParse.bind(this);
     this.userUploadPicture = this.userUploadPicture.bind(this);
     this.userMemes = this.userMemes.bind(this);
     this.nameBox = this.nameBox.bind(this);
@@ -22,7 +26,7 @@ class UserPage extends React.Component{
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.user){
-      this.setState({id: nextProps.user.id, name: nextProps.user.name, url: nextProps.user.url, karma: nextProps.user.karma, memes: nextProps.user.memes})
+      this.setState({id: nextProps.user.id, name: nextProps.user.name, url: nextProps.user.url, karmatot: nextProps.user.karmatot, memes: nextProps.user.memes, contributekarma: nextProps.user.contributekarma, votekarma: nextProps.user.votekarma, interestkarma: nextProps.user.interestkarma})
     }
   }
 
@@ -37,12 +41,16 @@ class UserPage extends React.Component{
     );
   }
 
+  karmaParse() {
+    return (<div className="tellkarma">Karma <div className="karma">{this.state.karmatot}</div> <div className="subkarmas">(Vote: {this.state.votekarma}, Comment: {this.state.interestkarma}, Meme: {this.state.contributekarma})</div></div>)
+  }
+
   karmaBox() {
-    if(this.state.karma > 70){
+    if(this.state.karmatot > 70){
       return (<div className="usertitle memelord">Memelord</div>);
-    } else if(this.state.karma > 50){
+    } else if(this.state.karmatot > 50){
       return (<div className="usertitle redditnoob">Reddit Bebe</div>);
-    } else if(this.state.karma > 25){
+    } else if(this.state.karmatot > 25){
       return (<div className="usertitle tumblrite">Tumblrite</div>);
     } else {
       return (<div className="usertitle nooblord">Nooblord</div>);
@@ -52,18 +60,18 @@ class UserPage extends React.Component{
   userUploadPicture() {
     if(this.props.currentUser) {
       if(this.props.currentUser.id === parseInt(this.props.params.userId)) {
-        return (<div className="userimage"><img src={this.state.url} /> <div className="uploadclick" onClick={this.handleUpload}>AAAAAAAAAAAAAH!</div></div>);
+        return (<div className="userimage"><div className="uploadclick" onClick={this.handleUpload}>+</div><img src={this.state.url} /> </div>);
       }
     }
     return (<div className="userimage"><img src={this.state.url} /> </div>);
   }
 
   nameBox() {
-    if(this.state.karma > 70){
+    if(this.state.karmatot > 70){
       return (<div className="username memelordname">{this.state.name}</div>);
-    } else if(this.state.karma > 50){
+    } else if(this.state.karmatot > 50){
       return (<div className="username redditnoobname">{this.state.name}</div>);
-    } else if(this.state.karma > 25){
+    } else if(this.state.karmatot > 25){
       return (<div className="username tumblritename">{this.state.name}</div>);
     } else {
       return (<div className="username nooblordname">{this.state.name}</div>);
@@ -95,10 +103,13 @@ class UserPage extends React.Component{
             {this.karmaBox()}
             {this.userUploadPicture()}
             {this.nameBox()}
+            {this.karmaParse()}
           </div>
           <div className="userMemeContainer">
             <div className="myMemestitle"> {this.state.name+"'s"} Memes </div>
-              {this.userMemes()}
+              <ul className="memeUL">
+                {this.userMemes()}
+              </ul>
           </div>
         </div>
       );

@@ -1,13 +1,35 @@
 $blue: #AEA5A0;
 $pinkish: #CFBEA4;
 $white: #FFFFFF;
-$brown: #79684E;
 $black: #000000;
 $trollpink: #fc3cdf;
+// original
+// $brown: #79684E;
+// $cream: #FFFFE6;
+// $wheat: #f9e2bc;
 
-$darkerblue: #7c706a;
-$cream: #FFFFE6;
+// test1
+// $brown: #A6661B;
+// $cream: #242C15;
+// $wheat: #F3D3AD;
+
+// test2
+// $brown: #331832;
+// $cream: #F0544F;
+// $wheat: #C6D8D3;
+
+// test3
+$brown: #FF3321;
+$cream: white;
+$wheat: #FFFFE6;
+
+// test4
+// $brown: #A6661B;
+// $cream: #242C15;
+// $wheat: #F3D3AD;
+
 $hotpink: #E80C7A;
+$darkerblue: #7c706a;
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -120,7 +142,9 @@ button:hover {
 }
 
 body {
+  background-color: $wheat;
 }
+
 
 /* --- CLEARFIX --- */
 .group:after {
@@ -171,7 +195,7 @@ body {
 }
 
 .submitbutton{
-  margin-top: 20px;
+  margin-top: 25px;
   padding-top: 5px;
   text-align: center;
   width: 95px;
@@ -181,15 +205,15 @@ body {
   font-size: 16px;
   font-weight: bold;
   height: 45px;
-  background-color: $brown;
+  background-color: $cream;
   transition: all 0.5s ease;
   box-sizing: border-box;
-  border-bottom: 5px solid $brown;
+  border-bottom: 5px solid $cream;
 }
 
 .submitbutton:hover{
   background: $cream;
-  border-bottom: 5px solid $hotpink;
+  border-bottom: 5px solid $darkerblue;
 }
 
 .errors{
@@ -250,11 +274,17 @@ body {
   font-size: 16px;
 }
 
-.authbuttons .greet .name {
+.authbuttons .greet .name a {
   color: yellow;
   padding-left: 6px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  transition: all 0.5s ease;
 }
+
+.authbuttons .greet .name a:hover {
+  color: $cream;
+}
+
 
 .authbutton{
 }
@@ -274,8 +304,8 @@ body {
 }
 
 .topbutton:hover{
-  background: $cream;
-  border-bottom: 5px solid $hotpink;
+  background: $wheat;
+  border-bottom: 5px solid $darkerblue;
 }
 
 .logoutbutton {
@@ -286,7 +316,6 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: yellow;
-  padding: 10px;
   text-decoration: none;
 }
 
@@ -311,7 +340,7 @@ body {
 }
 
 .memeTitle {
-  padding: 20px 10px 20px 10px;
+  padding: 20px;
   font-weight: 900;
   font-size: 32px;
   color: black;
@@ -437,7 +466,20 @@ body {
 }
 
 .oneComment {
-  display: block
+  display: flex;
+}
+
+.commentimage{
+
+}
+
+.commentimage img {
+  height: 50px;
+  width: 50px;
+}
+
+.smolbox {
+  padding-left: 15px;
 }
 
 .commentUser{
@@ -467,6 +509,10 @@ body {
   width: 80%;
 }
 
+.uploadcontainer .centerme {
+  margin: 150px auto;
+}
+
 .uploadcontainer img {
   max-width: 75%;
   height: auto;
@@ -476,11 +522,125 @@ body {
   margin: 30px;
   padding: 25px;
   color: black;
+  background: $cream;
   border: 1px solid $pinkish;
 }
 
 .uploadbox input {
   width: 250px;
+}
+
+
+/* --- USER SHOW --- */
+
+.userTitleInfo {
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid $pinkish;
+  background-color: $cream;
+}
+
+.usertitle {
+  padding: 15px;
+  font-size: 24px;
+}
+
+.userimage {
+  position: relative;
+}
+
+.userimage img {
+  height: 150px;
+  width: 150px;
+  border: 1px solid $pinkish;
+}
+
+.username {
+  padding: 20px;
+  font-size: 48px;
+  font-weight: bolder;
+}
+
+.tellkarma {
+  border-top: 1px solid $pinkish;
+  padding: 15px;
+  display: flex;
+  font-size: 16px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.karma {
+  padding: 5px;
+  font-size: 24px;
+}
+
+.subkarmas {
+  font-size: 10px;
+  color: $darkerblue;
+}
+
+.userMemeContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 25px 0 25px 0;
+}
+
+.myMemestitle {
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+  padding: 15px 0 30px 0;
+  font-size: 30px;
+}
+
+.memeUL{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.memeUL li{
+  width: 31%;
+  height: 100%;
+}
+
+.memeUL li .memeTitle {
+  padding: 15px;
+}
+
+.memeUL li .memeTitle a{
+  font-size: 22px;
+}
+
+.memeUL li .memebottominfo{
+  font-size: 12px;
+}
+
+
+.uploadclick {
+  position: absolute;
+  background-color: $white;
+  color: $darkerblue;
+  font-weight: bolder;
+  height: 20px;
+  width: 20px;
+  opacity: .3;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  right: 0px;
+}
+
+.uploadclick:hover{
+  opacity: .8;
 }
 
 /* --- EXTRAS --- */

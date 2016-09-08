@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import MemeIndexItem from './meme_index_item';
 
 class MemeShow extends React.Component{
@@ -53,9 +53,14 @@ class MemeShow extends React.Component{
                 return (
                     <div key={comment.id+comment.body} className="commentArea">
                       <div className="oneComment">
-                        <div className="commentUser">{comment.name}</div>
-                        <div className="commentDate">{comment.time}</div>
-                        <div className="commentBody">{comment.body}</div>
+                        <div className="commentimage">
+                          <img src={comment.user_url} />
+                        </div>
+                        <div className="smolbox">
+                          <div className="commentUser"><Link to={`/users/${comment.comment_user_id}`}>{comment.name}</Link></div>
+                          <div className="commentDate">{comment.time}</div>
+                          <div className="commentBody">{comment.body}</div>
+                        </div>
                       </div>
                     </div>
                   );

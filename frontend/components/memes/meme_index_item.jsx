@@ -66,7 +66,7 @@ class MemeIndexItem extends React.Component{
               <span className="votecount">{ this.voteCounts(meme) }</span>
               <div className="downvotebutton" onClick={this.handleDownvote} />
             </div>
-            <div className="memeUsername">From {meme.user}</div>
+            <div className="memeUsername">From <Link to={`/users/${meme.user_id}`}>{meme.user}</Link></div>
             <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
           </div>
         </div>
