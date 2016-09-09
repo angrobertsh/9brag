@@ -11,7 +11,7 @@ User.create(name: "Simperella", password: "spoopy", url: "http://res.cloudinary.
 User.create(name: "Poushtart", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473373852/ovpywfoftmqtscudv3sp.jpg")
 User.create(name: "CaNdYcAnE748", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473373177/r9tqyvfaocfj5th4wdno.jpg")
 User.create(name: "racketball6868", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473281545/o5wdjmofpdjtwpnxoiu5.jpg")
-User.create(name: "PeplosKore", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375056/h2zezwouvgbvmouqbzbb.jpg")
+User.create(name: "PeplosKore", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473449337/jajrxidhro1dwlhmh4ax.jpg")
 User.create(name: "obeocookiE", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375283/nsh3cueonosyrezbkp3c.jpg")
 User.create(name: "Ranaferboi", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375254/txucew65r3gkasfrprrj.jpg")
 User.create(name: "JolenejoleneJOLEEENE", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375440/ztslbe1ahxpaipfn3n1a.jpg")

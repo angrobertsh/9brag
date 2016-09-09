@@ -1,103 +1,86 @@
 ##9Brag
 
-###Minimum Viable Product
+[9brag live] (www.9brag.com)
 
-9Brag is a web application inspired by 9Gag built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+9Brag is a full stack web application that embraces the futility and frivolousness of the internet era as represented by internet memes and karma. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
 
-* Hosting on Heroku
-* New account creation, login, and guest/demo login
-* Post Pictures
-* Comment
-* Upvote/Downvote
-* Tags
-* Production README
+###Features and Implementation
 
-##Implementation and Timeline
+####Single-Page App
 
-###Phase 1 (2 days):
+9Brag uses React and Redux to make AJAX calls to dynamically render the stalest, most beloved memes and their trashy comments. Navigation occurs without multiple full http requests and content is queried and populated smooth rendering, thanks to the many React components which dispatch actions through the React Router.
 
-####**Objective: Functioning rails project with front-end Authentication**
+```javascript
+<Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
+  <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
+    <IndexRoute component={ MemeIndexContainer } />;
+    <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+    <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+    <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+    <Route path="/memes/:memeId" component={ MemeShowContainer } />
+    <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
+    <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
+    <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+    <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+  </Route>
+</Router>
+  ```
 
-* New Rails project
-* User model/migration
-* Back end authentication (session/password)
-* StaticPages controller and root view
-* Webpack & react/redux modules
-* APIUtil to interact with the API
-* Redux cycle for frontend authentication
-  * AuthFormContainer
-* User signup/signin components
-* Blank landing component after signup/signin
-* Style signup/signin components
-* Seed users
-* Review phase 1
+####Authentication
 
-###Phase 2: (2 days)
+User authentication happens on the frontend framework using actions dispatched by components using the state of `Store.session` to populate a current user. Sensitive information is kept out of the frontend of the app by making an API call to `SessionsController#create`. Updating url images has an ajax call to a custom Rails route that relies on cookies defining the current user to make patch requests so users cannot alter other users.
 
-####**Objective: Complete meme index view (MemeContainerAbbreviated)**
+```ruby
+      patch 'updatephoto' => "users#updatephoto", as: "updatephoto"
+  ```
 
-* Meme model
-* Memes controller [:index, :show, :create]
-* Join tables with upvotes and downvotes
-* Seed database with a small amount of test data
-* Meme components and respective Redux loops
- * MemeContainerAbbreviated
-  * MemeInfoContainer
-* Style memes components
-* Seed memes
-* Review phase 2
+```javascript
+export const updateUser = (user, success) => {
+  $.ajax({
+    method: "PATCH",
+    url: `api/updatephoto`,
+    data: {user: user},
+    success,
+    error: () => alert("Unable to update user")
+  });
+}
+  ```
 
-###Phase 3: (2 days)
+####Picture Submission and Storage
 
-####**Objective: Elaborate upon meme index view with comment container to complete show view (MemeContainerFull)**
+On the database side, `meme`s are stored in one table in the database, which contains columns for `id`, `url` and `titles`. Multiple associations are queried upon entrance of the memes index which forms the basis of a meme's presentation.
 
-* Join table for comments
-* Comments controller [:create]
-* JSON views with tricky if statement for comments like in pokemon project
-* Seed database with a small amount of test data
-* Comments components and respective Redux loops
- * MemeContainerFull
-  * CommentFormContainer
-  * CommentContainer
-   * Comment
- * Style comment components
- * Seed comments
- * Review phase 3
+![upload screenshot](./app/assets/images/ss1.png)
 
-###Phase 4: (1 day)
+Pictures can be submitted and stored on Cloudinary. Memes are rendered in two different components: the `MemeIndex` component, which shows a collection of `MemeIndexItem` which contain the the title, image, upvotes, tags, and number of comments, and the `MemeShow` component, which expands upon a `MemeIndexItem` with information including comments and a comment submission form.
 
-####**Objective: Add taggings and tagging index**
+####Upvote and Tag Join Tables
 
-* Tag model and Taggings join table
-* Adding tags to memes
-* Fetching by tag
-* Seed tags with seed data
-* Review phase 4
+The database is also populated with multiple join tables describing the relationship between `user`s, `tagname`s, and `meme`s. ActiveRecord associations create the `tags` join table between `tagname`s and `meme`s, the upvotes/downvotes through the polymorphic association with a value table describing the `vote_val` between memes and users, and the user comments relationship through users, memes, and their comments. These associations allow for instantaneous updates on likes and comments. The models maintain their simplicity and autonomy, with their associations and the jbuilder views doing the majority of the work.
 
-###Phase 5: (1 day)
+```ruby
+class Meme < ActiveRecord::Base
+  validates :url, :title, presence: true
 
-####**Objective: Have working upload form**
+  def ourTags=(tags)
+    @tags = tags
+  end
 
-* Research uploading images and how to put them in the right place if not our database
-* ??? backend?
-* Create components and respective redux loops
- * UploadFormContainer
+  include Votable
 
-###Phase 6: (0-1 days)
+  belongs_to :user
 
-####**Objective: Add bonus features including the following:**
+  has_many :comments
+  has_many :tags, inverse_of: :meme
+  has_many :votes, :as => :votable
 
-* Infinite scroll to memes index
- * Paginate memes index API to send 20 results at a time
- * Append next set of results when user scrolls and is near bottom
-  * Style scroll components and transitions
-  * Ensure seed data demonstrates infinite scroll
-* Creating a tags index
- * Create a request for a tags index of tagname instead of requerying a new memes index
- * Create a full page of tagnames that queries a new memes index    
-* Search
- * Create a request for a tags index instead of requerying a new memes index
- * Create a full page for tags that queries a new memes index    
-* Creating user profiles
- * Create a request for user info
- * Create a full page for the user including karma
+  has_many :tagnames,
+    through: :tags,
+    source: :tagname
+
+end
+  ```
+
+###Future Directions for the Project
+
+Future directions for this project include elaborating upon the idea of more karma being better and worth more, more irritating bells and whistles, unnecessary monetization, an infinite scroll on the memes index, and the ability to upvote and downvote comments.
