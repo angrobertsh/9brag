@@ -15,7 +15,7 @@ class SessionForm extends React.Component{
 
   redirectIfLoggedIn(){
 		if (this.props.loggedIn){
-			this.props.router.push("/");
+			this.props.router.push("/memes");
 		}
 	}
 
@@ -41,7 +41,7 @@ class SessionForm extends React.Component{
 
   componentDidUpdate() {
     if(this.props.loggedIn){
-      this.props.router.push('/');
+      this.props.router.push('/memes');
     }
   }
 

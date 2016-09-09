@@ -4,9 +4,11 @@ import AuthBarContainer from './authbar/authbar_container';
 import MemeIndexContainer from './memes/meme_index_container';
 
 const App = ({children}) => (
-  <div>
+  <div className="App">
     <AuthBarContainer />
-    {children}
+    <div className="bodycontainer">
+      {children}
+    </div>
   </div>
 );
 

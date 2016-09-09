@@ -91,7 +91,6 @@ table {
 	border-spacing: 0;
 }
 
-
 html{
   font-family: 'Montserrat', sans-serif;
 }
@@ -145,6 +144,12 @@ body {
   background-color: $wheat;
 }
 
+#root {
+}
+
+.App {
+  height: 100%;
+}
 
 /* --- CLEARFIX --- */
 .group:after {
@@ -702,5 +707,36 @@ body {
 }
 
 .votecry {
-  font-size: 48;
+  font-size: 48px;
+}
+
+/* --- SPLASH --- */
+.splashcontainercontainer {
+  z-index: -1;
+  display: flex;
+  position: absolute;
+  top: 0;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.splashcontainercontainer a {
+  height: 100%;
+}
+
+.splashcontainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png");
+}
+
+.splashcontainer img {
+  position: absolute;
 }

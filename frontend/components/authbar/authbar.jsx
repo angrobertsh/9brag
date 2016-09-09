@@ -45,7 +45,7 @@ class Authbar extends React.Component{
     return (
       <header className="topbar group">
         <nav className="widthcontainer">
-          <h4 className="logo"><Link to="/"><img src='http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png' id="logoimage" /></Link></h4>
+          <h4 className="logo"><Link to="/memes"><img src='http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png' id="logoimage" /></Link></h4>
           { this.fewTags() }
           { this.variableButtons() }
         </nav>

@@ -6,8 +6,11 @@ import SessionFormContainer from '../session_form/session_form_container';
 import UploadFormContainer from '../upload_form/upload_form_container';
 import MemeShowContainer from '../memes/meme_show_container';
 import UserPageContainer from '../user/user_page_container';
+import SplashContainer from '../splash/splash_container';
 
 import App from '../app';
+
+// <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -18,7 +21,8 @@ class AppRouter extends React.Component{
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
-          <IndexRoute component={ MemeIndexContainer } />;
+          <IndexRoute component={ SplashContainer } />
+          <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
           <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
           <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
@@ -44,7 +48,7 @@ class AppRouter extends React.Component{
 
   _redirectIfLoggedIn (nextState, replace) {
     if(this.props.currentUser){
-      replace('/');
+      replace('/memes');
     }
   }
 
