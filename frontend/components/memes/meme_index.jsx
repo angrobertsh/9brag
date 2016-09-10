@@ -54,6 +54,7 @@ class MemeIndex extends React.Component{
     }
   }
 
+  // <div className="upnav">^</div>
   render(){
     return (
       <div className="memeindex">
