@@ -74,7 +74,7 @@ class UploadForm extends React.Component{
               <br/>
               <input type="text" onChange={this.update("title")} value={this.state.title} className="authinput" placeholder="Title"/>
               <br/>
-              <input type="text" onChange={this.update("attribution")} value={this.state.attribution} className="authinput" placeholder="Attribution"/>
+              <input type="text" onChange={this.update("attribution")} value={this.state.attribution} className="authinput" placeholder="Attribution (e.g. me, www.google.com)"/>
               <br/>
               <input type="text" onChange={this.update("ourTags")} value={this.state.ourTags} className="authinput" placeholder="Tags (e.g. cats, animals, shrek)"/>
               <br/>

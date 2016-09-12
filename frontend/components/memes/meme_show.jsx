@@ -23,6 +23,7 @@ class MemeShow extends React.Component{
     e.preventDefault();
     const comment = {comment: {body: this.state.commentBody, meme_id: parseInt(this.props.params.memeId)}};
     this.props.createComment(comment, parseInt(this.props.params.memeId));
+    this.setState({commentBody: ""});
   }
 
   commentForm(){

@@ -9,6 +9,7 @@ class MemeIndexItem extends React.Component{
     this.memeTags = this.memeTags.bind(this);
     this.handleUpvote = this.handleUpvote.bind(this);
     this.handleDownvote = this.handleDownvote.bind(this);
+    this.attributer = this.attributer.bind(this);
   }
 
   voteCounts(meme){
@@ -35,6 +36,18 @@ class MemeIndexItem extends React.Component{
     return (<div className="tagdiv">Tags: {tagArr}</div>)
   }
 
+  attributer(meme){
+    let attributionstring = <div className="memeAttribution" />;
+    if(meme.attribution){
+      if(meme.attribution.substring(0,4) === "www."){
+        attributionstring = (<div className="memeAttribution"><a href={meme.attribution}>{meme.attribution}</a></div>)
+      } else {
+        attributionstring = (<div className="memeAttribution">{meme.attribution}</div>)
+      }
+    }
+    return attributionstring;
+  }
+
   handleUpvote(e) {
     e.preventDefault();
     const vote = {vote: {vote_val: 1, votable_id: this.props.meme.id}};
@@ -57,7 +70,7 @@ class MemeIndexItem extends React.Component{
         </div>
         <div className="memebottominfo">
           <div className="tagsattribution">
-            <div className="memeAttribution"><a href={meme.attribution}>{meme.attribution}</a></div>
+            { this.attributer(meme) }
             { this.memeTags(meme) }
           </div>
           <div className="voteauthorcomment">

@@ -144,6 +144,10 @@ body {
   background-color: $wheat;
 }
 
+input {
+  height: 20px;
+}
+
 #root {
 }
 
@@ -427,23 +431,25 @@ body {
   color: $blue;
 }
 
-// .upnav {
-//   display: flex;
-//   width: 90px;
-//   height: 90px;
-//   justify-content: center;
-//   align-items: center;
-//   opacity: .2;
-//   font-size: 56px;
-//   background-color: white;
-//   position: fixed;
-//   right: 40px;
-//   bottom: 40px;
-// }
-//
-// .upnav:hover {
-//   opacity: .8;
-// }
+.upnav {
+  display: flex;
+  width: 90px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  opacity: .2;
+  font-size: 56px;
+  color: white;
+  background-color: $darkerblue;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  padding-top: 30px;
+}
+
+.upnav:hover {
+  opacity: .8;
+}
 
 /* --- MEME SHOW --- */
 
