@@ -177,6 +177,7 @@ input {
   width: 450px;
   border: 1px solid $blue;
   padding: 40px 40px 35px 40px;
+  margin-top: 40px;
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473136165/pepe2_m6b1f4.jpg");
   background-size: cover;
 }
@@ -184,6 +185,7 @@ input {
 .signup{
   width: 450px;
   border: 1px solid $blue;
+  margin-top: 40px;
   padding: 40px 40px 35px 40px;
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473107969/zxry8med4wlssiw2xhtz.jpg");
   background-size: cover;
@@ -777,7 +779,7 @@ input {
 
 .splashcontainer .mini {
   font-size: 24px;
-  margin-top: 50px;
+  margin-top: 75px;
   padding-top: 35px;
 }
 
