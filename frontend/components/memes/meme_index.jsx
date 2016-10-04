@@ -58,7 +58,7 @@ class MemeIndex extends React.Component{
   render(){
     return (
       <div className="memeindex">
-        <Link to="/memes"><div className="upnav">^</div></Link>
+        <Link to="/memes"><div className="upnav"><img id="upcaret" src="http://res.cloudinary.com/dujcpxlhk/image/upload/v1475617890/uiv3dseta4kccja3gwsw.png" /></div></Link>
         <ul>
           { this.indexMemes() }
         </ul>

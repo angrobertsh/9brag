@@ -1,6 +1,6 @@
 ##9Brag
 
-[9brag live](https://www.9brag.com)
+[9brag live](http://www.9brag.com)
 
 9Brag is a full stack web application that embraces the futility and frivolousness of the internet era as represented by internet memes and karma. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
 

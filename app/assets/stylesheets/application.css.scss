@@ -343,7 +343,7 @@ input {
 /* --- MEMES INDEX AND MEME ITEM --- */
 
 .memeindex {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -436,7 +436,7 @@ input {
 .upnav {
   display: flex;
   width: 90px;
-  height: 60px;
+  height: 90px;
   justify-content: center;
   align-items: center;
   opacity: .2;
@@ -446,17 +446,21 @@ input {
   position: fixed;
   right: 40px;
   bottom: 40px;
-  padding-top: 30px;
 }
 
 .upnav:hover {
   opacity: .8;
 }
 
+#upcaret {
+  width: 60px;
+  height: 60px;
+}
+
 /* --- MEME SHOW --- */
 
 .memeshow {
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
 }
 
@@ -727,15 +731,44 @@ input {
 /* --- EXTRAS --- */
 
 .votecries {
-  display: none;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   position: fixed;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  top: 40%;
-  left: 50%;
+  visibility: hidden;
+}
+
+.votecrycontainer{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 50px;
+  text-align: center;
 }
 
 .votecry {
+  width: 270px;
   font-size: 48px;
+  position: absolute;
+  color: yellow;
+}
+
+#yas{
+  text-shadow: 2px 2px 50px rgba(255,0,0,1);
+  // visibility: visible;
+}
+
+#boo{
+  text-shadow: 2px 2px 50px rgba(255,0,0,1);
+  // visibility: visible;
+}
+
+#nvm{
+  text-shadow: 2px 2px 50px rgba(255,0,0,1);
+  // visibility: visible;
 }
 
 /* --- SPLASH --- */
@@ -745,15 +778,14 @@ input {
   position: absolute;
   top: 0;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
   background-color: #f2f2f2;
 }
 
 .splashcontainercontainer a {
-  height: 100%;
-  width: 400px;
-  margin: 0 auto;
 }
 
 .splashcontainercontainer a:hover {
@@ -762,11 +794,12 @@ input {
 
 
 .splashcontainer {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 100px;
+  // margin-top: 500px;
   // background-position: 50% 50%;
   // background-repeat: no-repeat;
   // background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png");
