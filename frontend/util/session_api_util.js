@@ -36,3 +36,11 @@ export const loginGuest = (success) => {
     error: () => alert('Already logged in!')
   });
 };
+
+export const getCurrentUserVotes = (success) => {
+  $.ajax({
+    url: 'api/currentUserVotes',
+    success,
+    error: () => alert('error')
+  });
+};

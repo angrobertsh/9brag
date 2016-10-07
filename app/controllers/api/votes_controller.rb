@@ -22,6 +22,11 @@ class Api::VotesController < ApplicationController
     end
   end
 
+  def currentUserVotes
+    @votes = Vote.where(user_id: current_user.id)
+    render "api/votes/current_user_votes"
+  end
+
   private
 
   def vote_params

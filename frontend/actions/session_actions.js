@@ -4,7 +4,9 @@ export const SessionConstants = {
   LOGOUT: "LOGOUT",
   LOGIN_GUEST: "LOGIN_GUEST",
   RECEIVE_CURRENT_USER: "RECEIVE_CURRENT_USER",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS"
+  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+  RECEIVE_CURRENT_USER_VOTES: "RECEIVE_CURRENT_USER_VOTES",
+  GET_CURRENT_USER_VOTES: "GET_CURRENET_USER_VOTES"
 };
 
 export const signup = (user) => {
@@ -39,4 +41,15 @@ export const receiveErrors = (errors) => {
   return {
     type: SessionConstants.RECEIVE_ERRORS,
     errors: errors};
+};
+
+export const getCurrentUserVotes = () => {
+  return {
+    type: SessionConstants.GET_CURRENT_USER_VOTES};
+};
+
+export const receiveCurrentUserVotes = (votes) => {
+  return {
+    type: SessionConstants.RECEIVE_CURRENT_USER_VOTES,
+    votes: votes};
 };

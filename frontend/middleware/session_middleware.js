@@ -13,7 +13,10 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
 
   switch(action.type){
     case ACTIONS.SessionConstants.LOGIN:
-      success = user => dispatch(ACTIONS.receiveCurrentUser(user));
+      success = (user) => {
+        dispatch(ACTIONS.receiveCurrentUser(user));
+        dispatch(ACTIONS.getCurrentUserVotes());
+      };
       UTILS.login(action.user, success, errorCB);
       return next(action);
     case ACTIONS.SessionConstants.SIGNUP:
@@ -21,8 +24,15 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
       UTILS.signup(action.user, success, errorCB);
       return next(action);
     case ACTIONS.SessionConstants.LOGIN_GUEST:
-      success = user => dispatch(ACTIONS.receiveCurrentUser(user));
+      success = (user) => {
+        dispatch(ACTIONS.receiveCurrentUser(user));
+        dispatch(ACTIONS.getCurrentUserVotes());
+      };
       UTILS.loginGuest(success);
+      return next(action);
+    case ACTIONS.SessionConstants.GET_CURRENT_USER_VOTES:
+      success = votes => dispatch(ACTIONS.receiveCurrentUserVotes(votes));
+      UTILS.getCurrentUserVotes(success);
       return next(action);
     case ACTIONS.SessionConstants.LOGOUT:
       success = () => {

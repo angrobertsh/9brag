@@ -2,6 +2,7 @@ class Api::SessionsController < ApplicationController
 
   def create
     @user = User.find_by_username_and_password(params[:user][:name], params[:user][:password])
+    @votes = Vote.where(user_id: @user.id)
     if @user
       login(@user)
       render "api/users/show"

@@ -19,6 +19,9 @@ const SessionsReducer = (state = defaultState, action) => {
     case ACTIONS.SessionConstants.LOGOUT:
       newState = merge({}, defaultState);
       return newState;
+    case ACTIONS.SessionConstants.RECEIVE_CURRENT_USER_VOTES:
+      newState = merge({}, state, {currentUser: {votes: action.votes}});
+      return newState;
     default:
       return state;
   }

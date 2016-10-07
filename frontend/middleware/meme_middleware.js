@@ -1,5 +1,6 @@
 import { hashHistory } from 'react-router';
 import * as ACTIONS from '../actions/meme_actions';
+import * as SESSION_ACTIONS from '../actions/session_actions';
 import * as UTILS from '../util/meme_api_util';
 
 let success;
@@ -31,7 +32,10 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
       UTILS.postMeme(action.meme, success, errorCB);
       return next(action);
     case ACTIONS.MemeConstants.UPVOTE:
-      success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));
+      success = (meme) => {
+        dispatch(ACTIONS.receiveSingleMeme(meme));
+        dispatch(SESSION_ACTIONS.getCurrentUserVotes());
+      };
       UTILS.createVote(action.vote, success, action.memeId);
       return next(action);
     default:
