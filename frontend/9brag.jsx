@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import * as ACTIONS from './actions/meme_actions';
 import * as ACTIONS2 from './actions/user_actions';
+import * as ACTIONS3 from './actions/session_actions';
 import * as UTILS from './util/meme_api_util';
 import Root from './components/root';
 
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if(window.currentUser) {
     const initialState = {sessions: {currentUser: window.currentUser}};
     store = configureStore(initialState);
+    store.dispatch(ACTIONS3.getCurrentUserVotes());
   } else {
     store = configureStore();
   }

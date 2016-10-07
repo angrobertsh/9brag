@@ -33,23 +33,23 @@ class MemeIndex extends React.Component{
     if(tags){
       filteredArray = this.matchTags(memesArray, tags);
       return (
-        filteredArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote}/>)
+        filteredArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>)
       );
     } else if(hotorfresh === "/hot") {
       let hotsort = (a, b) => {if(a.comments.length + a.votecount.length < b.comments.length + b.votecount.length){ return 1; } else if(a.comments.length + a.votecount.length > b.comments.length + b.votecount.length) {return -1;} else{ return 0;}}
       filteredArray = memesArray.sort(hotsort);
       return (
-        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote}/>)
+        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>)
       );
     } else if(hotorfresh === "/fresh") {
       let freshsort = (a, b) => {if(a.created_at < b.created_at){return 1;}else if(a.created_at > b.created_at){return -1;}else{return 0;}}
       filteredArray = memesArray.sort(freshsort);
       return (
-        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote}/>)
+        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>)
       );
     } else {
       return (
-        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote}/>)
+        memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>)
       );
     }
   }

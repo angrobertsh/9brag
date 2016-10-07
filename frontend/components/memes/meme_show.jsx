@@ -81,7 +81,7 @@ class MemeShow extends React.Component{
     }
     return (
       <div className="memeshow">
-        <MemeIndexItem meme={meme} upvote={this.props.upvote}/>
+        <MemeIndexItem meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>
         { this.commentsInfo(meme) }
       </div>
     )

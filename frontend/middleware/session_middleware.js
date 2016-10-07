@@ -20,7 +20,10 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
       UTILS.login(action.user, success, errorCB);
       return next(action);
     case ACTIONS.SessionConstants.SIGNUP:
-      success = user => dispatch(ACTIONS.receiveCurrentUser(user));
+      success = (user) => {
+        dispatch(ACTIONS.receiveCurrentUser(user));
+        dispatch(ACTIONS.getCurrentUserVotes());
+      };
       UTILS.signup(action.user, success, errorCB);
       return next(action);
     case ACTIONS.SessionConstants.LOGIN_GUEST:

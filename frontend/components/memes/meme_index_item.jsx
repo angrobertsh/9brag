@@ -10,6 +10,7 @@ class MemeIndexItem extends React.Component{
     this.handleUpvote = this.handleUpvote.bind(this);
     this.handleDownvote = this.handleDownvote.bind(this);
     this.attributer = this.attributer.bind(this);
+    this.whichTransitionEvent = this.whichTransitionEvent.bind(this);
   }
 
   voteCounts(meme){
@@ -50,14 +51,80 @@ class MemeIndexItem extends React.Component{
 
   handleUpvote(e) {
     e.preventDefault();
+
+    let activeEl = 0;
+
+    if(this.props.currentUser){
+      if(this.props.currentUser.votes[this.props.meme.id]) {
+        if(this.props.currentUser.votes[this.props.meme.id].vote_val == 1){
+          activeEl = document.getElementById("nvm");
+        } else {
+          activeEl = document.getElementById("yas");
+        }
+      } else {
+        activeEl = document.getElementById("yas");
+      }
+      activeEl.classList.add("fadeIn", "animated", "visible");
+      activeEl.classList.remove("hidden");
+
+      let transitionEvent = this.whichTransitionEvent();
+      transitionEvent && activeEl.addEventListener(transitionEvent, () => {
+        activeEl.classList.remove("fadeIn", "animated", "visible");
+        activeEl.classList.add("hidden");
+      });
+
+    }
+
     const vote = {vote: {vote_val: 1, votable_id: this.props.meme.id}};
     this.props.upvote(vote, this.props.meme.id);
   }
 
   handleDownvote(e) {
     e.preventDefault();
+
+    let activeEl = 0;
+
+    if(this.props.currentUser){
+      if(this.props.currentUser.votes[this.props.meme.id]) {
+        if(this.props.currentUser.votes[this.props.meme.id].vote_val == -1){
+          activeEl = document.getElementById("nvm");
+        } else {
+          activeEl = document.getElementById("boo");
+        }
+      } else {
+        activeEl = document.getElementById("boo");
+      }
+      activeEl.classList.add("fadeIn", "animated", "visible");
+      activeEl.classList.remove("hidden");
+
+      let transitionEvent = this.whichTransitionEvent();
+      transitionEvent && activeEl.addEventListener(transitionEvent, () => {
+        activeEl.classList.remove("fadeIn", "animated", "visible");
+        activeEl.classList.add("hidden");
+      });
+
+    }
+
     const vote = {vote: {vote_val: -1, votable_id: this.props.meme.id}};
     this.props.upvote(vote, this.props.meme.id);
+  }
+
+
+  whichTransitionEvent(){
+    let t;
+    let el = document.createElement('fakeelement');
+    let transitions = {
+      'animation':'animationend',
+      'OAnimation':'oAnimationEnd',
+      'MozAnimation':'animationend',
+      'WebkitAnimation':'webkitAnimationEnd'
+    }
+
+    for(t in transitions){
+      if( el.style[t] !== undefined ){
+        return transitions[t];
+      }
+    }
   }
 
   render(){
