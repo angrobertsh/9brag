@@ -7,6 +7,33 @@ export const fetchAllMemes = (success) => {
   });
 };
 
+// export const fetchHotMemes = (success) => {
+//   $.ajax({
+//     method: "GET",
+//     url: 'api/getHotMemes',
+//     success,
+//     error: "Couldn't fetch all hot memes."
+//   });
+// };
+//
+// export const fetchFreshMemes = (success) => {
+//   $.ajax({
+//     method: "GET",
+//     url: 'api/getFreshMemes',
+//     success,
+//     error: "Couldn't fetch all fresh memes."
+//   });
+// };
+//
+// export const fetchTaggedMemes = (tag, success) => {
+//   $.ajax({
+//     method: "GET",
+//     url: `api/${tag}`,
+//     success,
+//     error: "Couldn't fetch all tagged memes."
+//   });
+// };
+
 export const fetchSingleMeme = (id, success) => {
   $.ajax({
     method: "GET",

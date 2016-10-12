@@ -13,6 +13,17 @@ const mapDispatchToProps = dispatch => ({
   requestUser: (id) => dispatch(ACTIONS2.requestUser(id))
 });
 
+
+// const mapDispatchToProps = dispatch => ({
+//   requestAllMemes: () => dispatch(ACTIONS.requestAllMemes()),
+//   requestTaggedMemes: (tag) => dispatch(ACTIONS.requestTaggedMemes(tag)),
+//   requestFreshMemes: () => dispatch(ACTIONS.requestFreshMemes()),
+//   requestHotMemes: () => dispatch(ACTIONS.requestHotMemes()),
+//   requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id)),
+//   requestUser: (id) => dispatch(ACTIONS2.requestUser(id))
+// });
+
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

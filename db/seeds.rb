@@ -17,7 +17,7 @@ User.create(name: "Ranaferboi", password: "spoopy", url: "http://res.cloudinary.
 User.create(name: "JolenejoleneJOLEEENE", password: "spoopy", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375440/ztslbe1ahxpaipfn3n1a.jpg")
 User.create(name: "password123", password: "justkidding", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375317/xotwxtm8bmvej3zinotq.jpg")
 User.create(name: "Guest", password: "123456", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473375228/v8ighputq7xmdzwhhika.jpg")
-User.create(name: "Troll", password: "lololxd", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473284529/fbuc3toxqng3bel5zxmf.png")
+User.create(name: "Troll", password: "lololxd", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1476231058/s9x4wetsg860k20fbeuv.jpg")
 
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473132877/myhobby_lyfxn3.jpg", title: "How about crying? Is crying a hobby?", user_id: 1)
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1473181571/spiral_xs0tgm.jpg", title: "I for one welcome our new poultry overlords", user_id: 2)

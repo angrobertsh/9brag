@@ -4,6 +4,16 @@ class Api::MemesController < ApplicationController
     @memes = Meme.all
   end
 
+  # def getTaggedMemes
+  # params[:tag]
+  # end
+  #
+  # def getHotMemes
+  # end
+  #
+  # def getFreshMemes
+  # end
+
   def show
     @meme = Meme.find_by_id(params[:id])
   end

@@ -18,6 +18,26 @@ class AppRouter extends React.Component{
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
     this._fetchUserData = this._fetchUserData.bind(this);
+    // I need separate callbacks for hot and fresh - requestHotMemes requestFreshMemes
+    // I need separate callbacks for tags - requestTaggedMemes passing through data from the url props
+    // I need to make sure memeId somehow isn't the same as those tags, so a separate custom backend route to tagged?
+    // this.routerconst = (
+    //   <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
+    //     <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
+    //       <IndexRoute component={ SplashContainer } />
+    //       <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
+    //       <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props._requestTaggedMemes }/>
+    //       <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestHotMemes }/>
+    //       <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestFreshMemes }/>
+    //       <Route path="/memes/:memeId" component={ MemeShowContainer } />
+    //       <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
+    //       <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
+    //       <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+    //       <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+    //     </Route>
+    //   </Router>
+    // )
+
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
@@ -35,6 +55,10 @@ class AppRouter extends React.Component{
       </Router>
     )
   }
+
+  // _requestTaggedMemes (nextState, replace) {
+  //   this.props.requestTaggedMemes(nextState.params.tags);
+  // }
 
   _fetchUserData (nextState, replace) {
     this.props.requestUser(parseInt(nextState.params.userId));
