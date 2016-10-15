@@ -18,6 +18,7 @@ class AppRouter extends React.Component{
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
     this._fetchUserData = this._fetchUserData.bind(this);
+    this._requestTaggedMemes = this._requestTaggedMemes.bind(this);
     // I need separate callbacks for hot and fresh - requestHotMemes requestFreshMemes
     // I need separate callbacks for tags - requestTaggedMemes passing through data from the url props
     // I need to make sure memeId somehow isn't the same as those tags, so a separate custom backend route to tagged?
@@ -40,10 +41,10 @@ class AppRouter extends React.Component{
 
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
-        <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
+        <Route path="/" component={ App }>
           <IndexRoute component={ SplashContainer } />
           <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
-          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>
           <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
           <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
           <Route path="/memes/:memeId" component={ MemeShowContainer } />
@@ -56,9 +57,9 @@ class AppRouter extends React.Component{
     )
   }
 
-  // _requestTaggedMemes (nextState, replace) {
-  //   this.props.requestTaggedMemes(nextState.params.tags);
-  // }
+  _requestTaggedMemes (nextState, replace) {
+    this.props.requestTaggedMemes(nextState.params.tags);
+  }
 
   _fetchUserData (nextState, replace) {
     this.props.requestUser(parseInt(nextState.params.userId));

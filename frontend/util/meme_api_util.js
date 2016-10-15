@@ -25,14 +25,14 @@ export const fetchAllMemes = (success) => {
 //   });
 // };
 //
-// export const fetchTaggedMemes = (tag, success) => {
-//   $.ajax({
-//     method: "GET",
-//     url: `api/${tag}`,
-//     success,
-//     error: "Couldn't fetch all tagged memes."
-//   });
-// };
+export const fetchTaggedMemes = (tag, success) => {
+  $.ajax({
+    method: "GET",
+    url: `api/getTaggedMemes/${tag}`,
+    success,
+    error: "Couldn't fetch all tagged memes."
+  });
+};
 
 export const fetchSingleMeme = (id, success) => {
   $.ajax({

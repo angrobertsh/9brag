@@ -8,6 +8,7 @@ import * as UTILS from './util/meme_api_util';
 import Root from './components/root';
 
 window.requestAllMemes = ACTIONS.requestAllMemes;
+window.requestTaggedMemes = ACTIONS.requestTaggedMemes;
 window.requestSingleMeme = ACTIONS.requestSingleMeme;
 window.createMeme = ACTIONS.createMeme;
 window.requestUser = ACTIONS2.requestUser;

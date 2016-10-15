@@ -24,10 +24,10 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
     //   success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
     //   UTILS.fetchFreshMemes(success);
     //   return next(action);
-    // case ACTIONS.MemeConstants.REQUEST_TAGGED_MEMES:
-    //   success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-    //   UTILS.fetchTaggedMemes(ACTIONS.tags, success);
-    //   return next(action);
+    case ACTIONS.MemeConstants.REQUEST_TAGGED_MEMES:
+      success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
+      UTILS.fetchTaggedMemes(action.tags, success);
+      return next(action);
     case ACTIONS.MemeConstants.REQUEST_SINGLE_MEME:
       success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));
       UTILS.fetchSingleMeme(action.id, success);

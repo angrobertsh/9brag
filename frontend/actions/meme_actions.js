@@ -1,20 +1,5 @@
-export const MemeConstants = {
-  REQUEST_ALL_MEMES: "REQUEST_ALL_MEMES",
-  REQUEST_SINGLE_MEME: "REQUEST_SINGLE_MEME",
-  RECEIVE_ALL_MEMES: "RECEIVE_ALL_MEMES",
-  RECEIVE_SINGLE_MEME: "RECEIVE_SINGLE_MEME",
-  CREATE_MEME: "CREATE_MEME",
-  RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS",
-  CREATE_COMMENT: "CREATE_COMMENT",
-  UPVOTE: "UPVOTE"
-};
-
 // export const MemeConstants = {
 //   REQUEST_ALL_MEMES: "REQUEST_ALL_MEMES",
-//   REQUEST_HOT_MEMES: "REQUEST_HOT_MEMES",
-//   REQUEST_FRESH_MEMES: "REQUEST_FRESH_MEMES",
-//   REQUEST_TAGGED_MEMES: "REQUEST_TAGGED_MEMES",
 //   REQUEST_SINGLE_MEME: "REQUEST_SINGLE_MEME",
 //   RECEIVE_ALL_MEMES: "RECEIVE_ALL_MEMES",
 //   RECEIVE_SINGLE_MEME: "RECEIVE_SINGLE_MEME",
@@ -24,6 +9,21 @@ export const MemeConstants = {
 //   CREATE_COMMENT: "CREATE_COMMENT",
 //   UPVOTE: "UPVOTE"
 // };
+
+export const MemeConstants = {
+  REQUEST_ALL_MEMES: "REQUEST_ALL_MEMES",
+  REQUEST_HOT_MEMES: "REQUEST_HOT_MEMES",
+  REQUEST_FRESH_MEMES: "REQUEST_FRESH_MEMES",
+  REQUEST_TAGGED_MEMES: "REQUEST_TAGGED_MEMES",
+  REQUEST_SINGLE_MEME: "REQUEST_SINGLE_MEME",
+  RECEIVE_ALL_MEMES: "RECEIVE_ALL_MEMES",
+  RECEIVE_SINGLE_MEME: "RECEIVE_SINGLE_MEME",
+  CREATE_MEME: "CREATE_MEME",
+  RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
+  RECEIVE_ERRORS: "RECEIVE_ERRORS",
+  CREATE_COMMENT: "CREATE_COMMENT",
+  UPVOTE: "UPVOTE"
+};
 
 export const requestAllMemes = () => {
   return {
@@ -43,12 +43,12 @@ export const requestAllMemes = () => {
 //   };
 // };
 //
-// export const requestTaggedMemes = (tags) => {
-//   return {
-//     type: MemeConstants.REQUEST_TAGGED_MEMES,
-//     tags: tags
-//   };
-// };
+export const requestTaggedMemes = (tags) => {
+  return {
+    type: MemeConstants.REQUEST_TAGGED_MEMES,
+    tags: tags
+  };
+};
 
 export const requestSingleMeme = (id) => {
   return {

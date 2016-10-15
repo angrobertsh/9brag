@@ -4,9 +4,13 @@ class Api::MemesController < ApplicationController
     @memes = Meme.all
   end
 
-  # def getTaggedMemes
-  # params[:tag]
-  # end
+  def getTaggedMemes
+    @tagname = Tagname.where(tagname: params[:tag])[0]
+    @memes = @tagname.memes
+    # there will be a limit(6) clause after memes
+    render "api/memes/index"
+  end
+
   #
   # def getHotMemes
   # end

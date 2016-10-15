@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestAllMemes: () => dispatch(ACTIONS.requestAllMemes()),
   requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id)),
-  requestUser: (id) => dispatch(ACTIONS2.requestUser(id))
+  requestUser: (id) => dispatch(ACTIONS2.requestUser(id)),
+  requestTaggedMemes: (tag) => dispatch(ACTIONS.requestTaggedMemes(tag))
 });
 
 
