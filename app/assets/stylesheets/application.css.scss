@@ -599,7 +599,6 @@ input {
 
 .usertitle {
   padding: 15px 15px 5px 15px;
-  margin-bottom: 10px;
   font-size: 24px;
 }
 
@@ -608,6 +607,7 @@ input {
   height: 150px;
   overflow: hidden;
   position: relative;
+  margin: 12px;
 }
 
 .userimage img {
