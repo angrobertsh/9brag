@@ -25,9 +25,10 @@ export const MemeConstants = {
   UPVOTE: "UPVOTE"
 };
 
-export const requestAllMemes = () => {
+export const requestAllMemes = (sort) => {
   return {
-    type: MemeConstants.REQUEST_ALL_MEMES
+    type: MemeConstants.REQUEST_ALL_MEMES,
+    sort: sort
   };
 };
 

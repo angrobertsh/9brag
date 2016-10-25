@@ -1,7 +1,21 @@
 class Api::MemesController < ApplicationController
 
   def index
-    @memes = Meme.all
+    if params[:sort] == "/hot"
+      @allmemes = Meme.all
+      @karmas = []
+      # number of votes and number of comments. somehow this has to not be done for all of them all the time but i don't know how
+      @allmemes.each do |meme|
+        @karmas.push({(meme.comments.length + meme.votes.length) => meme})
+      end
+      @karmas.sort!{|a, b| a.keys[0] <=> b.keys[0]}
+      @memes = @karmas.map{|a| a.values[0]}
+      byebug
+    elsif params[:sort] == "/fresh"
+      @memes = Meme.order(created_at: :desc)
+    else
+      @memes = Meme.all
+    end
   end
 
   def getTaggedMemes
@@ -25,6 +39,7 @@ class Api::MemesController < ApplicationController
   #
   # def getFreshMemes
   #   @memes = Meme.order(created_at: :desc)
+  #   render "api/memes/index"
   # end
 
   def show

@@ -14,16 +14,8 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
   switch(action.type){
     case ACTIONS.MemeConstants.REQUEST_ALL_MEMES:
       success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-      UTILS.fetchAllMemes(success);
+      UTILS.fetchAllMemes(action.sort, success);
       return next(action);
-    // case ACTIONS.MemeConstants.REQUEST_HOT_MEMES:
-    //   success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-    //   UTILS.fetchHotMemes(success);
-    //   return next(action);
-    // case ACTIONS.MemeConstants.REQUEST_FRESH_MEMES:
-    //   success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-    //   UTILS.fetchFreshMemes(success);
-    //   return next(action);
     case ACTIONS.MemeConstants.REQUEST_TAGGED_MEMES:
       success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
       UTILS.fetchTaggedMemes(action.tags, success);

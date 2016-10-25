@@ -19,34 +19,16 @@ class AppRouter extends React.Component{
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
     this._fetchUserData = this._fetchUserData.bind(this);
     this._requestTaggedMemes = this._requestTaggedMemes.bind(this);
-    // I need separate callbacks for hot and fresh - requestHotMemes requestFreshMemes
-    // I need separate callbacks for tags - requestTaggedMemes passing through data from the url props
-    // I need to make sure memeId somehow isn't the same as those tags, so a separate custom backend route to tagged?
-    // this.routerconst = (
-    //   <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
-    //     <Route path="/" component={ App } onEnter={ this.props.requestAllMemes }>
-    //       <IndexRoute component={ SplashContainer } />
-    //       <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
-    //       <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props._requestTaggedMemes }/>
-    //       <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestHotMemes }/>
-    //       <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestFreshMemes }/>
-    //       <Route path="/memes/:memeId" component={ MemeShowContainer } />
-    //       <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
-    //       <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
-    //       <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
-    //       <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
-    //     </Route>
-    //   </Router>
-    // )
+    this._requestAllMemes = this._requestAllMemes.bind(this);
 
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
           <IndexRoute component={ SplashContainer } />
-          <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
+          <Route path="/memes" component={ MemeIndexContainer } onEnter={ this._requestAllMemes } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>
-          <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
-          <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
+          <Route path="/hot" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>
+          <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>
           <Route path="/memes/:memeId" component={ MemeShowContainer } />
           <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
           <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
@@ -58,7 +40,13 @@ class AppRouter extends React.Component{
   }
 
   _requestTaggedMemes (nextState, replace) {
+    // prolly want some sort of clear state here or a different call for inf scroll
     this.props.requestTaggedMemes(nextState.params.tags);
+  }
+
+  _requestAllMemes (nextState, replace){
+    // prolly want some sort of clear state here or a different call for inf scroll
+    this.props.requestAllMemes(nextState.location.pathname);
   }
 
   _fetchUserData (nextState, replace) {
@@ -83,21 +71,3 @@ class AppRouter extends React.Component{
 }
 
 export default AppRouter;
-
-// <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } >
-//   <Route path="/comment" component={ CommentContainer } onEnter={ this._ensureLoggedIn } />
-//   </Route>
-//
-//   UploadForm
-//     <div className=upload-form>
-//     {children}
-//
-//   <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
-//   <Route path="/upload/comment" component={ CommentContainer } onEnter={ this._ensureLoggedIn } />
-
-
-// getSingleMeme (nextState, replace, callback) {
-//   this.props.requestSingleMeme(parseInt(nextState.params.memeId));
-// }
-// <Route path="/memes/:memeId" component={ MemeShowContainer } onEnter={ this.getSingleMeme.bind(this) }/>
-// <Route path="/memes/:memeId" component={ MemeIndexContainer } onEnter={ this.props.requestSingleMeme } />

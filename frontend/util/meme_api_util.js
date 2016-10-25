@@ -1,7 +1,8 @@
-export const fetchAllMemes = (success) => {
+export const fetchAllMemes = (sort, success) => {
   $.ajax({
     method: "GET",
     url: 'api/memes',
+    data: {sort: sort},
     success,
     error: "Couldn't fetch all memes."
   });
