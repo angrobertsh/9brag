@@ -31,6 +31,8 @@ class MemeIndex extends React.Component{
     // let memesArray = memeKeys.map(key => this.props.memes[key]);
     // return(memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>));
 
+    // There will still have to be sorting here because of state problems.
+
     const tags = this.props.params.tags;
     const hotorfresh = this.props.location.pathname;
     let filteredArray = [];

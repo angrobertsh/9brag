@@ -10,7 +10,7 @@ class Api::MemesController < ApplicationController
       end
       @karmas.sort!{|a, b| a.keys[0] <=> b.keys[0]}
       @memes = @karmas.map{|a| a.values[0]}
-      byebug
+      # There will be a limit here, to make it so the frontend knows what's up
     elsif params[:sort] == "/fresh"
       @memes = Meme.order(created_at: :desc)
     else
@@ -24,23 +24,6 @@ class Api::MemesController < ApplicationController
     # there will be a limit(6) clause after memes
     render "api/memes/index"
   end
-
-  # def getHotMemes
-  #   @allmemes = Meme.all
-  #   @karmas = []
-  #   # number of votes and number of comments. somehow this has to not be done for all of them all the time but i don't know how
-  #   @allmemes.each do |meme|
-  #     @karmas.push({(meme.comments.length + meme.votes.length) => meme})
-  #   end
-  #   @karmas.sort!{|a, b| a.keys[0] <=> b.keys[0]}
-  #   @memes = @karmas.map{|a| a.values[0]}
-  #   render "api/memes/index"
-  # end
-  #
-  # def getFreshMemes
-  #   @memes = Meme.order(created_at: :desc)
-  #   render "api/memes/index"
-  # end
 
   def show
     @meme = Meme.find_by_id(params[:id])
