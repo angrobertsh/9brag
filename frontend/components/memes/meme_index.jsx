@@ -25,13 +25,11 @@ class MemeIndex extends React.Component{
   }
 
   indexMemes(){
-    // omfg the backend sends this back as a json object with keys as meme id so it still needs to get sorted
-    // and if I try and fix it then show is all messed up because show is keyed by id on the state
+    // the backend sends this back as a json object with keys as meme id so it still needs to get sorted
+    // so unfortunately the ideal code below doesn't work
     // const memeKeys = Object.keys(this.props.memes);
     // let memesArray = memeKeys.map(key => this.props.memes[key]);
     // return(memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>));
-
-    // There will still have to be sorting here because of state problems.
 
     const tags = this.props.params.tags;
     const hotorfresh = this.props.location.pathname;

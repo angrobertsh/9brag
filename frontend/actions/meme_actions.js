@@ -9,7 +9,8 @@ export const MemeConstants = {
   RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
   CREATE_COMMENT: "CREATE_COMMENT",
-  UPVOTE: "UPVOTE"
+  UPVOTE: "UPVOTE",
+  CLEAR_MEMES: "CLEAR_MEMES"
 };
 
 export const requestAllMemes = (sort) => {
@@ -81,5 +82,11 @@ export const upvote = (vote, memeId) => {
     type: MemeConstants.UPVOTE,
     vote: vote,
     memeId: memeId
+  };
+};
+
+export const clearMemes = () => {
+  return {
+    type: MemeConstants.CLEAR_MEMES
   };
 };

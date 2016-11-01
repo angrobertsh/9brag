@@ -11,7 +11,8 @@ const mapDispatchToProps = dispatch => ({
   requestAllMemes: (sort) => dispatch(ACTIONS.requestAllMemes(sort)),
   requestSingleMeme: (id) => dispatch(ACTIONS.requestSingleMeme(id)),
   requestUser: (id) => dispatch(ACTIONS2.requestUser(id)),
-  requestTaggedMemes: (tag) => dispatch(ACTIONS.requestTaggedMemes(tag))
+  requestTaggedMemes: (tag) => dispatch(ACTIONS.requestTaggedMemes(tag)),
+  clearMemes: () => dispatch(ACTIONS.clearMemes())
 });
 
 
