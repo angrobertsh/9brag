@@ -6,6 +6,16 @@ const defaultState = {
   memes: {}
 };
 
+
+// Uncomment the lines in json index
+
+const mergeMemeState = (oldState, newState) => {
+
+// receive new meme returns a single object like 12: {memestuff} and that needs to update
+// receive all memes returns an array of these
+
+}
+
 let newState;
 
 const MemeReducer = (state = defaultState, action) => {
