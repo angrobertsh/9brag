@@ -2,6 +2,11 @@
 # associations: self.user.name, self.tagnames, self.votes.length
 # self.comments.user.name, self.comments.body
 
+#problem here is that state is an object and it orders by id so sorting is undone
+#but if it's not an object then it's hard to know which meme to update
+#because show and get single meme get their id from the object
+#also we're unable to use lodash merge if it's not an object
+
 json.set! "#{meme.id}" do
  json.extract! meme, :title, :url, :attribution, :id, :created_at
  json.user meme.user.name

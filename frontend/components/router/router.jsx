@@ -10,8 +10,6 @@ import SplashContainer from '../splash/splash_container';
 
 import App from '../app';
 
-// <Route path="/memes" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes } />;
-
 class AppRouter extends React.Component{
   constructor(props){
     super(props);

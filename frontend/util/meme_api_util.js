@@ -8,24 +8,6 @@ export const fetchAllMemes = (sort, success) => {
   });
 };
 
-// export const fetchHotMemes = (success) => {
-//   $.ajax({
-//     method: "GET",
-//     url: 'api/getHotMemes',
-//     success,
-//     error: "Couldn't fetch all hot memes."
-//   });
-// };
-//
-// export const fetchFreshMemes = (success) => {
-//   $.ajax({
-//     method: "GET",
-//     url: 'api/getFreshMemes',
-//     success,
-//     error: "Couldn't fetch all fresh memes."
-//   });
-// };
-//
 export const fetchTaggedMemes = (tag, success) => {
   $.ajax({
     method: "GET",
