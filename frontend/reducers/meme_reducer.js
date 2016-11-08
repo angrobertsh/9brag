@@ -16,6 +16,14 @@ const mergeMemeState = (oldState, newState) => {
 
 }
 
+const compareTwoMemes = (old, new) => {
+  if(Object.keys(old)[0] === Object.keys(new)[0]){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 let newState;
 
 const MemeReducer = (state = defaultState, action) => {
