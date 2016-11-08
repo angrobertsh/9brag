@@ -9,20 +9,43 @@ const defaultState = {
 
 // Uncomment the lines in json index
 
-const mergeMemeState = (oldState, newState) => {
+const mergeMemeState = (oldState, newInfo) => {
 
 // receive new meme returns a single object like 12: {memestuff} and that needs to update
 // receive all memes returns an array of these
 
-}
+  let newState = cloneArr(oldState);
+  let dupIdx;
 
-const compareTwoMemes = (old, new) => {
-  if(Object.keys(old)[0] === Object.keys(new)[0]){
-    return true;
-  } else {
-    return false;
-  }
-}
+  newInfo.forEach((el, idx) => {
+    dupIdx = customInclude(oldState, el);
+    if(dupIdx > -1){
+      newState[dupIdx] = el;
+    } else {
+      newState.push(el);
+    }
+  });
+
+  return newState;
+};
+
+const customInclude = (arr, item) => {
+  let returnIdx = -1
+  arr.forEach((el, idx) => {
+    if(Object.keys(el)[0] === Object.keys(item)[0]){
+      returnIdx = idx;
+    }
+  });
+  return returnIdx;
+};
+
+const cloneArr = (arr) => {
+  let clone = [];
+  arr.forEach((el) => {
+    clone.push(JSON.parse(JSON.stringify(el)));
+  });
+  return clone;
+};
 
 let newState;
 
@@ -46,6 +69,6 @@ const MemeReducer = (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default MemeReducer;
