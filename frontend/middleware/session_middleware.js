@@ -8,6 +8,7 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
 
   const errorCB = xhr => {
     const errors = xhr.responseJSON;
+    dispatch(ACTIONS.clearErrors());
     dispatch(ACTIONS.receiveErrors(errors));
   };
 
