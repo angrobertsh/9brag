@@ -8,7 +8,7 @@ class Api::MemesController < ApplicationController
       @allmemes.each do |meme|
         @karmas.push({(meme.comments.length + meme.votes.length) => meme})
       end
-      @karmas.sort!{|a, b| a.keys[0] <=> b.keys[0]}
+      @karmas.sort!{|a, b| b.keys[0] <=> a.keys[0]}
       @memes = @karmas.map{|a| a.values[0]}
       # There will be a limit here, to make it so the frontend knows what's up
     elsif params[:sort] == "/fresh"
@@ -21,6 +21,13 @@ class Api::MemesController < ApplicationController
   def getTaggedMemes
     @tagname = Tagname.where(tagname: params[:tag])[0]
     @memes = @tagname.memes
+    # there will be a limit(6) clause after memes
+    render "api/memes/index"
+  end
+
+  def getUserMemes
+    @user = User.where(id: params[:id])[0]
+    @memes = @user.memes
     # there will be a limit(6) clause after memes
     render "api/memes/index"
   end

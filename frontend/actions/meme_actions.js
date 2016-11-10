@@ -5,6 +5,7 @@ export const MemeConstants = {
   REQUEST_SINGLE_MEME: "REQUEST_SINGLE_MEME",
   RECEIVE_ALL_MEMES: "RECEIVE_ALL_MEMES",
   RECEIVE_SINGLE_MEME: "RECEIVE_SINGLE_MEME",
+  REQUEST_USER_MEMES: "REQUEST_USER_MEMES",
   CREATE_MEME: "CREATE_MEME",
   RECEIVE_NEW_MEME: "RECEIVE_NEW_MEME",
   RECEIVE_ERRORS: "RECEIVE_ERRORS",
@@ -24,6 +25,13 @@ export const requestTaggedMemes = (tags) => {
   return {
     type: MemeConstants.REQUEST_TAGGED_MEMES,
     tags: tags
+  };
+};
+
+export const requestUserMemes = (id) => {
+  return {
+    type: MemeConstants.REQUEST_USER_MEMES,
+    id: id
   };
 };
 

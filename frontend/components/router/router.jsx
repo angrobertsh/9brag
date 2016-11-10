@@ -18,20 +18,21 @@ class AppRouter extends React.Component{
     this._fetchUserData = this._fetchUserData.bind(this);
     this._requestTaggedMemes = this._requestTaggedMemes.bind(this);
     this._requestAllMemes = this._requestAllMemes.bind(this);
+    this._requestSingleMeme = this._requestSingleMeme.bind(this);
 
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
           <IndexRoute component={ SplashContainer } />
           <Route path="/memes" component={ MemeIndexContainer } onEnter={ this._requestAllMemes } />;
-          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>
-          <Route path="/hot" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>
-          <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>
-          <Route path="/memes/:memeId" component={ MemeShowContainer } />
-          <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
-          <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
-          <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
-          <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
+          <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>;
+          <Route path="/hot" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>;
+          <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>;
+          <Route path="/memes/:memeId" component={ MemeShowContainer} onEnter={ this._requestSingleMeme }/>;
+          <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>;
+          <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />;
+          <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />;
+          <Route path="/signup" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />;
         </Route>
       </Router>
     )
@@ -49,8 +50,15 @@ class AppRouter extends React.Component{
     this.props.requestAllMemes(nextState.location.pathname);
   }
 
+  _requestSingleMeme (nextState, replace){
+    this.props.clearMemes();
+    this.props.requestSingleMeme(parseInt(nextState.params.memeId));
+  }
+
   _fetchUserData (nextState, replace) {
+    this.props.clearMemes();
     this.props.requestUser(parseInt(nextState.params.userId));
+    this.props.requestUserMemes(parseInt(nextState.params.userId));
   }
 
   _ensureLoggedIn (nextState, replace) {

@@ -79,17 +79,18 @@ class UserPage extends React.Component{
   }
 
   userMemes() {
-    let myMemes = [];
-    const memeKeys = Object.keys(this.props.memes);
-    let memesArray = memeKeys.map(key => this.props.memes[key]);
-    memesArray.forEach((meme) => {
-        if(meme.user_id === parseInt(this.props.params.userId)){
-          myMemes.push(meme);
-        }
-      }
-    )
+    // let myMemes = [];
+    // const memeKeys = Object.keys(this.props.memes);
+    // let memesArray = memeKeys.map(key => this.props.memes[key]);
+    // memesArray.forEach((meme) => {
+    //     if(meme.user_id === parseInt(this.props.params.userId)){
+    //       myMemes.push(meme);
+    //     }
+    //   }
+    // )
+    let memesArr = this.props.memes.map((el) => (el[Object.keys(el)]));
     return (
-      myMemes.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote}/>)
+      memesArr.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>)
     );
   }
 

@@ -17,6 +17,15 @@ export const fetchTaggedMemes = (tag, success) => {
   });
 };
 
+export const fetchUserMemes = (id, success) => {
+  $.ajax({
+    method: "GET",
+    url: `api/getUserMemes/${id}`,
+    success,
+    error: "Couldn't fetch user's memes."
+  });
+};
+
 export const fetchSingleMeme = (id, success) => {
   $.ajax({
     method: "GET",

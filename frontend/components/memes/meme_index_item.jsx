@@ -25,6 +25,7 @@ class MemeIndexItem extends React.Component{
     let tagArr = [];
     let currentTag = "";
     let currentLink;
+
     for(let i = 0; i < meme.tagnames.length; i++) {
       currentTag = meme.tagnames[i]["tagname"];
       if(i === meme.tagnames.length-1){

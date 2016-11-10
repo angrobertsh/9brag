@@ -24,6 +24,10 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
       success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));
       UTILS.fetchSingleMeme(action.id, success);
       return next(action);
+    case ACTIONS.MemeConstants.REQUEST_USER_MEMES:
+      success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
+      UTILS.fetchUserMemes(action.id, success);
+      return next(action);
     case ACTIONS.MemeConstants.CREATE_COMMENT:
       success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));
       UTILS.createComment(action.comment, success, action.memeId);

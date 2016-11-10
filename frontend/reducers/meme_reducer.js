@@ -3,31 +3,37 @@ import merge from 'lodash/merge';
 
 const defaultState = {
   errors: [],
-  memes: {}
+  memes: []
 };
-
-
-// Uncomment the lines in json index
 
 const mergeMemeState = (oldState, newInfo) => {
 
 // receive new meme returns a single object like 12: {memestuff} and that needs to update
 // receive all memes returns an array of these
 
-  let newState = cloneArr(oldState);
+  let newState = merge({}, oldState);
+
+  Object.keys(newInfo).forEach((updateKey) => {
+    newState[updateKey] = mergeArr(newState[updateKey], newInfo[updateKey]);
+  });
+  return newState;
+};
+
+const mergeArr = (oldState, newInfo) => {
+  let mergedArr = cloneArr(oldState);
   let dupIdx;
 
   newInfo.forEach((el, idx) => {
     dupIdx = customInclude(oldState, el);
     if(dupIdx > -1){
-      newState[dupIdx] = el;
+      mergedArr[dupIdx] = el;
     } else {
-      newState.push(el);
+      mergedArr.push(el);
     }
   });
 
-  return newState;
-};
+  return mergedArr;
+}
 
 const customInclude = (arr, item) => {
   let returnIdx = -1
@@ -52,23 +58,47 @@ let newState;
 const MemeReducer = (state = defaultState, action) => {
   switch(action.type){
     case ACTIONS.MemeConstants.RECEIVE_ALL_MEMES:
-      newState = merge({}, state, {memes: action.memes});
+      newState = mergeMemeState(state, {memes: action.memes});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_SINGLE_MEME:
-      newState = merge({}, state, {memes: action.meme});
+      newState = mergeMemeState(state, {memes: [action.meme]});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_ERRORS:
-      newState = merge({}, state, {errors: action.errors});
+      newState = mergeMemeState(state, {errors: action.errors});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_NEW_MEME:
-      newState = merge({}, state, {memes: action.meme});
+      newState = mergeMemeState(state, {memes: action.meme});
       return newState;
     case ACTIONS.MemeConstants.CLEAR_MEMES:
-      newState = merge({}, state, defaultState);
+      newState = merge({}, defaultState);
       return newState;
     default:
       return state;
   }
 };
+
+// let newState;
+//
+// const MemeReducer = (state = defaultState, action) => {
+//   switch(action.type){
+//     case ACTIONS.MemeConstants.RECEIVE_ALL_MEMES:
+//       newState = merge({}, state, {memes: action.memes});
+//       return newState;
+//     case ACTIONS.MemeConstants.RECEIVE_SINGLE_MEME:
+//       newState = merge({}, state, {memes: [action.meme]});
+//       return newState;
+//     case ACTIONS.MemeConstants.RECEIVE_ERRORS:
+//       newState = merge({}, state, {errors: action.errors});
+//       return newState;
+//     case ACTIONS.MemeConstants.RECEIVE_NEW_MEME:
+//       newState = merge({}, state, {memes: action.meme});
+//       return newState;
+//     case ACTIONS.MemeConstants.CLEAR_MEMES:
+//       newState = merge({}, defaultState);
+//       return newState;
+//     default:
+//       return state;
+//   }
+// };
 
 export default MemeReducer;
