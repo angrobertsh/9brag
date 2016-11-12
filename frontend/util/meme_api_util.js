@@ -1,17 +1,18 @@
-export const fetchAllMemes = (sort, success) => {
+export const fetchAllMemes = (sort, lastMeme, success) => {
   $.ajax({
     method: "GET",
     url: 'api/memes',
-    data: {sort: sort},
+    data: {sort: sort, lastMeme: lastMeme},
     success,
     error: "Couldn't fetch all memes."
   });
 };
 
-export const fetchTaggedMemes = (tag, success) => {
+export const fetchTaggedMemes = (tag, lastMeme, success) => {
   $.ajax({
     method: "GET",
     url: `api/getTaggedMemes/${tag}`,
+    data: {lastMeme: lastMeme},
     success,
     error: "Couldn't fetch all tagged memes."
   });

@@ -14,11 +14,11 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
   switch(action.type){
     case ACTIONS.MemeConstants.REQUEST_ALL_MEMES:
       success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-      UTILS.fetchAllMemes(action.sort, success);
+      UTILS.fetchAllMemes(action.sort, action.lastMeme, success);
       return next(action);
     case ACTIONS.MemeConstants.REQUEST_TAGGED_MEMES:
       success = memes => dispatch(ACTIONS.receiveAllMemes(memes));
-      UTILS.fetchTaggedMemes(action.tags, success);
+      UTILS.fetchTaggedMemes(action.tags, action.lastMeme, success);
       return next(action);
     case ACTIONS.MemeConstants.REQUEST_SINGLE_MEME:
       success = meme => dispatch(ACTIONS.receiveSingleMeme(meme));

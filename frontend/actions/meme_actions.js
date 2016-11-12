@@ -14,17 +14,19 @@ export const MemeConstants = {
   CLEAR_MEMES: "CLEAR_MEMES"
 };
 
-export const requestAllMemes = (sort) => {
+export const requestAllMemes = (sort, lastMeme = null) => {
   return {
     type: MemeConstants.REQUEST_ALL_MEMES,
-    sort: sort
+    sort: sort,
+    lastMeme: lastMeme
   };
 };
 
-export const requestTaggedMemes = (tags) => {
+export const requestTaggedMemes = (tags, lastMeme = null) => {
   return {
     type: MemeConstants.REQUEST_TAGGED_MEMES,
-    tags: tags
+    tags: tags,
+    lastMeme: lastMeme
   };
 };
 

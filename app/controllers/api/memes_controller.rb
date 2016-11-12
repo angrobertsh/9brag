@@ -1,7 +1,9 @@
 class Api::MemesController < ApplicationController
 
   def index
+    # right now params[:lastMeme] == ""
     if params[:sort] == "/hot"
+      # if I wanted to keep it truly hot I'd do a time limit here to, so, where(created_at > some date)
       @allmemes = Meme.all
       @karmas = []
       # number of votes and number of comments. somehow this has to not be done for all of them all the time but i don't know how
@@ -19,6 +21,7 @@ class Api::MemesController < ApplicationController
   end
 
   def getTaggedMemes
+    # right now params[:lastMeme] == ""    
     @tagname = Tagname.where(tagname: params[:tag])[0]
     @memes = @tagname.memes
     # there will be a limit(6) clause after memes
