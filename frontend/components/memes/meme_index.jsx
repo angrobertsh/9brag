@@ -10,6 +10,16 @@ class MemeIndex extends React.Component{
     this.matchTags = this.matchTags.bind(this);
   }
 
+  // componentWillMount() {
+  //   document.addEventListener('scroll', function (event) {
+  //     if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
+  //
+  //       // alert("Bottom!");
+  //
+  //     }
+  //   });
+  // }
+
   matchTags(arr, tags){
     return arr.filter((el) => {
       let anymatch = false;
@@ -25,8 +35,6 @@ class MemeIndex extends React.Component{
   }
 
   indexMemes(){
-    // the backend sends this back as a json object with keys as meme id so it still needs to get sorted
-    // so unfortunately the ideal code below doesn't work
     let memesArray = this.props.memes.map((el) => (el[Object.keys(el)]));
     return(memesArray.map(meme => <MemeIndexItem key={meme.title} meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>));
 

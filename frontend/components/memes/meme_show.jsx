@@ -75,10 +75,10 @@ class MemeShow extends React.Component{
   }
 
   render() {
-    let meme = this.props.meme;
-    if(meme === undefined){
+    if(this.props.meme === undefined){
       return (<div></div>);
     }
+    let meme = this.props.meme[parseInt(Object.keys(this.props.meme)[0])];
     return (
       <div className="memeshow">
         <MemeIndexItem meme={meme} upvote={this.props.upvote} currentUser={this.props.currentUser}/>
