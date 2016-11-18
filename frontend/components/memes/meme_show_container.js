@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import MemeShow from './meme_show';
 import * as MEMEACTIONS from '../../actions/meme_actions';
-import * as SESSIONACTIONS from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   meme: state.memes.memes[0],

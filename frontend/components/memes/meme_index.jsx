@@ -7,31 +7,36 @@ class MemeIndex extends React.Component{
   constructor(props){
     super(props);
     this.indexMemes = this.indexMemes.bind(this);
-    this.matchTags = this.matchTags.bind(this);
+    // this.matchTags = this.matchTags.bind(this);
   }
 
   componentWillMount() {
     document.addEventListener('scroll', function (event) {
       if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
+
+        // const tags = this.props.params.tags;
+        // const hotorfresh = this.props.location.pathname;
+
+
         // fetch more memes
 
       }
     });
   }
 
-  matchTags(arr, tags){
-    return arr.filter((el) => {
-      let anymatch = false;
-        el.tagnames.forEach((obj) =>
-        {
-          if(obj.tagname === tags){
-            anymatch = true;
-          }
-        })
-      return anymatch;
-      }
-    )
-  }
+  // matchTags(arr, tags){
+  //   return arr.filter((el) => {
+  //     let anymatch = false;
+  //       el.tagnames.forEach((obj) =>
+  //       {
+  //         if(obj.tagname === tags){
+  //           anymatch = true;
+  //         }
+  //       })
+  //     return anymatch;
+  //     }
+  //   )
+  // }
 
   indexMemes(){
     let memesArray = this.props.memes.map((el) => (el[Object.keys(el)]));

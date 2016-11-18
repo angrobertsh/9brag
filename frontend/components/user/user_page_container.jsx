@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserPage from './user_page';
-import * as ACTIONS from '../../actions/user_actions';
+import * as USERACTIONS from '../../actions/user_actions';
 import * as MEMEACTIONS from '../../actions/meme_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   upvote: (vote, memeId) => dispatch(MEMEACTIONS.upvote(vote, memeId)),
-  updateUser: (user) => dispatch(ACTIONS.updateUser(user))
+  updateUser: (user) => dispatch(USERACTIONS.updateUser(user))
 });
 
 export default connect(

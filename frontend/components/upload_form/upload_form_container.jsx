@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UploadForm from './upload_form';
-import * as ACTIONS from '../../actions/meme_actions';
+import * as MEMEACTIONS from '../../actions/meme_actions';
 
 const mapStateToProps = state => ({
   errors: state.memes.errors
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  createMeme: (meme) => dispatch(ACTIONS.createMeme(meme))
+  createMeme: (meme) => dispatch(MEMEACTIONS.createMeme(meme))
 });
 
 export default connect(
