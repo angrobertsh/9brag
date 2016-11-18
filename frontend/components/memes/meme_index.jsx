@@ -10,15 +10,14 @@ class MemeIndex extends React.Component{
     this.matchTags = this.matchTags.bind(this);
   }
 
-  // componentWillMount() {
-  //   document.addEventListener('scroll', function (event) {
-  //     if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
-  //
-  //       // alert("Bottom!");
-  //
-  //     }
-  //   });
-  // }
+  componentWillMount() {
+    document.addEventListener('scroll', function (event) {
+      if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
+        // fetch more memes
+
+      }
+    });
+  }
 
   matchTags(arr, tags){
     return arr.filter((el) => {
