@@ -10,19 +10,21 @@ class MemeIndex extends React.Component{
     // this.matchTags = this.matchTags.bind(this);
   }
 
-  componentWillMount() {
+  componentWillMount(){
+    let that = this;
     document.addEventListener('scroll', function (event) {
       if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
-
-        // const tags = this.props.params.tags;
-        // const hotorfresh = this.props.location.pathname;
-
+        const tag = that.props.params.tags;
+        const hotOrFresh = that.props.location.pathname;
+        const lastMemeId = parseInt(Object.keys(that.props.memes[that.props.memes.length-1])[0]);
 
         // fetch more memes
 
       }
     });
   }
+
+
 
   // matchTags(arr, tags){
   //   return arr.filter((el) => {
