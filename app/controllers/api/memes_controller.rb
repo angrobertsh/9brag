@@ -14,14 +14,14 @@ class Api::MemesController < ApplicationController
       @memes = @karmas.map{|a| a.values[0]}
       # There will be a limit here, to make it so the frontend knows what's up
     elsif params[:sort] == "/fresh"
-      @memes = Meme.order(created_at: :desc)
+      @memes = Meme.order(created_at: :desc).limit(6)
     else
-      @memes = Meme.all
+      @memes = Meme.all.limit(6)
     end
   end
 
   def getTaggedMemes
-    # right now params[:lastMeme] == ""    
+    # right now params[:lastMeme] == ""
     @tagname = Tagname.where(tagname: params[:tag])[0]
     @memes = @tagname.memes
     # there will be a limit(6) clause after memes
