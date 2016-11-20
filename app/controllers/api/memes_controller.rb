@@ -1,6 +1,12 @@
 class Api::MemesController < ApplicationController
 
   def index
+    if params[:lastMeme] == ""
+      @lastMeme = 0
+    else
+      @lastMeme = params[:lastMeme]
+    end
+
     # right now params[:lastMeme] == ""
     if params[:sort] == "/hot"
       # if I wanted to keep it truly hot I'd do a time limit here to, so, where(created_at > some date)
@@ -14,9 +20,10 @@ class Api::MemesController < ApplicationController
       @memes = @karmas.map{|a| a.values[0]}
       # There will be a limit here, to make it so the frontend knows what's up
     elsif params[:sort] == "/fresh"
-      @memes = Meme.order(created_at: :desc).limit(6)
+      # @memes = Meme.order(created_at: :desc).limit(6)
+      @memes = Meme.where("id < ?", @lastMeme).limit(6)
     else
-      @memes = Meme.all.limit(6)
+      @memes = Meme.where("id > ?", @lastMeme).limit(6)
     end
   end
 
