@@ -1,13 +1,12 @@
 class Api::MemesController < ApplicationController
 
   def index
-    if params[:lastMeme] == ""
+
+    @lastMeme = params[:lastMeme]
+    if @lastMeme == ""
       @lastMeme = 0
-    else
-      @lastMeme = params[:lastMeme]
     end
 
-    # right now params[:lastMeme] == ""
     if params[:sort] == "/hot"
       # if I wanted to keep it truly hot I'd do a time limit here to, so, where(created_at > some date)
       @allmemes = Meme.all
@@ -16,22 +15,48 @@ class Api::MemesController < ApplicationController
       @allmemes.each do |meme|
         @karmas.push({(meme.comments.length + meme.votes.length) => meme})
       end
-      @karmas.sort!{|a, b| b.keys[0] <=> a.keys[0]}
-      @memes = @karmas.map{|a| a.values[0]}
-      # There will be a limit here, to make it so the frontend knows what's up
+      @karmas.sort!{|karma1, karma2| karma2.keys[0] <=> karma1.keys[0]}
+      @sortedmemes = @karmas.map{|meme| meme.values[0]}
+
+      if @lastMeme == 0
+        @start = 0
+      else
+        @start = @sortedmemes.index{|meme| meme.id == @lastMeme} + 1
+        if @start > (@sortedmemes.length - 1)
+          @start -= 1
+        end
+      end
+
+      @stop = @start + 6
+      if @stop > (@sortedmemes.length - 1)
+        @stop = @sortedmemes.length
+      end
+
+      @memes = @sortedmemes[@start...@stop]
     elsif params[:sort] == "/fresh"
-      # @memes = Meme.order(created_at: :desc).limit(6)
-      @memes = Meme.where("id < ?", @lastMeme).limit(6)
+      # @memes = Meme.order(created_at: :desc)
+      @start = @lastMeme
+      if @lastMeme == 0
+        @start = (Meme.last.id + 1)
+      end
+      @memes = Meme.where("id < ?", @start).order(id: :desc).limit(6)
     else
-      @memes = Meme.where("id > ?", @lastMeme).limit(6)
+      # @memes = Meme.all
+      @start = @lastMeme
+      @memes = Meme.where("id > ?", @start).limit(6)
     end
   end
 
   def getTaggedMemes
-    # right now params[:lastMeme] == ""
+
+    @lastMeme = params[:lastMeme]
+    if @lastMeme == ""
+      @lastMeme = 0
+    end
+
+    @start = @lastMeme
     @tagname = Tagname.where(tagname: params[:tag])[0]
-    @memes = @tagname.memes
-    # there will be a limit(6) clause after memes
+    @memes = @tagname.memes.where("memes.id > ?", @start).limit(6)
     render "api/memes/index"
   end
 

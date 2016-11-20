@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   upvote: (vote, memeId) => dispatch(MEMEACTIONS.upvote(vote, memeId)),
   requestAllMemes: (sort, lastMeme) => dispatch(MEMEACTIONS.requestAllMemes(sort, lastMeme)),
-  requestTaggedMemes: (tag, lastMeme) => dispatch(MEMEACTIONS.requestTaggedMemes(sort,lastMeme))
+  requestTaggedMemes: (tag, lastMeme) => dispatch(MEMEACTIONS.requestTaggedMemes(sort, lastMeme))
 });
 
 export default connect(

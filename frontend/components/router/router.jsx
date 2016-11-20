@@ -39,13 +39,11 @@ class AppRouter extends React.Component{
   }
 
   _requestTaggedMemes (nextState, replace) {
-    // prolly want some sort of clear state here or a different call for inf scroll
     this.props.clearMemes();
     this.props.requestTaggedMemes(nextState.params.tags);
   }
 
   _requestAllMemes (nextState, replace){
-    // prolly want some sort of clear state here or a different call for inf scroll
     this.props.clearMemes();
     this.props.requestAllMemes(nextState.location.pathname);
   }
