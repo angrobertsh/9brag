@@ -21,18 +21,20 @@ class MemeIndex extends React.Component{
 
   infScrollMemes(){
       if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
-        const tag = this.props.params.tags;
-        const hotOrFresh = this.props.location.pathname;
-        const lastMemeId = parseInt(Object.keys(this.props.memes[this.props.memes.length-1])[0]);
+        console.log(this.props.memes)
 
-        // that.props.requestTaggedMemes(tag, lastMemeId);
-        // that.props.requestAllMemes(hotOrFresh, lastMemeId);
-
-        console.log(tag);
-        console.log(hotOrFresh);
-        console.log(lastMemeId);
-
-        // fetch more memes
+        // const tag = this.props.params.tags;
+        // const hotOrFresh = this.props.location.pathname;
+        // const lastMemeId = parseInt(Object.keys(this.props.memes[this.props.memes.length-1])[0]);
+        //
+        // // that.props.requestTaggedMemes(tag, lastMemeId);
+        // // that.props.requestAllMemes(hotOrFresh, lastMemeId);
+        //
+        // console.log(tag);
+        // console.log(hotOrFresh);
+        // console.log(lastMemeId);
+        //
+        // // fetch more memes
 
       }
   }
