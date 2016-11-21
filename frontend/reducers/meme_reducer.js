@@ -67,7 +67,7 @@ const MemeReducer = (state = defaultState, action) => {
       newState = mergeStates(state, {errors: action.errors});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_NEW_MEME:
-      newState = mergeStates(state, {memes: action.meme});
+      newState = mergeStates(state, {memes: [action.meme]});
       return newState;
     case ACTIONS.MemeConstants.CLEAR_MEMES:
       newState = merge({}, defaultState);

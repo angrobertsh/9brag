@@ -5,6 +5,8 @@ class Api::MemesController < ApplicationController
     @lastMeme = params[:lastMeme]
     if @lastMeme == ""
       @lastMeme = 0
+    else
+      @lastMeme = @lastMeme.to_i
     end
 
     if params[:sort] == "/hot"
