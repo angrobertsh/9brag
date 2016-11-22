@@ -35,7 +35,7 @@ const MemeMiddleware = ({state, dispatch}) => next => action => {
     case ACTIONS.MemeConstants.CREATE_MEME:
       success = meme => {
         dispatch(ACTIONS.receiveNewMeme(meme));
-        hashHistory.push(`memes/${Object.keys(meme)[0]}`);
+        hashHistory.push(`memes/${Object.keys(meme[0])[0]}`);
       };
       UTILS.postMeme(action.meme, success, errorCB);
       return next(action);

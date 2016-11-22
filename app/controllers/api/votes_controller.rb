@@ -2,7 +2,7 @@ class Api::VotesController < ApplicationController
 
   def create
     if(logged_in?)
-      @meme = Meme.find_by_id(vote_params[:votable_id])
+      @meme = [Meme.find_by_id(vote_params[:votable_id])]
       @vote = Vote.find_by_votable_id_and_user_id(vote_params[:votable_id], current_user.id)
       if @vote.nil?
         Vote.create({vote_val: vote_params[:vote_val], votable_id: vote_params[:votable_id], user_id: current_user.id, votable_type: "Meme"})

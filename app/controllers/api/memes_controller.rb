@@ -1,13 +1,7 @@
 class Api::MemesController < ApplicationController
 
   def index
-
-    @lastMeme = params[:lastMeme]
-    if @lastMeme == ""
-      @lastMeme = 0
-    else
-      @lastMeme = @lastMeme.to_i
-    end
+    @lastMeme = params[:lastMeme].to_i
 
     if params[:sort] == "/hot"
       # if I wanted to keep it truly hot I'd do a time limit here to, so, where(created_at > some date)
@@ -50,11 +44,7 @@ class Api::MemesController < ApplicationController
   end
 
   def getTaggedMemes
-
-    @lastMeme = params[:lastMeme]
-    if @lastMeme == ""
-      @lastMeme = 0
-    end
+    @lastMeme = params[:lastMeme].to_i
 
     @start = @lastMeme
     @tagname = Tagname.where(tagname: params[:tag])[0]
@@ -65,12 +55,11 @@ class Api::MemesController < ApplicationController
   def getUserMemes
     @user = User.where(id: params[:id])[0]
     @memes = @user.memes
-    # there will be a limit(6) clause after memes
     render "api/memes/index"
   end
 
   def show
-    @meme = Meme.find_by_id(params[:id])
+    @meme = [Meme.find_by_id(params[:id])]
   end
 
   def create
@@ -87,6 +76,7 @@ class Api::MemesController < ApplicationController
         @tagArray.push(Tagname.find_by(tagname: tagname).id)
       end
       @meme.tagname_ids = @tagArray
+      @meme = [@meme]
       render "api/memes/show"
     else
       @errors = @meme.errors.full_messages

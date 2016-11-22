@@ -7,10 +7,6 @@ const defaultState = {
 };
 
 const mergeStates = (oldState, newInfo) => {
-
-// receive new meme returns a single object like 12: {memestuff} and that needs to update
-// receive all memes returns an array of these
-
   let newState = merge({}, oldState);
 
   Object.keys(newInfo).forEach((updateKey) => {
@@ -61,13 +57,13 @@ const MemeReducer = (state = defaultState, action) => {
       newState = mergeStates(state, {memes: action.memes});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_SINGLE_MEME:
-      newState = mergeStates(state, {memes: [action.meme]});
+      newState = mergeStates(state, {memes: action.meme});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_ERRORS:
       newState = mergeStates(state, {errors: action.errors});
       return newState;
     case ACTIONS.MemeConstants.RECEIVE_NEW_MEME:
-      newState = mergeStates(state, {memes: [action.meme]});
+      newState = mergeStates(state, {memes: action.meme});
       return newState;
     case ACTIONS.MemeConstants.CLEAR_MEMES:
       newState = merge({}, defaultState);

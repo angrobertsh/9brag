@@ -593,6 +593,7 @@ input {
   align-items: center;
   flex-direction: column;
   width: 50%;
+  max-width: 450px;
   border: 1px solid $pinkish;
   background-color: $cream;
 }
