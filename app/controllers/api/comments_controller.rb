@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new({body: comment_params[:body], meme_id: comment_params[:meme_id], user_id: current_user.id})
     if @comment.save
-      @meme = Meme.find_by_id(comment_params[:meme_id])
+      @meme = [Meme.find_by_id(comment_params[:meme_id])]
       render "api/memes/show"
     else
       render(
