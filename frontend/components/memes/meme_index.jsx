@@ -31,22 +31,8 @@ class MemeIndex extends React.Component{
             this.props.requestTaggedMemes(tag, lastMemeId);
           }
         }
-
-        //
-        // // that.props.requestTaggedMemes(tag, lastMemeId);
-        // // that.props.requestAllMemes(hotOrFresh, lastMemeId);
-        //
-        // console.log(tag);
-        // console.log(hotOrFresh);
-        // console.log(lastMemeId);
-        //
-        // // fetch more memes
-
       }
   }
-
-
-
 
   // matchTags(arr, tags){
   //   return arr.filter((el) => {

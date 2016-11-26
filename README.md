@@ -81,6 +81,66 @@ class Meme < ActiveRecord::Base
 end
   ```
 
+####User Karma
+
+User karma is calculated on the backend for each user when user's personal page is loaded. This number is created by summing the user's submitted memes, the vote total of those memes, and the number of comments on their memes.
+
+```ruby
+  json.set! "#{@user.id}" do
+    json.extract! @user, :id, :name, :url
+    json.karmatot @user.memes.map{|meme| meme.votes.map{|vote| vote.vote_val}.sum}.sum + @user.memes.length + @user.memes.map{|meme| meme.comments.length}.sum
+    json.votekarma @user.memes.map{|meme| meme.votes.map{|vote| vote.vote_val}.sum}.sum
+    json.interestkarma @user.memes.map{|meme| meme.comments.length}.sum
+    json.contributekarma @user.memes.length
+  end
+```
+
+This karma is used to influence what insulting title they have on their userpage, as well as what ugly hat they get over their username.
+
+![karmas](./app/assets/images/ss2.png)
+
+####Infinite Scroll
+
+On meme index pages, memes are fed to you 6 at a time using a scroll event listener that calls `infScrollMemes` when you hit the bottom of the page. `infScrollMemes` dispatches either `requestAllMemes` with an appropriate sort, or `requestTaggedMemes` depending on the current url. In order to paginate correctly and send back the correct data, the `lastMemeId` is also sent.
+
+```javascript
+componentDidUpdate(){
+  document.addEventListener('scroll', this.infScrollMemes);
+}
+
+componentWillUnmount(){
+  document.removeEventListener('scroll', this.infScrollMemes);
+}
+
+infScrollMemes(){
+    if (document.body.scrollHeight == (document.body.scrollTop + window.innerHeight)) {
+      if(this.props.memes.length !== 0){
+        const tag = this.props.params.tags;
+        const hotOrFresh = this.props.location.pathname;
+        const lastMemeId = parseInt(Object.keys(this.props.memes[this.props.memes.length-1])[0]);
+        if(tag === undefined){
+          this.props.requestAllMemes(hotOrFresh, lastMemeId);
+        } else {
+          this.props.requestTaggedMemes(tag, lastMemeId);
+        }
+      }
+    }
+}
+```
+
+The backend uses this data in varying ways to search for the correct meme; it utilizes ascending or descending `id`s for fresh, regular, and tagged sorts, but a karma recalculation is needed for the hot sort. A future implementation might cache karma data and limit by date so as to increase efficiency.
+
+```ruby
+def getTaggedMemes
+  @lastMeme = params[:lastMeme].to_i
+
+  @start = @lastMeme
+  @tagname = Tagname.where(tagname: params[:tag])[0]
+  @memes = @tagname.memes.where("memes.id > ?", @start).limit(6)
+  render "api/memes/index"
+end
+```
+
 ###Future Directions for the Project
 
-Future directions for this project include elaborating upon the idea of more karma being better and worth more, more irritating bells and whistles, unnecessary monetization, an infinite scroll on the memes index, and the ability to upvote and downvote comments.
+Future directions for this project include elaborating upon the idea of more karma being better and worth more, more irritating bells and whistles, unnecessary monetization, and the ability to upvote and downvote comments.
