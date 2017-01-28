@@ -1,10 +1,6 @@
 class Meme < ActiveRecord::Base
   validates :url, :title, presence: true
 
-  def ourTags=(tags)
-    @tags = tags
-  end
-
   include Votable
 
   belongs_to :user
@@ -16,5 +12,13 @@ class Meme < ActiveRecord::Base
   has_many :tagnames,
     through: :tags,
     source: :tagname
+
+  def ourTags=(tags)
+    @tags = tags
+  end
+
+  def karma
+    self.comments.length + self.votes.length
+  end
 
 end

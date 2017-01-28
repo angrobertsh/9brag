@@ -4,15 +4,12 @@ class Api::MemesController < ApplicationController
     @lastMeme = params[:lastMeme].to_i
 
     if params[:sort] == "/hot"
-      # if I wanted to keep it truly hot I'd do a time limit here to, so, where(created_at > some date)
-      @allmemes = Meme.all
       @karmas = []
-      # number of votes and number of comments. somehow this has to not be done for all of them all the time but i don't know how
-      @allmemes.each do |meme|
-        @karmas.push({(meme.comments.length + meme.votes.length) => meme})
-      end
-      @karmas.sort!{|karma1, karma2| karma2.keys[0] <=> karma1.keys[0]}
-      @sortedmemes = @karmas.map{|meme| meme.values[0]}
+      # number of votes and number of comments. this is inefficient because it has to be done for all of them every query
+      # maybe someday implement caching as a new db table to hold these sorted memes
+      # if I wanted to keep it truly hot I'd do a time limit on Meme.all, so, where(created_at > some date)
+
+      @sortedmemes = Meme.all.sort{|meme1, meme2| meme2.karma <=> meme1.karma}
 
       if @lastMeme == 0
         @start = 0
