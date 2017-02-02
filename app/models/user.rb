@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :name, :password_digest, presence: true, uniqueness: true
 
-  belongs_to :votable, polymorphic: true
-
+  has_many :votes
   has_many :comments
   has_many :memes
 
