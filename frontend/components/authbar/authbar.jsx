@@ -32,11 +32,11 @@ class Authbar extends React.Component{
   fewTags(){
     return (
       <div className="tagbuttons">
-        <Link to="/hot"><button className="tagbutton topbutton">Hot</button></Link>
-        <Link to="/fresh"><button className="tagbutton topbutton">Fresh</button></Link>
-        <Link to="/tagged/animals"><button className="tagbutton topbutton">Animals</button></Link>
-        <Link to="/tagged/fwp"><button className="tagbutton topbutton">FWP</button></Link>
-        <Link to="/tagged/vintage"><button className="tagbutton topbutton">Vintage</button></Link>
+        <Link to="/hot"><div className="tagbutton topbutton">Hot</div></Link>
+        <Link to="/fresh"><div className="tagbutton topbutton">Fresh</div></Link>
+        <Link to="/tagged/animals"><div className="tagbutton topbutton">Animals</div></Link>
+        <Link to="/tagged/fwp"><div className="tagbutton topbutton">FWP</div></Link>
+        <Link to="/tagged/vintage"><div className="tagbutton topbutton">Vintage</div></Link>
       </div>
     );
   }
