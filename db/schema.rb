@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20160830011903) do
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.string   "votable_type"
-    t.integer  "votable_id"
     t.integer  "vote_val",     null: false
     t.integer  "user_id",      null: false
+    t.integer  "votable_id"
+    t.string   "votable_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

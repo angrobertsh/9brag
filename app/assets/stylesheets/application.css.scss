@@ -131,24 +131,12 @@ a:hover {
   text-decoration: none;
 }
 
-
-button {
-
-}
-
-button:hover {
-
-}
-
 body {
   background-color: $wheat;
 }
 
 input {
   height: 20px;
-}
-
-#root {
 }
 
 .App {
@@ -274,12 +262,6 @@ input {
   height: 100%;
 }
 
-.tagbutton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .authbuttons{
   display: flex;
   width: 40%;
@@ -309,10 +291,6 @@ input {
   color: $cream;
 }
 
-
-.authbutton{
-}
-
 .topbutton{
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -323,6 +301,9 @@ input {
   background-color: $brown;
   width: 86px;
   transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .topbutton:hover{
@@ -408,6 +389,8 @@ input {
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/upvote_cjsp5u.png");
   background-size: contain;
   transition: all 0.15s linear;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .downvotebutton{
@@ -416,6 +399,8 @@ input {
   background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473180830/downvote_jjheqq.png");
   background-size: contain;
   transition: all 0.15s linear;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .upvotebutton:hover {
@@ -799,44 +784,67 @@ input {
   background-color: #f2f2f2;
 }
 
-.splashcontainercontainer a {
+#splashphotos {
+  width: 100%;
+  max-width: 1000px;
 }
 
 .splashcontainercontainer a:hover {
   color: $darkerblue;
 }
 
-
-.splashcontainer {
+#splash {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 100px;
-  // margin-top: 500px;
-  // background-position: 50% 50%;
-  // background-repeat: no-repeat;
-  // background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png");
 }
 
-.splashcontainer p {
-  font-size: 56px;
-  position: relative;
+#splashtext {
+  top: 325px;
+  height: 200px;
+  font-size: 64px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.splashcontainer .mini {
+#splashtext .mini {
   font-size: 24px;
-  margin-top: 75px;
-  padding-top: 35px;
 }
 
-.splashcontainer p img {
+#splashtext li {
+  text-shadow: -2px 2px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#splash ul {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+#splash ul li {
   height: 273px;
   width: 273px;
-  top: -111px;
-  left: -56px;
-  background-color: white;
-  border-radius: 900px;
+  border-radius: 300px;
   z-index: -1;
+}
+
+#splash1{
+  background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502322916/bssdnf3g1lmakzlolvnu.jpg");
+  background-size: cover;
+}
+
+#splash2{
+  background-position: 0px -85px;
+  background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502324671/shmjwfvv3mxk91y7omsp.jpg");
+  background-size: cover;
+}
+
+#splash3{
+  background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321524/a4h4ilynzbpmsdebxals.jpg");
+  background-size: cover;
 }

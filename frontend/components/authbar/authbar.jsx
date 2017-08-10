@@ -14,16 +14,16 @@ class Authbar extends React.Component{
       return (
         <div className="authbuttons">
           <div className="greet">Logged in as: <div className="name"><Link to={"/users/"+this.props.currentUser.id}>{this.props.currentUser.name}</Link></div></div>
-          <button className="authbutton topbutton logoutbutton" onClick={this.props.logout}>Log Out</button>
-          <Link to="/upload"><button className="uploadbutton topbutton">Upload</button></Link>
+          <div className="authbutton topbutton logoutbutton" onClick={this.props.logout}>Log Out</div>
+          <Link to="/upload"><div className="uploadbutton topbutton">Upload</div></Link>
         </div>
       );
     } else {
       return (
         <div className="authbuttons">
-          <Link to="/signup"><button className="authbutton topbutton">Register</button></Link>
-          <Link to="/login"><button className="authbutton topbutton">Log In</button></Link>
-          <button className="authbutton topbutton troll" onClick={this.props.loginGuest}>Troll</button>
+          <Link to="/signup"><div className="authbutton topbutton">Register</div></Link>
+          <Link to="/login"><div className="authbutton topbutton">Log In</div></Link>
+          <div className="authbutton topbutton troll" onClick={this.props.loginGuest}>Guest</div>
         </div>
       );
     }
@@ -45,7 +45,7 @@ class Authbar extends React.Component{
     return (
       <header className="topbar group">
         <nav className="widthcontainer">
-          <h4 className="logo"><Link to="/memes"><img src='http://res.cloudinary.com/dujcpxlhk/image/upload/v1473100469/f9gvavsmmgeemiyun6jp.png' id="logoimage" /></Link></h4>
+          <h4 className="logo"><Link to="/memes"><img src='http://res.cloudinary.com/dujcpxlhk/image/upload/v1502403247/u5its6jzisnyvdpkpoh9.jpg' id="logoimage" /></Link></h4>
           { this.fewTags() }
           { this.variableButtons() }
         </nav>

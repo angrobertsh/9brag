@@ -31,7 +31,7 @@ export const loginGuest = (success) => {
   $.ajax({
     method: "POST",
     url: 'api/session',
-    data: {user: {name: "Troll", password: "lololxd"}},
+    data: {user: {name: "Guest", password: "lololxd"}},
     success,
     error: () => alert('Already logged in!')
   });

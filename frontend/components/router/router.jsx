@@ -6,7 +6,7 @@ import SessionFormContainer from '../session_form/session_form_container';
 import UploadFormContainer from '../upload_form/upload_form_container';
 import MemeShowContainer from '../memes/meme_show_container';
 import UserPageContainer from '../user/user_page_container';
-import SplashContainer from '../splash/splash_container';
+import Splash from '../splash/splash';
 
 import App from '../app';
 
@@ -23,7 +23,7 @@ class AppRouter extends React.Component{
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
-          <IndexRoute component={ SplashContainer } />
+          <IndexRoute component={ Splash } />
           <Route path="/memes" component={ MemeIndexContainer } onEnter={ this._requestAllMemes } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>;
           <Route path="/hot" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>;
