@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router';
 
 const Splash = () => (
   <div className="splashcontainercontainer">
+    <div className="splashbackground"></div>
     <Link to="/memes">
       <div className="splashcontainer">
         <div id="splash">

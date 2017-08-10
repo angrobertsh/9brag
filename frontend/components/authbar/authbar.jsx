@@ -34,9 +34,9 @@ class Authbar extends React.Component{
       <div className="tagbuttons">
         <Link to="/hot"><div className="tagbutton topbutton">Hot</div></Link>
         <Link to="/fresh"><div className="tagbutton topbutton">Fresh</div></Link>
-        <Link to="/tagged/animals"><div className="tagbutton topbutton">Animals</div></Link>
-        <Link to="/tagged/fwp"><div className="tagbutton topbutton">FWP</div></Link>
-        <Link to="/tagged/vintage"><div className="tagbutton topbutton">Vintage</div></Link>
+        <Link to="/tagged/meat"><div className="tagbutton topbutton">Meat</div></Link>
+        <Link to="/tagged/veggies"><div className="tagbutton topbutton">Veggies</div></Link>
+        <Link to="/tagged/dessert"><div className="tagbutton topbutton">Dessert</div></Link>
       </div>
     );
   }
