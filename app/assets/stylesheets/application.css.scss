@@ -20,7 +20,7 @@ $guest: #9480FF;
 // $light-gray: #C6D8D3;
 
 // test3
-$red: #FF5A5F;
+$red: #FF666b;
 $cream: white;
 $light-gray: #FBFBFB;
 
@@ -128,7 +128,6 @@ a {
 }
 
 a:hover {
-  color: $blue;
   text-decoration: none;
 }
 
@@ -138,6 +137,18 @@ body {
 
 input {
   height: 20px;
+}
+
+button{
+  cursor: pointer;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button:active{
+  outline: 0;
 }
 
 .App {
@@ -213,7 +224,7 @@ input {
 }
 
 .submitbutton:hover{
-  background: $blue;
+  background: $guest;
 }
 
 .errors{
@@ -423,6 +434,7 @@ input {
 }
 
 .voteauthorcomment .memeUsername a:hover{
+  color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
@@ -795,7 +807,7 @@ input {
   min-height: 100vh;
   min-width: 100vw;
   z-index: -1;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.75);
 }
 
 #splashphotos {
