@@ -52,12 +52,12 @@ class SessionForm extends React.Component{
   otherAction (formType) {
     if (formType === "login") {
       return (<div className="authgreet">
-        <h3>HAY MEMELORD, TIME TO</h3><br/><h1 className="authdemand"> LOG IN</h1> <br/>
+        <h3>SNAPSHOTS! TIME TO</h3><br/><h1 className="authdemand"> LOG IN</h1> <br/>
         <p className="whisper">(or <Link to="/signup">sign up</Link>)</p>
         </div>);
     } else {
       return (<div className="authgreet">
-        <h3>HAY NOOBLORD, TIME TO</h3><br/><h1 className="authdemand"> SIGN UP</h1> <br/>
+        <h3>NEW ROLL! TIME TO</h3><br/><h1 className="authdemand"> SIGN UP</h1> <br/>
         <p className="whisper">(or <Link to="/login">log in</Link>)</p>
         </div>);
     }

@@ -47,13 +47,13 @@ class UserPage extends React.Component{
 
   karmaBox() {
     if(this.state.karmatot > 25){
-      return (<div className="usertitle memelord">Memelord</div>);
+      return (<div className="usertitle memelord">Gourmet</div>);
     } else if(this.state.karmatot > 15){
-      return (<div className="usertitle redditnoob">Reddit Bebe</div>);
+      return (<div className="usertitle redditnoob">Foodie</div>);
     } else if(this.state.karmatot > 10){
-      return (<div className="usertitle tumblrite">Tumblrite</div>);
+      return (<div className="usertitle tumblrite">Grazer</div>);
     } else {
-      return (<div className="usertitle nooblord">Nooblord</div>);
+      return (<div className="usertitle nooblord">Beginner</div>);
     }
   }
 

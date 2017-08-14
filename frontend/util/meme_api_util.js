@@ -62,6 +62,6 @@ export const createVote = (vote, success, memeid) => {
     url: `api/memes/${memeid}/votes`,
     data: vote,
     success,
-    error: () => {alert("Please log in to upvote memes.")}
+    error: () => {alert("Please log in to upvote photos.")}
   });
 };

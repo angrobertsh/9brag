@@ -166,7 +166,8 @@ input {
   border: 1px solid $blue;
   padding: 40px 40px 35px 40px;
   margin-top: 40px;
-  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473136165/pepe2_m6b1f4.jpg");
+  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502749003/gb3zushkvw9zsj4ezeuv.jpg");
+  background-position: center;
   background-size: cover;
 }
 
@@ -175,7 +176,8 @@ input {
   border: 1px solid $blue;
   margin-top: 40px;
   padding: 40px 40px 35px 40px;
-  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1473107969/zxry8med4wlssiw2xhtz.jpg");
+  background: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502325207/whhnivv0ki4rs509k6kn.jpg");
+  background-position: center;
   background-size: cover;
 }
 
@@ -319,6 +321,7 @@ input {
   font-weight: bold;
   color: yellow;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .troll:hover {
@@ -782,7 +785,8 @@ input {
   height: 100vh;
   width: 100%;
   background-image: url("http://res.cloudinary.com/dujcpxlhk/image/upload/v1502325978/fnfyyfy0higd9j16g2gw.jpg");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .splashbackground{
