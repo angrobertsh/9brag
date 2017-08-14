@@ -2,31 +2,32 @@ $blue: #AEA5A0;
 $pinkish: #CFBEA4;
 $white: #FFFFFF;
 $black: #000000;
-$trollpink: #fc3cdf;
+$gold: #FDBF00;
+$guest: #9480FF;
 // original
-// $brown: #79684E;
+// $red: #79684E;
 // $cream: #FFFFE6;
-// $wheat: #f9e2bc;
+// $light-gray: #f9e2bc;
 
 // test1
-// $brown: #A6661B;
+// $red: #A6661B;
 // $cream: #242C15;
-// $wheat: #F3D3AD;
+// $light-gray: #F3D3AD;
 
 // test2
-// $brown: #331832;
+// $red: #331832;
 // $cream: #F0544F;
-// $wheat: #C6D8D3;
+// $light-gray: #C6D8D3;
 
 // test3
-$brown: #FF3321;
+$red: #FF5A5F;
 $cream: white;
-$wheat: #FFFFE6;
+$light-gray: #FBFBFB;
 
 // test4
-// $brown: #A6661B;
+// $red: #A6661B;
 // $cream: #242C15;
-// $wheat: #F3D3AD;
+// $light-gray: #F3D3AD;
 
 $hotpink: #E80C7A;
 $darkerblue: #7c706a;
@@ -132,7 +133,7 @@ a:hover {
 }
 
 body {
-  background-color: $wheat;
+  background-color: $light-gray;
 }
 
 input {
@@ -187,7 +188,7 @@ input {
 }
 
 .whisper a{
-  color: yellow;
+  color: $gold;
 }
 
 .authinput{
@@ -206,7 +207,7 @@ input {
   font-size: 16px;
   font-weight: bold;
   height: 45px;
-  background-color: $brown;
+  background-color: $red;
   transition: all 0.5s ease;
   box-sizing: border-box;
 }
@@ -227,7 +228,7 @@ input {
 
 .topbar{
   display: flex;
-  background: $brown;
+  background: $red;
   margin-bottom: 25px;
   box-sizing: border-box;
 }
@@ -283,24 +284,22 @@ input {
 }
 
 .authbuttons .greet .name a {
-  color: yellow;
+  color: $gold;
   padding-left: 6px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   transition: all 0.5s ease;
 }
 
 .authbuttons .greet .name a:hover {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   color: $cream;
 }
 
 .topbutton{
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   border: none;
   font-size: 16px;
   font-weight: bold;
   height: 100%;
-  background-color: $brown;
   width: 86px;
   transition: all 0.5s ease;
   display: flex;
@@ -309,7 +308,8 @@ input {
 }
 
 .topbutton:hover{
-  background: $wheat;
+  background: $light-gray;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .logoutbutton {
@@ -319,13 +319,13 @@ input {
 .troll {
   font-size: 16px;
   font-weight: bold;
-  color: yellow;
+  color: $gold;
   text-decoration: none;
   cursor: pointer;
 }
 
 .troll:hover {
-  background: $trollpink;
+  background: $guest;
   text-decoration: none;
 }
 
@@ -419,12 +419,11 @@ input {
 }
 
 .voteauthorcomment .memeUsername a{
-  color: yellow;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: $gold;
 }
 
 .voteauthorcomment .memeUsername a:hover{
-  color: $blue;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .upnav {
@@ -750,7 +749,7 @@ input {
   height: 50px;
   font-size: 48px;
   position: absolute;
-  color: yellow;
+  color: $gold;
 }
 
 .hidden {
