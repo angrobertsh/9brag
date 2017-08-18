@@ -24,11 +24,11 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
           <IndexRoute component={ Splash } />
-          <Route path="/memes" component={ MemeIndexContainer } onEnter={ this._requestAllMemes } />;
+          <Route path="/images" component={ MemeIndexContainer } onEnter={ this._requestAllMemes } />;
           <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this._requestTaggedMemes }/>;
           <Route path="/hot" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>;
           <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this._requestAllMemes }/>;
-          <Route path="/memes/:memeId" component={ MemeShowContainer} onEnter={ this._requestSingleMeme }/>;
+          <Route path="/images/:memeId" component={ MemeShowContainer} onEnter={ this._requestSingleMeme }/>;
           <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>;
           <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />;
           <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />;

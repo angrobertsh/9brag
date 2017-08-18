@@ -41,7 +41,7 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
     case ACTIONS.SessionConstants.LOGOUT:
       success = () => {
         next(action);
-        hashHistory.push('/memes');
+        hashHistory.push('/images');
       };
       UTILS.logout(success);
       break;

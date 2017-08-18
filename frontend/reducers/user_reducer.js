@@ -13,7 +13,7 @@ const UserReducer = (state = defaultState, action) => {
       return newState;
     case ACTIONS.UserConstants.DISPLAY_ERROR:
       alert("Unknown user.");
-      hashHistory.push('/memes');
+      hashHistory.push('/images');
       return state;
     default:
       return state;

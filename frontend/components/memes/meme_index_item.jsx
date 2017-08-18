@@ -133,8 +133,8 @@ class MemeIndexItem extends React.Component{
     return (
       <li key={meme.id} className="memebox">
         <div className="titlepic">
-          <div className="memeTitle" ><Link to={`/memes/${meme.id}`}>{meme.title}</Link></div>
-          <Link to={`/memes/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
+          <div className="memeTitle" ><Link to={`/images/${meme.id}`}>{meme.title}</Link></div>
+          <Link to={`/images/${meme.id}`}><img src={meme.url} alt={meme.title} /></Link>
         </div>
         <div className="memebottominfo">
           <div className="tagsattribution">
