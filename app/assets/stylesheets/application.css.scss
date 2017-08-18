@@ -5,29 +5,24 @@ $black: #000000;
 $gold: #FDBF00;
 $guest: #9480FF;
 // original
-// $red: #79684E;
-// $cream: #FFFFE6;
+// $button-and-topbar: #79684E;
+// $background: #FFFFE6;
 // $light-gray: #f9e2bc;
 
 // test1
-// $red: #A6661B;
-// $cream: #242C15;
+// $button-and-topbar: #A6661B;
+// $background: #242C15;
 // $light-gray: #F3D3AD;
 
 // test2
-// $red: #331832;
-// $cream: #F0544F;
+// $button-and-topbar: #331832;
+// $background: #F0544F;
 // $light-gray: #C6D8D3;
 
 // test3
-$red: #ee3a8c;
-$cream: white;
+$button-and-topbar: #ee3a8c;
+$background: #f3fdff;
 $light-gray: #FBFBFB;
-
-// test4
-// $red: #A6661B;
-// $cream: #242C15;
-// $light-gray: #F3D3AD;
 
 $hotpink: #E80C7A;
 $darkerblue: #7c706a;
@@ -218,7 +213,7 @@ button:active{
   font-size: 16px;
   font-weight: bold;
   height: 45px;
-  background-color: $red;
+  background-color: $button-and-topbar;
   transition: all 0.5s ease;
   box-sizing: border-box;
 }
@@ -239,7 +234,7 @@ button:active{
 
 .topbar{
   display: flex;
-  background: $red;
+  background: $button-and-topbar;
   margin-bottom: 25px;
   box-sizing: border-box;
 }
@@ -261,7 +256,7 @@ button:active{
 #logoimage{
   width: 54px;
   height: 54px;
-  background: $cream;
+  background: $background;
   border-radius: 50px;
 }
 
@@ -302,7 +297,7 @@ button:active{
 
 .authbuttons .greet .name a:hover {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  color: $cream;
+  color: $background;
 }
 
 .topbutton{
@@ -352,7 +347,7 @@ button:active{
   margin: 0 0 25px 0;
   border: 1px solid $pinkish;
   display: block;
-  background-color: $cream;
+  background-color: $background;
 }
 
 .memeTitle {
@@ -480,7 +475,7 @@ button:active{
   padding: 15px;
   border: 1px solid $pinkish;
   margin-bottom: 50px;
-  background-color: $cream;
+  background-color: $background;
 }
 
 .addcommentbox {
@@ -580,7 +575,7 @@ button:active{
   margin: 30px;
   padding: 25px;
   color: black;
-  background: $cream;
+  background: $background;
   border: 1px solid $pinkish;
 }
 
@@ -600,7 +595,7 @@ button:active{
   width: 50%;
   max-width: 450px;
   border: 1px solid $pinkish;
-  background-color: $cream;
+  background-color: $background;
 }
 
 .usertitle {
