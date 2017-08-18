@@ -50,7 +50,7 @@ export const updateUser = (user, success) => {
 
 On the database side, `meme`s (food images) are stored in one table in the database, which contains columns for `id`, `url` and `titles`. Multiple associations are queried upon entrance of the images index which forms the basis of an image's presentation.
 
-![upload screenshot](./app/assets/images/ss1.png)
+![upload screenshot](./app/assets/images/ss1_new.png)
 
 Pictures can be submitted and stored on Cloudinary. Memes are rendered in two different components: the `MemeIndex` component, which shows a collection of `MemeIndexItem` which contain the the title, image, upvotes, tags, and number of comments, and the `MemeShow` component, which expands upon a `MemeIndexItem` with information including comments and a comment submission form.
 
@@ -97,7 +97,7 @@ User karma is calculated on the backend for each user when user's personal page 
 
 This karma is used to influence what title they have on their userpage, as well as what hat they get over their username.
 
-![karmas](./app/assets/images/ss2.png)
+![karmas](./app/assets/images/ss2_new.png)
 
 #### Infinite Scroll
 
