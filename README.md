@@ -2,13 +2,13 @@
 
 [9brag live](http://www.9brag.com)
 
-9Brag is a full stack web application that embraces the futility and frivolousness of the internet era as represented by internet memes and karma. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.
+9Brag is a full stack web application that lets you post pictures of food that you've eaten. It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux pattern on the frontend.
 
 ### Features and Implementation
 
 #### Single-Page App
 
-9Brag uses React and Redux to make AJAX calls to dynamically render the stalest, most beloved memes and their trashy comments. Navigation occurs without multiple full http requests and content is queried and populated smooth rendering, thanks to the many React components which dispatch actions through the React Router.
+9Brag uses React and Redux to make AJAX calls to dynamically render the images of delicious food accompanied by classic internet comments. Navigation occurs by rerendering components with different JSON data. This JSON content is queried, populated, and smoothly rendered thanks to the many React components which dispatch actions through the React Router.
 
 ```javascript
 <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
@@ -17,7 +17,7 @@
     <Route path="/tagged/:tags" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
     <Route path="/hot" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
     <Route path="/fresh" component={ MemeIndexContainer } onEnter={ this.props.requestAllMemes }/>
-    <Route path="/memes/:memeId" component={ MemeShowContainer } />
+    <Route path="/images/:memeId" component={ MemeShowContainer } />
     <Route path="/users/:userId" component={ UserPageContainer } onEnter={ this._fetchUserData }/>
     <Route path="/upload" component={ UploadFormContainer } onEnter={ this._ensureLoggedIn } />
     <Route path="/login" component={ SessionFormContainer } onEnter={ this._redirectIfLoggedIn } />
@@ -48,7 +48,7 @@ export const updateUser = (user, success) => {
 
 #### Picture Submission and Storage
 
-On the database side, `meme`s are stored in one table in the database, which contains columns for `id`, `url` and `titles`. Multiple associations are queried upon entrance of the memes index which forms the basis of a meme's presentation.
+On the database side, `meme`s (food images) are stored in one table in the database, which contains columns for `id`, `url` and `titles`. Multiple associations are queried upon entrance of the images index which forms the basis of an image's presentation.
 
 ![upload screenshot](./app/assets/images/ss1.png)
 
@@ -83,7 +83,7 @@ end
 
 #### User Karma
 
-User karma is calculated on the backend for each user when user's personal page is loaded. This number is created by summing the user's submitted memes, the vote total of those memes, and the number of comments on their memes.
+User karma is calculated on the backend for each user when user's personal page is loaded. This number is created by summing the user's submitted images, the vote total of those images, and the number of comments on their images.
 
 ```ruby
   json.set! "#{@user.id}" do
@@ -95,13 +95,13 @@ User karma is calculated on the backend for each user when user's personal page 
   end
 ```
 
-This karma is used to influence what insulting title they have on their userpage, as well as what ugly hat they get over their username.
+This karma is used to influence what title they have on their userpage, as well as what hat they get over their username.
 
 ![karmas](./app/assets/images/ss2.png)
 
 #### Infinite Scroll
 
-On meme index pages, memes are fed to you 6 at a time using a scroll event listener that calls `infScrollMemes` when you hit the bottom of the page. `infScrollMemes` dispatches either `requestAllMemes` with an appropriate sort, or `requestTaggedMemes` depending on the current url. In order to paginate correctly and send back the correct data, the `lastMemeId` is also sent.
+On meme index pages, images are fed to you 6 at a time using a scroll event listener that calls `infScrollMemes` when you hit the bottom of the page. `infScrollMemes` dispatches either `requestAllMemes` with an appropriate sort, or `requestTaggedMemes` depending on the current url. In order to paginate correctly and send back the correct data, the `lastMemeId` is also sent.
 
 ```javascript
 componentDidUpdate(){
@@ -143,4 +143,4 @@ end
 
 ### Future Directions for the Project
 
-Future directions for this project include elaborating upon the idea of more karma being better and worth more, more irritating bells and whistles, unnecessary monetization, and the ability to upvote and downvote comments.
+Future directions for this project include elaborating upon the idea of more karma being better and worth more, unnecessary monetization, and the ability to upvote and downvote comments.

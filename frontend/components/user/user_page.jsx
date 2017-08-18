@@ -42,7 +42,7 @@ class UserPage extends React.Component{
   }
 
   karmaParse() {
-    return (<div className="tellkarma">Karma <div className="karma">{this.state.karmatot}</div> <div className="subkarmas">(Vote: {this.state.votekarma}, Comment: {this.state.interestkarma}, Meme: {this.state.contributekarma})</div></div>)
+    return (<div className="tellkarma">Karma <div className="karma">{this.state.karmatot}</div> <div className="subkarmas">(Vote: {this.state.votekarma}, Comment: {this.state.interestkarma}, Share: {this.state.contributekarma})</div></div>)
   }
 
   karmaBox() {

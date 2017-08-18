@@ -609,12 +609,13 @@ button:active{
   overflow: hidden;
   position: relative;
   margin: 12px;
+  border: 1px solid $pinkish;
+  box-sizing: border-box;
 }
 
 .userimage img {
-  width: 100%;
   box-sizing: border-box;
-  border: 1px solid $pinkish;
+  width: 100%;
 }
 
 .username {
