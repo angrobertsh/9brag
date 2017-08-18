@@ -107,7 +107,7 @@ class UserPage extends React.Component{
             {this.karmaParse()}
           </div>
           <div className="userMemeContainer">
-            <div className="myMemestitle"> {this.state.name+"'s"} Memes </div>
+            <div className="myMemestitle"> {this.state.name+"'s"} Images </div>
               <ul className="memeUL">
                 {this.userMemes()}
               </ul>
