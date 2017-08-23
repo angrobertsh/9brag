@@ -148,7 +148,7 @@ class MemeIndexItem extends React.Component{
               <div className="downvotebutton" onClick={this.handleDownvote} />
             </div>
             <div className="memeUsername">From <Link to={`/users/${meme.user_id}`}>{meme.user}</Link></div>
-            <div className="commenttotal"> <Link to={`memes/${meme.id}`}>{meme.comments.length} comments </Link></div>
+            <div className="commenttotal"> <Link to={`/images/${meme.id}`}>{meme.comments.length} comments </Link></div>
           </div>
         </div>
       </li>

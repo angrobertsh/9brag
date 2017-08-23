@@ -68,7 +68,7 @@ class AppRouter extends React.Component{
   _redirectIfLoggedIn (nextState, replace) {
     this.props.clearErrors();
     if(this.props.currentUser){
-      replace('/memes');
+      replace('/images');
     }
   }
 

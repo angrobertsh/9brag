@@ -20,7 +20,7 @@ User.create(name: "Ronamama", password: "123456", url: "http://res.cloudinary.co
 User.create(name: "Guest", password: "lololxd", url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321509/iuyc9e0lmhu3bmnomdlp.jpg")
 
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321556/vq2ulnfel8dben86deok.jpg", title: "The Fanciest", user_id: 1, attribution: "www.marksandspencer.com")
-Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321491/mdzpcyurkuxk6jk1raet.jpg", title: "Where's the Beef? Here!", user_id: 6)
+Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321491/mdzpcyurkuxk6jk1raet.jpg", title: "Where's the Beef? Here!", user_id: 6, attribution: "My mama")
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502320598/kz8yho71jyvxe1r2tkav.jpg", title: "Naan 'N' Friends", user_id: 5)
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502320563/b8d7xhfjpsnlkwtir1hm.jpg", title: "The Bap", user_id: 3)
 Meme.create(url: "http://res.cloudinary.com/dujcpxlhk/image/upload/v1502321524/a4h4ilynzbpmsdebxals.jpg", title: "Hot! Dog!", user_id: 8, attribution: "www.refinery29.com")
